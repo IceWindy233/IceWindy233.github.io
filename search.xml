@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Linux系统目录</title>
+      <link href="/2022/03/06/Linux%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95/"/>
+      <url>/2022/03/06/Linux%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="bin"><a href="#bin" class="headerlink" title="bin"></a>bin</h2><p>存放着整个系统必须的二进制文件或可执行文件</p><p>可以随时通过命令行运行这些二进制文件</p><h2 id="sbin"><a href="#sbin" class="headerlink" title="sbin"></a>sbin</h2><p>存放着仅可由root用户运行的系统二进制文件</p><h2 id="lib"><a href="#lib" class="headerlink" title="lib"></a>lib</h2><p>二进制文件的公共库</p><h2 id="usr"><a href="#usr" class="headerlink" title="usr"></a>usr</h2><h3 id="bin-1"><a href="#bin-1" class="headerlink" title="bin"></a>bin</h3><p>usr文件夹下存放的各自的bin和sbin目录，但它并不是操作系统必须的</p><h3 id="local"><a href="#local" class="headerlink" title="local"></a>local</h3><p>存放着手动编译的二进制文件，为一个安全区，与包管理器安装的软件发生冲突</p><h2 id="PATH"><a href="#PATH" class="headerlink" title="$PATH"></a>$PATH</h2><p>$PATH环境变量包含了由包管理器安装的二进制文件的位置</p><h2 id="etc"><a href="#etc" class="headerlink" title="etc"></a>etc</h2><p>配置系统中文件的具体行为，内包含了可编辑文本配置文件</p><h2 id="home"><a href="#home" class="headerlink" title="home"></a>home</h2><p>home目录下可以找到系统内注册的每一个用户的文件，配置和软件</p><h2 id="boot"><a href="#boot" class="headerlink" title="boot"></a>boot</h2><p>包含系统启动所需的文件，如内核等</p><h2 id="dev"><a href="#dev" class="headerlink" title="dev"></a>dev</h2><p>设备文件，管理硬件和驱动程序，可以在此创建硬盘分区</p><h2 id="opt"><a href="#opt" class="headerlink" title="opt"></a>opt</h2><p>包含可选软件和软件包</p><h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><p>存放着操作系统使用过程中会发生变化的文件</p><h2 id="tmp"><a href="#tmp" class="headerlink" title="tmp"></a>tmp</h2><p>临时文件</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>GCC、GDB食用方法</title>
+      <link href="/2022/03/06/GCC%E3%80%81GDB%E9%A3%9F%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+      <url>/2022/03/06/GCC%E3%80%81GDB%E9%A3%9F%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Wall -o test test.c</span><br></pre></td></tr></table></figure><p><code>-o</code>自定义目标文件</p><p><code>-Wall</code>自动提示一些出错警告的信息</p><h2 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h2><p>在GCC编译时需要添加一个参数：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -ggdb3 -Wall -o test test.c</span><br></pre></td></tr></table></figure><p>如无报错，即可启动GDB：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb test</span><br></pre></td></tr></table></figure><h3 id="GDB指令"><a href="#GDB指令" class="headerlink" title="GDB指令"></a>GDB指令</h3><p><code>break 10</code>在第十行设置断点。</p><p><code>break test</code>在<code>test</code>函数处设置断点</p><p><code>s / step</code>下一步</p><p><code>c / continue</code>当程序在某一断点处停止后，用该指令可以继续执行，直至遇到断点或者程序结束</p><p><code>u / until</code> 运行程序直到退出循环体</p><p><code>r / run</code>运行</p><p><code>q / quit</code>结束调试</p><p><code>p / print</code>显示某个变量的值</p><p><code>p *array@len</code> 输出数组</p><p><code>enable</code> 恢复失效的断点</p><p><code>disable </code>使断点失效</p><p><code>clear</code> 清除断点</p><p><code>bt / backtrace </code>查看堆栈信息</p><p><code>watch</code>监测某变量或表达式，当发生变化时停止</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Typora借助Gitee+PicGo-Core实现云图床</title>
       <link href="/2022/03/06/Typora-Gitee-PicgoCore%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/"/>
       <url>/2022/03/06/Typora-Gitee-PicgoCore%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/</url>
