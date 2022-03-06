@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Typora借助Gitee+PicGo-Core实现云图床 | IceWindy's Blog</title><meta name="author" content="IceWindy"><meta name="copyright" content="IceWindy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="云图床搭建这次我们选择的云图床的搭建是基于gitee。gitee服务器位于国内，避免了github被墙的等一系列问题。 新建仓库（省略gitee账号创建的过程，如果这都不会，建议不要折腾了）我们看到gitee页面右上角那个加号，然后点击新建仓库。  然后输入你自己想要的仓库名称，路径会自动生成跟你仓库名称一样的名称，当然你也可以自己自定义路径名称。 勾选上开源和设置模板、Readme文件，省去后面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Typora借助Gitee+PicGo-Core实现云图床">
-<meta property="og:url" content="http://example.com/2022/03/06/Typora-Gitee-PicgoCore%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://www.icewindy.cn/2022/03/06/Typora-Gitee-PicgoCore%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="IceWindy&#39;s Blog">
 <meta property="og:description" content="云图床搭建这次我们选择的云图床的搭建是基于gitee。gitee服务器位于国内，避免了github被墙的等一系列问题。 新建仓库（省略gitee账号创建的过程，如果这都不会，建议不要折腾了）我们看到gitee页面右上角那个加号，然后点击新建仓库。  然后输入你自己想要的仓库名称，路径会自动生成跟你仓库名称一样的名称，当然你也可以自己自定义路径名称。 勾选上开源和设置模板、Readme文件，省去后面">
 <meta property="og:locale" content="zh_CN">
@@ -10,7 +10,7 @@
 <meta property="article:modified_time" content="2022-03-06T07:37:38.148Z">
 <meta property="article:author" content="IceWindy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/03/06/Typora-Gitee-PicgoCore%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.icewindy.cn/2022/03/06/Typora-Gitee-PicgoCore%E6%8A%98%E8%85%BE%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
