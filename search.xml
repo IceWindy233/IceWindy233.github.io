@@ -4,6 +4,69 @@
   
     
     <entry>
+      <title>Web开发基础（2）：CSS</title>
+      <link href="/2022/10/20/Web%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%EF%BC%9ACSS/"/>
+      <url>/2022/10/20/Web%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89%EF%BC%9ACSS/</url>
+      
+        <content type="html"><![CDATA[<h2 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h2><p>CSS (Cascading Style Sheets，层叠样式表），是一种用来为<strong>结构化文档</strong>（如 HTML 文档或 XML 应用）添加样式（字体、间距和颜色等）的计算机语言</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SQL Server笔记（1）</title>
+      <link href="/2022/10/12/SQLServer%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/"/>
+      <url>/2022/10/12/SQLServer%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>该笔记的所观看的视频为<a href="https://www.youtube.com/user/waspec">Timothy Liu</a>的”SQL速通”</p><p>所使用的数据库为微软官方提供的学习用数据库：<a href="https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms">AdventureWorks sample databases - SQL Server | Microsoft Learn</a></p><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><ul><li><p>数据库管理系统 Database Management System <strong>DBMS</strong></p></li><li><p>DBMS客户端 Client&#x2F;Server C&#x2F;S架构</p><p>客户端：与数据库管理系统交互的程序，分为两种图形和命令行，而SQL Server的客户端就是SQL Server Management Studio <strong>SSMS</strong></p><p>服务器：正在运行的数据库管理系统，一个服务器可以为多个客户端提供服务</p></li><li><p>数据库：真正存放数据的地方；数据的存储结构针对速度与安全性进行了优化</p><p>数据库的类型有多种，如关系型数据库、文档型数据库等，而SQL Server就是一种关系型数据库，<strong>关系型数据库</strong>是建立在关系模型基础上的数据库，常用在对数据的完整性要求比较高的场景，比如银行系统、销售系统等。<strong>文档型数据库</strong>是一种非关系型数据库，数据作为单条记录保存在数据库，主要应用在大数据处理、应用与分析方面，比如购物应用与页面的广告展示记录系统等。关系型数据库与文档型数据库并不是相对立的，而是互补而成的，关系型数据库存放经过处理后的文档型数据库，而文档型数据库可以存大量未经处理的数据。</p></li><li><p>查询（query）</p><table><thead><tr><th>英文</th><th>中文</th></tr></thead><tbody><tr><td>C:Create</td><td>增</td></tr><tr><td>R:Read</td><td>查</td></tr><tr><td>U:Update</td><td>改</td></tr><tr><td>D:Delete</td><td>删</td></tr></tbody></table></li></ul><h2 id="查询基础"><a href="#查询基础" class="headerlink" title="查询基础"></a>查询基础</h2><h3 id="查询的过程"><a href="#查询的过程" class="headerlink" title="查询的过程"></a>查询的过程</h3><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202210141908072.png" alt="image-20221014190839018" style="zoom: 67%;" /><p><strong>树立思想</strong></p><ol><li>除了关注结果，还需要<strong>关注性能</strong></li><li>随时准备应对错误、排查原因</li></ol><h3 id="SELECT语法定义"><a href="#SELECT语法定义" class="headerlink" title="SELECT语法定义"></a>SELECT语法定义</h3><p>SELECT语句是SQL查询中最核心的语句。其呈现一种嵌套的形态，各级语法元素层层展开：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202210151713461.png" alt="image-20221015171333331"></p><p>问题一：表示三种可能 整个表达式不出现、AC、BC</p><p>问题二：最简形式即<code>SELECT &lt;select_list&gt;</code></p><p><code>&lt;select_list&gt;</code>可以让服务器运行的一个运算，例如<code>SELECT 100+100</code>则会让服务器运行<code>100 + 100</code>这个运算，然后返回运算后的结果到客户端：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202210160138557.png" alt="image-20221016013805527"></p><p>我们在这个运算中，也可以加入设定自变量，通过<code>DECLARE @变量名 数据类型 = 初始值</code>可以声明一个变量。</p><p>问题三：在语法定义中，会出现一个套一个的操作，例如：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202210160253123.png" alt="image-20221016025343088"></p><p>这种属于是直接的套娃，还有一种是间接的套娃：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202210160256954.png" alt="image-20221016025618921"></p><p><code>&lt;table_source&gt;</code>表示的是一张“源表格”，“源表格”除了数据库原生的表格，还可以将<code>SELECT语句</code>查询的结果作为一个“源表格”，提供在<code>&lt;table_source&gt;</code>中使用。我们使用<code>AS</code>关键词可以声明一个新的“源表格”：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202210160302803.png" alt="image-20221016030218768"></p><p>这种嵌套的方式，可以称之为递归。在<code>SELECT语句</code>的定义中是存在递归的解释的。</p><h2 id="SELECT具体使用"><a href="#SELECT具体使用" class="headerlink" title="SELECT具体使用"></a>SELECT具体使用</h2><h3 id="From子句基础用法"><a href="#From子句基础用法" class="headerlink" title="From子句基础用法"></a>From子句基础用法</h3><p>From涉及到“数据从何而来”的问题。</p><p>From子句最重要的部分是<code>&lt;table_source&gt;</code>，即数据源，一个From子句可以带有多个<code>&lt;table_source&gt;</code>，多个可以产生<strong>正交组合</strong>。正交组合就是将两个表的数据取出来进行两两组合（笛卡尔乘积）。</p><p><code>&lt;table_source&gt;</code>也具有非常丰富的展开，这里暂时仅解释两个基础的用法</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202210172311504.png" alt="image-20221017231151461"></p><p><code>&lt;joined_table&gt;</code>与<code>&lt;pivoted_table&gt;</code>也是非常重要的用法，这四个用法，是From最重要四个用法。</p><h4 id="table-or-view-name"><a href="#table-or-view-name" class="headerlink" title="table_or_view_name"></a><code>table_or_view_name</code></h4><p><strong>表<code>table</code>的概念：</strong></p><p>表并不是我们看见的执行结果所出现的“表格”，“表格”是对表的抽象逻辑的具体化。</p><ol><li><p>表是数据库存储数据的地方，而且<strong>所有的数据</strong>都是存储在表中。</p></li><li><p>在表里面，是以行和列的<strong>逻辑</strong>进行存储的，行是表里”唯一”的一条数据记录，列是表里所有记录某一个字段的所有记录</p><p>行的”唯一性”由<strong>主键</strong>来保证，当我们在设计表的时候，我们需要通过某行某列的组合保证行的唯一性。</p></li></ol><p><strong>视图<code>view</code>的概念：</strong></p><ol><li>视图是一张由<strong>查询query</strong>定义出来的<strong>虚拟表virtual table</strong></li><li>可以将其视作查看一组数据的时候的<strong>过滤器filter</strong></li></ol><h4 id="derived-table"><a href="#derived-table" class="headerlink" title="derived_table"></a><code>derived_table</code></h4><ol><li><code>derived_table</code>是来自于数据库的一个<strong>子查询</strong></li><li>其用于作为其他查询的数据输入</li><li><code>derived_table</code>与<code>view</code>可以相互转换，当<code>derived_table</code>比较常用于作为其他查询的数据输入的时候，我们可以将其固化为一个<code>view</code></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>正则表达式</title>
+      <link href="/2022/09/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <url>/2022/09/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式是由<strong>普通字符</strong>（例如字符a到z）以及<strong>特殊字符</strong>（称之为“<strong>元字符</strong>”）组成的文字模式。</p><h3 id="普通字符"><a href="#普通字符" class="headerlink" title="普通字符"></a>普通字符</h3><table><thead><tr><th>字符</th><th>匹配项</th></tr></thead><tbody><tr><td><code>x</code></td><td>字符<code>x</code></td></tr><tr><td><code>\\</code></td><td>反斜杠字符</td></tr><tr><td><code>\n</code></td><td>换行符（“\u000A”）</td></tr><tr><td><code>\r</code></td><td>回车符（“\u000D”）</td></tr><tr><td><code>\f</code></td><td>换页符（“\u000C”）</td></tr><tr><td><code>\cx</code></td><td>对应于 x 的控制字符</td></tr></tbody></table><table><thead><tr><th>字符类</th><th>匹配项</th></tr></thead><tbody><tr><td><code>[ABC]</code></td><td>A、B或C</td></tr><tr><td><code>[^ABC]</code></td><td>除了A、B或C以外的任意字符</td></tr><tr><td><code>[A-Z]</code></td><td>一个区间，[A-Z]匹配所有大写，[a-z]匹配所有小写</td></tr><tr><td><code>[a-d[m-p]]</code></td><td>并集，a到d或m到p</td></tr><tr><td><code>[a-z&amp;&amp;[def]]</code></td><td>交集，d、e 或 f</td></tr><tr><td><code>[a-z&amp;&amp;[^bc]]</code></td><td>差集，a 到 z，但 b 和 c 除外</td></tr><tr><td><code>[a-z&amp;&amp;[^m-p]]</code></td><td>差集，a 到 z，但 m 到 p 除外</td></tr></tbody></table><table><thead><tr><th>预定义字符类</th><th>匹配项</th></tr></thead><tbody><tr><td><code>.</code></td><td>除<code>\n</code>换行符以外的任意字符</td></tr><tr><td><code>\d</code></td><td>数字：[0-9]</td></tr><tr><td><code>\D</code></td><td>非数字</td></tr><tr><td><code>\w</code></td><td>单词字符：[a-zA-Z_0-9]</td></tr><tr><td><code>\W</code></td><td>非单词字符</td></tr></tbody></table><p>特殊字符即有特殊含义的字符，若需要匹配特殊字符的原符号，则需要<code>\</code>转义，例如<code>*</code>转义为<code>\*</code>。</p><table><thead><tr><th>特殊字符</th><th>描述</th></tr></thead><tbody><tr><td><code>$</code></td><td>匹配输入字符串的结尾位置。</td></tr><tr><td><code>()</code></td><td>标记一个子表达式的开始与结束位置。</td></tr><tr><td><code>*</code></td><td>匹配符号前面的子表达式可有可无（0次或多次）</td></tr><tr><td><code>+</code></td><td>匹配符号前面的子表达式至少一次（1次或者多次）</td></tr><tr><td><code>[</code></td><td></td></tr><tr><td></td><td></td></tr></tbody></table>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 实用知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Web开发基础（1）：HTML</title>
       <link href="/2022/08/30/Web%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89%EF%BC%9AHTML/"/>
       <url>/2022/08/30/Web%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89%EF%BC%9AHTML/</url>
@@ -46,31 +109,6 @@
         <tags>
             
             <tag> 网络安全 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>MySQL笔记（一）：简单介绍</title>
-      <link href="/2022/07/07/MySQL%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"/>
-      <url>/2022/07/07/MySQL%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</url>
-      
-        <content type="html"><![CDATA[<h2 id="数据库的概述"><a href="#数据库的概述" class="headerlink" title="数据库的概述"></a>数据库的概述</h2><h3 id="数据库的作用"><a href="#数据库的作用" class="headerlink" title="数据库的作用"></a>数据库的作用</h3><p>持久化：可以将内存中的数据存储在存储介质中，对数据进行持久化的存储</p><p>这里的介质就可以是数据库</p><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>DB：数据库（Database）</strong></p><p>存储数据的“仓库”，本质上是一个文件系统。保存了一系列有组织的数据。</p><p><strong>DBMS：数据库管理系统（Database Management System）</strong></p><p>操纵数据库的软件，用于建立、使用和维护数据库，对数据库进行统一管理和控制。用户可以通告数据库管理系统访问数据库中表的数据。</p><p><strong>SQL：结构化查询语言（Structured Query Language）</strong></p><p>专门用于与数据库通信的语言。</p><p>他们的关系如下图：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202207071544633.png" alt="image-20220707154443538"></p><p>数据库就类似于.doc文件，我们需要使用Word文档，即DBMS进行使用。</p><p><strong>RDBMS：关系型数据库管理系统（Relational Database Management System）</strong></p><p>关系型数据库，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。</p><p>RDBMS的特点：</p><ul><li>1.数据以表格的形式出现</li><li>2.每行为各种记录名称</li><li>3.每列为记录名称所对应的数据域</li><li>4.许多的行和列组成一张表单</li><li>5.若干的表单组成database</li></ul><h3 id="RDBMS-术语"><a href="#RDBMS-术语" class="headerlink" title="RDBMS 术语"></a>RDBMS 术语</h3><ul><li><strong>数据库:</strong> 数据库是一些关联表的集合。</li><li><strong>数据表:</strong> 表是数据的矩阵。在一个数据库中的表看起来像一个简单的电子表格。</li><li><strong>列:</strong> 一列(数据元素) 包含了相同类型的数据, 例如邮政编码的数据。</li><li><strong>行：</strong>一行（&#x3D;元组，或记录）是一组相关的数据，例如一条用户订阅的数据。</li><li><strong>冗余</strong>：存储两倍数据，冗余降低了性能，但提高了数据的安全性。</li><li><strong>主键</strong>：主键是唯一的。一个数据表中只能包含一个主键。你可以使用主键来查询数据。</li><li><strong>外键：</strong>外键用于关联两个表。</li><li><strong>复合键</strong>：复合键（组合键）将多个列作为一个索引键，一般用于复合索引。</li><li><strong>索引：</strong>使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录。</li><li><strong>参照完整性:</strong> 参照的完整性要求关系中不允许引用不存在的实体。与实体完整性是关系模型必须满足的完整性约束条件，目的是保证数据的一致性。</li></ul><p>我们可以通过“表格”类似的概念来理解“关系型”，一个关系型数据库由一个或数个表格组成：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202208282201852.png" alt="image-20220828220124721"></p><ul><li>表头(header): 每一列的名称;</li><li>列(col): 具有相同数据类型的数据的集合;</li><li>行(row): 每一行用来描述某条记录的具体信息;</li><li>值(value): 行的具体信息, 每个值必须与该列的数据类型相同;</li><li><strong>键(key)</strong>: 键的值在当前列中具有唯一性。</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> MySQL笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
             
         </tags>
       
