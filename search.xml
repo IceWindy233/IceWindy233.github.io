@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>vim使用（1）：模式、光标移动、操作符与动作</title>
+      <link href="/2022/11/18/vim%E4%BD%BF%E7%94%A8%EF%BC%881%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%BC%8F%E3%80%81%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E3%80%81%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%8E%E5%8A%A8%E4%BD%9C/"/>
+      <url>/2022/11/18/vim%E4%BD%BF%E7%94%A8%EF%BC%881%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%BC%8F%E3%80%81%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E3%80%81%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="vim模式"><a href="#vim模式" class="headerlink" title="vim模式"></a>vim模式</h2><p>vim主要分为几种模式：<code>普通、命令、插入、可视</code></p><p>其中普通模式是vim启动时默认的模式，非普通模式之间的切换，需要回到普通模式才能进行切换。</p><ul><li><p>普通模式 –&gt; 插入模式：通过<code>i、a、o</code>等进入</p><p><code>i</code>在光标前插入        <code>I</code>在行首插入</p><p><code>o</code>在下一行插入        <code>O</code>在上一行插入</p><p><code>a</code>在光标后插入        <code>A</code>在行尾插入</p></li><li><p>插入模式 –&gt; 普通模式：通过<code>ESC</code>退出插入模式</p><p>由于<code>ESC</code>键较远，往往的我们会映射一些键作为<code>ESC</code>，例如<code>j j</code>、<code>CapsLock</code>等，这个可以根据个人喜好来进行映射</p></li><li><p>普通模式 –&gt; 可视模式：通过<code>v</code>进入</p></li><li><p>可视模式 –&gt; 普通模式：通过<code>ESC</code>或者再按一边<code>v</code>退出</p></li><li><p>普通模式 –&gt; 命令模式：通过<code>:</code>进入</p></li><li><p>命令模式 –&gt; 普通模式：命令以回车结束运行，或者通过<code>ESC</code>退出</p></li></ul><h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><p>vim的光标移动均是在普通模式下移动的</p><p>以<code>字符</code>为单位（类似方向键）的光标移动是使用<code>hjkl</code>进行移动</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202211181323643.png" alt="image-20221118132303565"></p><p>以<code>单词</code>为单位的移动</p><ul><li><code>w</code>(word)跳到下一个单词的开头</li><li><code>b</code>(begin)跳到本单词或上一个单词开头</li><li><code>e</code>(end)跳到本单词或下一个单词的结尾</li><li><code>ge</code>跳到上一个单词的结尾</li></ul><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202211181342981.png" alt="image-20221118134249940"></p><p>以<code>行</code>为单位的移动</p><ul><li><code>0</code>跳到行首</li><li><code>^</code>跳到行首开始的第一个非空字符</li><li><code>$</code>跳到行尾</li><li><code>gg</code>跳到第一行</li><li><code>G</code>跳到最后一行</li></ul><p><code>跳转</code>到同一行下一个指定字符    <code>&#123;char&#125;</code>为<strong>一个</strong>字符</p><ul><li><code>f&#123;char&#125;</code>光标跳到下个<code>&#123;char&#125;</code></li><li><code>F&#123;char&#125;</code>光标跳到上个<code>&#123;char&#125;</code></li><li><code>t&#123;char&#125;</code>光标跳到下个<code>&#123;char&#125;</code>前一个字符的位置 &#x2F;&#x2F;不常用</li><li><code>T&#123;char&#125;</code>光标跳到上个<code>&#123;char&#125;</code>的后一个字符的位置 &#x2F;&#x2F;不常用</li><li><code>;</code>重复上次跳转操作</li><li><code>,</code>反向查找上次的查找命令</li></ul><h2 id="操作符与动作"><a href="#操作符与动作" class="headerlink" title="操作符与动作"></a>操作符与动作</h2><p>操作符也是在普通模式下进行使用。</p><p><code>操作符</code>是在告诉vim我们要干什么</p><p>主要有四个操作符：</p><ul><li><p><code>d</code>(delete)    删除</p><p><code>dd</code>删除一行 <code>ndd</code>删除n行，n为数字</p></li><li><p><code>c</code>(change)    修改（删除并进入插入模式）</p><p><code>cc</code>删除一行并进入插入模式 <code>ncc</code>删除n行并进入插入模式，n为数字</p></li><li><p><code>y</code>(yank)    复制</p><p><code>yy</code>复制一行</p></li><li><p><code>v</code>(visual)    选中并进入<code>VISUAL</code>(可视)模式</p></li></ul><p><code>动作</code>是告诉vim我们要怎么做，在使用操作符后，我们在的字符处的光标会变成半高的符号，接下来我们加上<code>动作</code>，注意：再键入一次的<code>d</code>也是一个动作</p><p>动作同样是有<code>i</code>和<code>a</code>两个，它们实际上代表的意思是<code>inner</code>和<code>around</code></p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202211190123728.png" alt="image-20221119012302660"></p><p>它们主要的区别是<code>包含(i)与不包含(a)两边的符号</code></p><p> 以<code>d</code>(delete)操作符常用的示例有</p><ul><li><code>diw</code>删除当前单词</li><li><code>di( / dib</code>删除当前小括号内的所有内容 注：<code>b是(的替代</code></li><li><code>da&#123; / daB</code>删除当前包括大括号在内的所有内容 注：<code>B是&#123;的替代</code></li><li><code>df&#123;char&#125;</code>删除当前直到{char}处的内容</li><li><code>d^ / d$</code>删除当前直到开头(^) &#x2F; 结尾处($)的内容</li><li><code>die</code>删除整个文件的内容</li><li><code>dit</code>删除一个HTML标签内的全部内容</li></ul><p>一些额外的补充</p><ul><li><code>p</code>(paste)粘贴</li><li><code>u</code>(undo)撤回一个操作符+动作</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用技能 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Web开发基础（5）：盒模型</title>
       <link href="/2022/11/17/Web%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%EF%BC%885%EF%BC%89%EF%BC%9A%E7%9B%92%E6%A8%A1%E5%9E%8B/"/>
       <url>/2022/11/17/Web%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%EF%BC%885%EF%BC%89%EF%BC%9A%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
