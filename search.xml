@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Rust基础笔记（1）：基础结构</title>
+      <link href="/2022/12/04/Rust%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/"/>
+      <url>/2022/12/04/Rust%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>此笔记为在学习Rust圣经《The Rust Programming Language》时记录的笔记，为基础学习</p><p>中文版书籍：<a href="https://kaisery.github.io/trpl-zh-cn/title-page.html">Rust 程序设计语言 - Rust 程序设计语言 简体中文版 (kaisery.github.io)</a></p><p>安装过程不再赘述，可直接参考Rust官方网站的安装过程</p><p>官方网站地址：<a href="https://www.rust-lang.org/">Rust Programming Language (rust-lang.org)</a></p><p>本人开发环境为：</p><ul><li>ManjaroWSL2</li><li>Clion</li></ul><p>学习Rust纯属为个人一时兴起，本笔记随时弃坑。</p><h2 id="一个简单的Rust程序"><a href="#一个简单的Rust程序" class="headerlink" title="一个简单的Rust程序"></a>一个简单的Rust程序</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::io;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Guess the number!&quot;</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Please input your guess:&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">guess</span> = String::<span class="title function_ invoke__">new</span>();</span><br><span class="line">    io::<span class="title function_ invoke__">stdin</span>()</span><br><span class="line">        .<span class="title function_ invoke__">read_line</span>(&amp;<span class="keyword">mut</span> guess)</span><br><span class="line">        .<span class="title function_ invoke__">expect</span>(<span class="string">&quot;Failed to read line.&quot;</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Your guessed: &#123;guess&#125;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202212050122081.png" alt="image-20221205012227933"></p><p>这个程序的逻辑很简单，就是处理用户的输入，把用户的输入进行输出。</p><p>但是这个程序拥有了Rust程序的基本结构，我们从上直下解析这个程序：</p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::io;</span><br></pre></td></tr></table></figure><p>为了获取的用户输入，我们需要导入输入输出库(input &#x2F; output)，即<code>io</code>库。<code>io</code>库来自于标准库，即<code>std</code>。这个操作类似于c语言的<code>include</code>，或者是Java的<code>import</code>。</p><p>在默认的情况下，Rust会自动导入部分标准库到每个程序作用域，这部分被称为<code>预导入</code>，若我们所需要用的不在其中，则需要我们手动使用<code>use</code>显式导入。</p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br></pre></td></tr></table></figure><p><code>fn</code>用于声明新函数，main函数是程序的入口点。</p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;Guess the number!&quot;</span>);</span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;Please input your guess:&quot;</span>);</span><br></pre></td></tr></table></figure><p>在这里<code>println!</code>用于在屏幕中打印字符串。</p><p><strong>注意：</strong>它并不是一个函数，而是一个宏，<code>!</code>的基本上都是宏。</p><p><strong>使用变量存储值</strong></p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">guess</span> = String::<span class="title function_ invoke__">new</span>();</span><br></pre></td></tr></table></figure><p>在这里我们创建了一个空的字符串变量用于存储输入，我们注意到，与很多常见的编程语言不同，我们申明用了两个关键词<code>let mut</code>：</p><p>这是因为Rust中，<code>变量默认是不可变的</code>，因此我们如果使用<code>let guess</code>的话，会使得<code>guess</code>类似其他编程语言中的常量一样，不可变，因此我们还要通过<code>mut</code>关键词使得变量可变。</p><p><code>=</code>是在告诉Rust，我们想将某个值<code>绑定</code>在变量上。因此我们将<code>String::new()</code>的结果绑定到了<code>guess</code>上，它的结果是一个<code>String</code>的新实例。</p><p><code>::new()</code>注意，这里的new()并不是String的特定函数，而是一个跟Java静态方法一样的<code>关联函数</code>。在这里<code>::</code>就表明了new是String的关联函数。new函数是<code>创建类型实例的惯用函数</code>。</p><p><strong>接受输入与异常处理</strong></p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">io::<span class="title function_ invoke__">stdin</span>()</span><br><span class="line">   .<span class="title function_ invoke__">read_line</span>(&amp;<span class="keyword">mut</span> guess)</span><br><span class="line">   .<span class="title function_ invoke__">expect</span>(<span class="string">&quot;Failed to read line.&quot;</span>);</span><br></pre></td></tr></table></figure><p>现在我们调用一开始导入的<code>io</code>库中的函数接受用户的输入，我们使用了<code>stdin</code>函数，<code>stdin</code>函数返回了一个<code>std::io::Stdin</code>的实例，这是终端标准输入句柄类型。</p><p><code>.read_line(&amp;mut guess)</code>调用了read_line方法，从句柄中获取到用户的一行输入，并将其<code>追加</code>到参数中，因为我们传入的参数应该是可变的。</p><p><code>&amp;</code>与c语言类似，都代表了<strong>引用</strong>，它使得程序中不同处的代码可以访问同一处的数据。它与变量相同，默认都是不可变，因此我们需要将其写成<code>&amp;mut guess</code>以使其可变。</p><p><code>.expect(&quot;Failed to read line.&quot;)</code>的作用就是异常处理。<code>read_line</code>会返回一个<code>Result</code>类型，<code>Result</code>是一个枚举类型，其中包含了<code>Ok</code>与<code>Err</code>，分别代表操作成功与失败。</p><p><code>Result</code>类型的实例拥有一个expect方法，若<code>Result</code>实例的值为<code>Err</code>，expect方法会导致程序崩溃，并显示expect中传入的值，若<code>Result</code>实例的值为<code>Ok</code>，则会原样返回<code>Ok</code>中的值。</p><p><strong>占位符打印值</strong></p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;Your guessed: &#123;guess&#125;&quot;</span>);</span><br></pre></td></tr></table></figure><p>这行代码打印了保存在guess变量中用户输入的值。里面的<code>&#123;&#125;</code>为一个预留的占位符号，我们除了把变量直接写在<code>&#123;&#125;</code>中，我们还可以在双引号的外面按顺序写值，这个跟c类似，应该不陌生：</p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;x = &#123;&#125;, y = &#123;&#125;&quot;</span>, x, y);</span><br></pre></td></tr></table></figure><p>第一个占位符使用第一个值，第二个占用福使用第二个值…以此类推。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Rust学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Rust </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>php实战（1）：</title>
+      <link href="/2022/11/27/php%E5%AE%9E%E6%88%98%EF%BC%881%EF%BC%89%EF%BC%9A/"/>
+      <url>/2022/11/27/php%E5%AE%9E%E6%88%98%EF%BC%881%EF%BC%89%EF%BC%9A/</url>
+      
+        <content type="html"><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>由于要做结课作业，看教程有点意思不够，于是决定直接上实战</p><p>本笔记意在记录实战时遇到的新知识</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> php </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vim自用使用指南</title>
       <link href="/2022/11/18/vim%E8%87%AA%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
       <url>/2022/11/18/vim%E8%87%AA%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
