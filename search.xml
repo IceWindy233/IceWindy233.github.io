@@ -4,11 +4,36 @@
   
     
     <entry>
-      <title>Python笔记（1）：</title>
-      <link href="/2023/01/03/Python%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A/"/>
-      <url>/2023/01/03/Python%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A/</url>
+      <title>Python笔记（2）：基础语法</title>
+      <link href="/2023/01/05/Python%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+      <url>/2023/01/05/Python%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="Python-标识符"><a href="#Python-标识符" class="headerlink" title="Python 标识符"></a>Python 标识符</h2><p>Python中的标识符规则与大多数语言都类似：</p><ul><li>第一个字符必须是字母表中字母或下划线 <strong>_</strong> 。</li><li>标识符的其他的部分由字母、数字和下划线组成。</li><li>标识符对大小写敏感。</li><li>在Python3中非ASCII标识符也受允许，例如中文</li></ul><p>与其他语言不同的是，Python中标识符前后的下划线是具有特殊含义的，起着Java等语言中public等关键词的作用：</p><ul><li><p>单下划线开头 _var</p><p>说明是仅供内部使用的方法变量，举个例子</p><p>首先创建一个test.py模块，包含了一个带下划线和不带下划线的方法</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_func</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;NO Hello&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>接着我们去引用这个模块，并分别调用方法</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> test <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">func()</span><br></pre></td></tr></table></figure><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202301062053313.png" alt="image-20230106205354270"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> test <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">_func()</span><br></pre></td></tr></table></figure><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202301062054431.png" alt="image-20230106205451409"></p><p>这时候它告诉我们 _func 没有定义，它只能被模块内部使用。</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python笔记（1）：简介、环境部署</title>
+      <link href="/2023/01/03/Python%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E7%AE%80%E4%BB%8B%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+      <url>/2023/01/03/Python%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E7%AE%80%E4%BB%8B%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Python简介"><a href="#Python简介" class="headerlink" title="Python简介"></a>Python简介</h2><p>Python是一门解释性语言，简单易学，上手容易。</p><p>因此作为一门胶水语言，在许多非计算机专业都有广泛学习。为了可以编写一些简单的脚本，学习Python还是有一定的必要性的。</p><p>本笔记基本内容为根据</p><ul><li>Python3</li><li>菜鸟教程 <a href="https://www.runoob.com/python3/python3-tutorial.html">Python3 教程 | 菜鸟教程 (runoob.com)</a></li><li>NX的博客 <a href="https://www.nickxu.top/tags/Python/">Python | NX の 博客 (nickxu.top)</a></li></ul><p>所编写。</p><h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><p>前往官网<a href="https://www.python.org/">Python.org</a>下载最新的Python安装包，按流程安装。</p><p>在代码编辑器上有两个推荐，一个是VSCode，一个是Pycharm：</p><p>VSCode在拓展应用商店安装Python插件与Code Runner插件即可</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202301050111564.png" alt="image-20230105011136451"></p><p>Pycharm的配置与安装不再赘述，向导非常详细，遵循向导即可</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202301050113086.png" alt="image-20230105011313028"></p><p>当然，作为一个解释型语言，我们也可以在命令行中进行交互式的编程，但是这种方式并不是很常用。</p>]]></content>
       
       
       <categories>
