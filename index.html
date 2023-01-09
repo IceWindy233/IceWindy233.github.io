@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-01-06 20:57:26'
+  postUpdate: '2023-01-09 17:01:25'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,7 +163,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/Top_img_main.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">IceWindy's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/05/Python%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="Python笔记（2）：基础语法">Python笔记（2）：基础语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-04T17:32:43.000Z" title="发表于 2023-01-05 01:32:43">2023-01-05</time></span></div><div class="content">Python 标识符Python中的标识符规则与大多数语言都类似：
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/Top_img_main.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">IceWindy's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/05/Python%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" title="Python笔记（2）：基础语法">Python笔记（2）：基础语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-04T17:32:43.000Z" title="发表于 2023-01-05 01:32:43">2023-01-05</time></span></div><div class="content">标识符Python中的标识符规则与大多数语言都类似：
 
 第一个字符必须是字母表中字母或下划线 _ 。
 标识符的其他的部分由字母、数字和下划线组成。
@@ -174,20 +174,22 @@
 
 单下划线开头 _var
 说明是仅供内部使用的方法变量，举个例子
-首先创建一个test.py模块，包含了一个带下划线和不带下划线的方法
+首先创建一个test.py模块，包含了一个带下划线和不带下划线的方法：
 1234567def func():    print(&quot;hello world&quot;)def _func():    print(&quot;NO Hello&quot;)
 
-接着我们去引用这个模块，并分别调用方法
+接着我们去引用这个模块，并分别调用方法：
 123from test import *func()
 
 
 123from test import *_func()
 
 
+
 这时候它告诉我们 _func 没有定义，它只能被模块内部使用。
 
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/03/Python%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E7%AE%80%E4%BB%8B%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="Python笔记（1）：简介、环境部署">Python笔记（1）：简介、环境部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-03T06:47:33.000Z" title="发表于 2023-01-03 14:47:33">2023-01-03</time></span></div><div class="content">Python简介Python是一门解释性语言，简单易学，上手容易。
+简单输入输出使用input()与print()实现在命令行窗口简单输入输出：
+12st ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/03/Python%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E7%AE%80%E4%BB%8B%E3%80%81%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="Python笔记（1）：简介、环境部署">Python笔记（1）：简介、环境部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-03T06:47:33.000Z" title="发表于 2023-01-03 14:47:33">2023-01-03</time></span></div><div class="content">Python简介Python是一门解释性语言，简单易学，上手容易。
 因此作为一门胶水语言，在许多非计算机专业都有广泛学习。为了可以编写一些简单的脚本，学习Python还是有一定的必要性的。
 本笔记基本内容为根据
 
