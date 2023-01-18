@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>golang基础笔记（1）：环境配置</title>
+      <link href="/2023/01/18/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <url>/2023/01/18/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Golang安装"><a href="#Golang安装" class="headerlink" title="Golang安装"></a>Golang安装</h2><p>Go语言支持大部分常见系统与处理器架构：</p><ul><li>Linux</li><li>MacOS</li><li>Windows</li><li>…</li></ul><p>我们可以前往Golang的官方网站<a href="https://go.dev/dl/">下载</a>对应安装包或者二进制包</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202301181520285.png" alt="image-20230118152006239"></p><p>本文以Linux平台作为演示，类Unix使用二进制包安装的流程大致相同</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202301181523372.png" alt="image-20230118152356321"></p><p>步骤大致如下</p><ol><li><p>下载二进制包 go1.x.x.linux-amd64.tar.gz</p></li><li><p>进入保存的文件夹，将二进制包解压到&#x2F;usr&#x2F;local目录下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -C /usr/local -xzf go1.x.x.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure></li><li><p>将&#x2F;usr&#x2F;local&#x2F;go&#x2F;bin目录添加到PATH环境变量下：</p><p>直接使用命令只能临时添加，因此我们选用编辑终端的配置文件，首先我们需要确定自己的终端配置文件是哪个</p><p>我是zsh终端，因此我们需要修改~&#x2F;.zshrc，将命令添加到该文件末尾（最好做上注释）。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#golang</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/go/bin</span><br></pre></td></tr></table></figure></li><li><p>测试</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202301181541611.png" alt="image-20230118154146591"></p><p>安装完成！</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python基础笔记（3）：基本数据类型</title>
       <link href="/2023/01/09/Python%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
       <url>/2023/01/09/Python%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
@@ -13,7 +38,7 @@
       
       <categories>
           
-          <category> 实用工具 </category>
+          <category> 实用技能 </category>
           
       </categories>
       
@@ -38,7 +63,7 @@
       
       <categories>
           
-          <category> 实用工具 </category>
+          <category> 实用技能 </category>
           
       </categories>
       
@@ -63,7 +88,7 @@
       
       <categories>
           
-          <category> 实用工具 </category>
+          <category> 实用技能 </category>
           
       </categories>
       
