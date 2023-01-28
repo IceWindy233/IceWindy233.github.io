@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-01-27 23:50:05'
+  postUpdate: '2023-01-28 17:32:26'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -168,9 +168,9 @@
 
 初始化基础写法123var testArray [3]int                        	//数组会初始化为int类型的零值var numArray = [3]int&#123;1, 2&#125;                 	//使用指定的初始值完成初始化var cityArray = [3]string&#123;&quot;北京&quot;, &quot;上海&quot;, &quot;深圳&quot;&#125; //使用指定的初始值完成初始化
 
-自动判断长度12var numArray = [...]int&#123;1, 2&#125;var cityArray = [...]string&#123;&quot;北京&quot;, &quot;上海&quot;, &quot;深圳&quot;&#125;
+编译器判断长度12var numArray = [...]int&#123;1, 2&#125;var cityArray = [...]string&#123;&quot;北京&quot;, &quot;上海&quot;, &quot;深圳&quot;&#125;
 
-指定索引值1r := [...]int& ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/18/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%EF%BC%9A%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/" title="golang基础笔记（2）：程序结构">golang基础笔记（2）：程序结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-18T07:57:25.000Z" title="发表于 2023-01-18 15:57:25">2023-01-18</time></span></div><div class="content">Hello World!从每个语言学习的开始讲起：
+指定索引值1r := [...]int ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/18/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%EF%BC%9A%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/" title="golang基础笔记（2）：程序结构">golang基础笔记（2）：程序结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-18T07:57:25.000Z" title="发表于 2023-01-18 15:57:25">2023-01-18</time></span></div><div class="content">Hello World!从每个语言学习的开始讲起：
 1234567package mainimport &quot;fmt&quot;func main() &#123;	fmt.Println(&quot;hello golang&quot;)&#125; 
 
 包每个Go程序都是由包构成，每个项目都是从main包作为入口的。
