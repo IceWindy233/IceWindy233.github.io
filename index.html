@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-01-28 21:32:47'
+  postUpdate: '2023-01-30 22:09:53'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -165,21 +165,18 @@
     detectApple()
     })(window)</script><meta name="generator" content="Hexo 5.4.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/Top_img_main.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">IceWindy's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/28/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%884%EF%BC%89%EF%BC%9AMap/" title="golang基础笔记（4）：Map">golang基础笔记（4）：Map</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-28T09:34:10.000Z" title="发表于 2023-01-28 17:34:10">2023-01-28</time></span></div><div class="content">mapmap是Go语言中提供的映射关系的容器类数据结构，其内部使用散列表(hash)实现。
 map是一种无序的基于key-value的数据结构，Go语言中的map是引用类型，必须初始化才能使用。
-CRUD构建mapvar
-1var m map[KeyType]ValueType
+构建mapvar1var m map[KeyType]ValueType
 
-make()
-1m := make(map[KeyType]ValueType)
+make()1m := make(map[KeyType]ValueType)
 
-使用字面值
-map支持在声明的时候填充元素
+使用字面值map支持在声明的时候填充元素
 1234m := map[KeyType]ValueType&#123;    &quot;Key1&quot;:value1,    &quot;Key2&quot;:value2,&#125;
 
 大括号内也可以为空
 1m := map[string]int&#123;&#125;
 
 通过使用空接口，可以在同一个map中存储不同类型的value
-1234m := map[string]interface&#123;&#125;&#123;    &quot;name&quot;: &quot;张三&quot;, //string    &quot;age&quot;: 18,	   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/27/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%EF%BC%9A%E6%95%B0%E7%BB%84%E3%80%81%E5%88%87%E7%89%87/" title="golang基础笔记（3）：数组、切片">golang基础笔记（3）：数组、切片</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-27T10:12:05.000Z" title="发表于 2023-01-27 18:12:05">2023-01-27</time></span></div><div class="content">数组与大多数语言中的数组都类似，Go语言的数组也是从声明时就确定，使用时可以修改数组成员，但是数组大小不可变化。但是实际上，Go中的数组并不常用，而常用为切片。
+1234m := map[string]interface&#123;&#125;&#123;    &quot;name&quot;: &quot;张三&quot;, //string    &quot;age&quot;: 18,	   //int& ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/27/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%EF%BC%9A%E6%95%B0%E7%BB%84%E3%80%81%E5%88%87%E7%89%87/" title="golang基础笔记（3）：数组、切片">golang基础笔记（3）：数组、切片</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-27T10:12:05.000Z" title="发表于 2023-01-27 18:12:05">2023-01-27</time></span></div><div class="content">数组与大多数语言中的数组都类似，Go语言的数组也是从声明时就确定，使用时可以修改数组成员，但是数组大小不可变化。但是实际上，Go中的数组并不常用，而常用为切片。
 声明1var 数组变量名 [元素数量]T
 
 初始化基础写法123var testArray [3]int                        	//数组会初始化为int类型的零值var numArray = [3]int&#123;1, 2&#125;                 	//使用指定的初始值完成初始化var cityArray = [3]string&#123;&quot;北京&quot;, &quot;上海&quot;, &quot;深圳&quot;&#125; //使用指定的初始值完成初始化
