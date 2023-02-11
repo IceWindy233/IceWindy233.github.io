@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>golang基础笔记（11）：泛型</title>
+      <link href="/2023/02/10/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%8811%EF%BC%89%EF%BC%9A%E6%B3%9B%E5%9E%8B/"/>
+      <url>/2023/02/10/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%8811%EF%BC%89%EF%BC%9A%E6%B3%9B%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>在Go 1.18版本中，添加了对泛型的支持。泛型是一种独立于所使用的特定类型的编写代码的方法。使用泛型可以编写出适用于一组类型中的任何一种的函数和类型，便利了代码的编写。</p><h3 id="泛型的作用"><a href="#泛型的作用" class="headerlink" title="泛型的作用"></a>泛型的作用</h3><p>假设我们有一个调换int参数的函数，现在我们需要一个调换float参数的函数，没有泛型时，我们需要将相同的逻辑、不同的类型参数的函数重复多遍。</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">excInt</span><span class="params">(a, b <span class="type">int</span>)</span></span> (<span class="type">int</span>, <span class="type">int</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> b, a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">excFloat</span><span class="params">(a, b <span class="type">float32</span>)</span></span> (<span class="type">float32</span>, <span class="type">float32</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> b, a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但那是有了泛型，就可以很方便的编写出适用所有元素类型的“普适版”的函数</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">exchange</span>[<span class="title">T</span> <span class="title">any</span>]<span class="params">(a, b T)</span></span> (T, T) &#123;</span><br><span class="line"><span class="keyword">return</span> b, a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="泛型语法"><a href="#泛型语法" class="headerlink" title="泛型语法"></a>泛型语法</h3><p>泛型为Go语言添加了三个新的重要特性:</p><ol><li>函数和类型的类型参数。</li><li>将接口类型定义为类型集，包括没有方法的类型。</li><li>类型推断，它允许在调用函数时在许多情况下省略类型参数。</li></ol><h4 id="类型参数"><a href="#类型参数" class="headerlink" title="类型参数"></a>类型参数</h4><p>在上面的例子中，我们提到可以使用泛型“很方便的编写出适用所有元素类型的“普适版”的函数”，这就是泛型的第一个作用——类型参数。</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202302101712614.png" alt="类型形参与类型实参"></p><p>Go语言中的函数和类型支持添加类型参数。类型参数列表看起来像普通的参数列表，只不过它使用方括号（<code>[]</code>）而不是圆括号（<code>()</code>）。</p><p>类型形参是作为可选类型，而在对函数实例化时，我们需要指定一个在可选类型范围内的类型实参。</p><p><strong>类型实例化</strong></p><p>在上面<code>min</code>函数中，同时支持了int和float64两种类型</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m1 := min[<span class="type">int</span>](<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">m2 := min[<span class="type">float64</span>](<span class="number">-0.1</span>, <span class="number">-0.2</span>)</span><br></pre></td></tr></table></figure><p>向函数(min)提供类型实参(int、float64)被称之为实例化。在成功实例化后，我们会得到一个非泛型的函数，这个函数可以跟其他函数一样被正常调用</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fmin := min[<span class="type">float64</span>] <span class="comment">// 类型实例化，编译器生成T=float64的min函数</span></span><br><span class="line">m = fmin(<span class="number">1.2</span>, <span class="number">2.3</span>)</span><br></pre></td></tr></table></figure><p><strong>类型参数的使用</strong></p><p>除了可以在函数中使用泛型，在类型中也可以使用类型参数列表</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对切片封装一层</span></span><br><span class="line"><span class="keyword">type</span> Slice[T <span class="type">int</span> | <span class="type">string</span>] []T</span><br><span class="line"></span><br><span class="line"><span class="comment">//对map封装一层</span></span><br><span class="line"><span class="keyword">type</span> Map[K <span class="type">int</span> | <span class="type">string</span>, V <span class="type">float32</span> | <span class="type">float64</span>] <span class="keyword">map</span>[K]V</span><br><span class="line"></span><br><span class="line"><span class="comment">//二叉树的数据结构</span></span><br><span class="line"><span class="keyword">type</span> Tree[T <span class="keyword">interface</span>&#123;&#125;] <span class="keyword">struct</span> &#123;</span><br><span class="line">left, right *Tree[T]</span><br><span class="line">value       T</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>以上的类型都可以被称之为泛型类型。</p><p>泛型类型可以有方法，例如可以为上面的<code>Tree</code>添加一个寻找的方法</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Tree[T])</span></span>LookUp(x T) *Tree[T] &#123;</span><br><span class="line"><span class="comment">//具体代码...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>使用泛型类型必须先进行实例化</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stringTree Tree[<span class="type">string</span>]</span><br></pre></td></tr></table></figure><p><strong>类型约束</strong></p><p>类似参数列表中每个参数都有对应的参数类型，类型参数列表中的每一个参数都有对应的类型约束。</p><p>在Go语言中，实现类型约束的是接口类型。在上面的例子中，我们对于类型约束都省略了一个外层<code>interface&#123;&#125;</code>，这是通常的写法，但实际上类型约束是一个接口类型</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类型约束字面量，通常外层interface&#123;&#125;可省略</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span>[<span class="title">T</span> <span class="title">interface</span></span>&#123; <span class="type">int</span> | <span class="type">float64</span> &#125;](a, b T) T &#123;</span><br><span class="line"><span class="keyword">if</span> a &lt;= b &#123;</span><br><span class="line"><span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>作为类型约束的接口类型可以事先定义且支持复用</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事先定义好的类型约束类型</span></span><br><span class="line"><span class="keyword">type</span> Value <span class="keyword">interface</span> &#123;</span><br><span class="line"><span class="type">int</span> | <span class="type">float64</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span>[<span class="title">T</span> <span class="title">Value</span>]<span class="params">(a, b T)</span></span> T &#123;</span><br><span class="line"><span class="keyword">if</span> a &lt;= b &#123;</span><br><span class="line"><span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="类型集"><a href="#类型集" class="headerlink" title="类型集"></a>类型集</h4><h4 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> Golang </category>
+          
+          <category> 基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>golang基础笔记（10）：反射</title>
+      <link href="/2023/02/09/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%8F%8D%E5%B0%84/"/>
+      <url>/2023/02/09/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%8F%8D%E5%B0%84/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Golang </category>
+          
+          <category> 基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>golang基础笔记（9）：Error接口</title>
       <link href="/2023/02/09/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%889%EF%BC%89%EF%BC%9AError%E6%8E%A5%E5%8F%A3/"/>
       <url>/2023/02/09/golang%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%889%EF%BC%89%EF%BC%9AError%E6%8E%A5%E5%8F%A3/</url>
