@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-03-17 12:25:20'
+  postUpdate: '2023-03-17 16:14:04'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -197,7 +197,15 @@ DHCP原理
 发送DHCP ACK(确认)广播包
 
 服务器确定租约，并提供网卡详细参数IP、掩码、网关、DNS、租期等
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/14/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89%EF%BC%9A%E5%9C%A8docker%E4%B8%8B%E6%90%AD%E5%BB%BAKali-Linux%E7%8E%AF%E5%A2%83/" title="渗透测试学习（2）：在docker下搭建Kali-Linux环境">渗透测试学习（2）：在docker下搭建Kali-Linux环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-14T15:09:14.000Z" title="发表于 2023-03-14 23:09:14">2023-03-14</time></span></div><div class="content">概述
+DHCP续约
+当50%过后，客户机会再次发送DHCP Request包进行续约;
+若服务器未响应，则会继续使用且在87.5%再次发送进行续约，如果仍然无响应，则释放IP地址，重新进行DHCP租约过程获取IP地址。
+当无任何服务器响应时，会自动给自己分配一个169.254.x.x/16（无效IP地址）。
+部署DHCP服务器
+使用的服务器版本：Windows Server 2022
+首先我们打开设置，找到应用，选择程序与功能（相关设置）
+
+我们选择启用或关闭Windows功能 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/14/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89%EF%BC%9A%E5%9C%A8docker%E4%B8%8B%E6%90%AD%E5%BB%BAKali-Linux%E7%8E%AF%E5%A2%83/" title="渗透测试学习（2）：在docker下搭建Kali-Linux环境">渗透测试学习（2）：在docker下搭建Kali-Linux环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-14T15:09:14.000Z" title="发表于 2023-03-14 23:09:14">2023-03-14</time></span></div><div class="content">概述
 先来谈谈这种方式的优缺点
 优点：
 
