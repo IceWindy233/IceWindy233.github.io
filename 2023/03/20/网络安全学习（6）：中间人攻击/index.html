@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>网络安全学习（6）：中间人攻击 | IceWindy's Blog</title><meta name="keywords" content="网络安全"><meta name="author" content="IceWindy"><meta name="copyright" content="IceWindy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="主要教程为利用Kali系统模拟攻击者，利用中间人的攻击手段获取用户登录的用户与密码。 （请勿在无授权情况下测试！） 环境介绍  设备:均在虚拟环境下 WindowsServer2022 ---- 模拟WEB及FTP服务器 Windows10                 ---- 模拟客户机 Kali                              ---- 攻击机 Web站点：zhi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络安全学习（6）：中间人攻击">
+<meta property="og:url" content="http://www.icewindy.cn/2023/03/20/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%886%EF%BC%89%EF%BC%9A%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/index.html">
+<meta property="og:site_name" content="IceWindy&#39;s Blog">
+<meta property="og:description" content="主要教程为利用Kali系统模拟攻击者，利用中间人的攻击手段获取用户登录的用户与密码。 （请勿在无授权情况下测试！） 环境介绍  设备:均在虚拟环境下 WindowsServer2022 ---- 模拟WEB及FTP服务器 Windows10                 ---- 模拟客户机 Kali                              ---- 攻击机 Web站点：zhi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
+<meta property="article:published_time" content="2023-03-20T11:20:00.000Z">
+<meta property="article:modified_time" content="2023-03-20T16:31:54.664Z">
+<meta property="article:author" content="IceWindy">
+<meta property="article:tag" content="网络安全">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.icewindy.cn/img/Top_img_than.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.icewindy.cn/2023/03/20/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%886%EF%BC%89%EF%BC%9A%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3755c90ac8644596cd3b47a85dd40cef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '网络安全学习（6）：中间人攻击',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-21 00:31:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">网络安全学习（6）：中间人攻击</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-20T11:20:00.000Z" title="发表于 2023-03-20 19:20:00">2023-03-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-20T16:31:54.664Z" title="更新于 2023-03-21 00:31:54">2023-03-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86/">攻击原理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">689</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>主要教程为利用Kali系统模拟攻击者，利用中间人的攻击手段获取用户登录的用户与密码。</p>
+<p>（请勿在无授权情况下测试！）</p>
+<h2 id="环境介绍">环境介绍</h2>
+<ol>
+<li>设备:均在虚拟环境下<br>
+WindowsServer2022 ---- 模拟WEB及FTP服务器<br>
+Windows10                 ---- 模拟客户机<br>
+Kali                              ---- 攻击机</li>
+<li>Web站点：zhivote</li>
+<li>工具：ettercap</li>
+<li>设备拓扑结构：三台设备在同一网络下，互相可以通讯</li>
+</ol>
+<h2 id="攻击基本原理">攻击基本原理</h2>
+<ol>
+<li>利用的ARP协议漏洞：后到达的ARP协议包会更新ARP缓存表</li>
+<li>ARP协议原理：(为了获取接受目标的MAC地址)
+<ul>
+<li>发送机发送ARP广播请求</li>
+<li>目标机发送ARP单播应答</li>
+</ul>
+</li>
+<li>攻击人通过发送虚假的ARP应答实现ARP缓存投毒，而其他设备无法对其进行身份（真伪）验证</li>
+</ol>
+<p>因此中间人攻击又称ARP欺骗攻击。</p>
+<h2 id="流程">流程</h2>
+<h3 id="调整网络">调整网络</h3>
+<p>首先我们开启我们的虚拟机，并设置到同一网段内：</p>
+<ul>
+<li>Windows10 ----- 10.1.1.1</li>
+<li>KaliLinux ----- 10.1.1.2</li>
+<li>Windows2022 ----- 10.1.1.3</li>
+</ul>
+<h3 id="搭建ftp服务器">搭建FTP服务器</h3>
+<p>打开Windows2022，点开管理面板，添加角色与功能，选择IIS，点上FTP服务，安装。</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303202110337.png" alt="image.png"></p>
+<p>点开工具，找到IIS</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303202358964.png" alt="image.png"></p>
+<p>完成添加FTP站点后，我们关闭它的匿名登录，开启一般登录。然后我们创建一个user给我们客户机作为帐号。打开cmd</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> user &#123;user name&#125; &#123;user password&#125; /add</span><br></pre></td></tr></table></figure>
+<p>即可添加一个账户。然后我们打开我们共享的那个FTP文件夹，在安全中给予我们的新用户访问权限，接下来我们去客户机验证是否可用</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210007472.png" alt="image.png"></p>
+<p>输入帐号密码，发现可用，即可完成服务搭建。</p>
+<h2 id="开启arp欺骗及sniff嗅探">开启ARP欺骗及sniff嗅探</h2>
+<p>打开Kali Linux，开启工具<code>Ettercap</code>，选择网卡<code>eth0</code>（我们这里只有这个），然后点击对号确定</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210016042.png" alt="image.png"></p>
+<p>然后打开左上角的Host list；接着选择右上角三个点-Hosts-Scan for hosts</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210018444.png" alt="image.png"></p>
+<p>接着我们就可以扫描到我们另外两台虚拟机了</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210018463.png" alt="image.png"></p>
+<p>选择<code>10.1.1.1</code>，然后<code>Add to Target 1</code>，接着选择<code>10.1.1.3</code>，然后<code>Add to Target2</code>；添加完成目标后，我们开始投毒：找到右上角的小地球，选择<code>ARP posisoning</code>，即可完成投毒。</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210022130.png" alt="image.png"></p>
+<p>如何检验是否投毒成功呢，我们在客户机上使用<code>arp -a</code>查看ARP缓存表</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210024476.png" alt="image.png"></p>
+<p>发现<code>10.1.1.2</code>和<code>10.1.1.3</code>的MAC地址一致，证明投毒成功。接下来我们尝试获得帐号密码，在客户机上登录FTP服务器，然后我们在Kali上就成功发现获取到了帐号密码</p>
+<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210026847.png" alt="image.png"></p>
+<p>由于FTP为明文传输，因此已经抓取了正确的帐号密码了。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></div><div class="post_share"><div class="social-share" data-image="/img/Top_img_than.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">IceWindy</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">22</div></a></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">环境介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">攻击基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E7%BD%91%E7%BB%9C"><span class="toc-number">3.1.</span> <span class="toc-text">调整网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAftp%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">搭建FTP服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%90%AFarp%E6%AC%BA%E9%AA%97%E5%8F%8Asniff%E5%97%85%E6%8E%A2"><span class="toc-number">4.</span> <span class="toc-text">开启ARP欺骗及sniff嗅探</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/20/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%886%EF%BC%89%EF%BC%9A%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/" title="网络安全学习（6）：中间人攻击">网络安全学习（6）：中间人攻击</a><time datetime="2023-03-20T11:20:00.000Z" title="发表于 2023-03-20 19:20:00">2023-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/19/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%885%EF%BC%89%EF%BC%9AAWVS/" title="网络安全学习（5）：AWVS">网络安全学习（5）：AWVS</a><time datetime="2023-03-18T17:10:26.000Z" title="发表于 2023-03-19 01:10:26">2023-03-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/18/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%884%EF%BC%89%EF%BC%9AKPI/" title="网络安全学习（4）：KPI">网络安全学习（4）：KPI</a><time datetime="2023-03-18T08:53:34.000Z" title="发表于 2023-03-18 16:53:34">2023-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/17/Manjaro%E5%92%8CArchLinux%E4%B8%8B%E5%AE%89%E8%A3%85VirtualBox%E8%BF%87%E7%A8%8B%E4%BB%A5%E5%8F%8A%E8%B8%A9%E5%9D%91/" title="Manjaro和ArchLinux下安装VirtualBox过程以及踩坑">Manjaro和ArchLinux下安装VirtualBox过程以及踩坑</a><time datetime="2023-03-17T02:56:55.000Z" title="发表于 2023-03-17 10:56:55">2023-03-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/16/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%883%EF%BC%89%EF%BC%9ADHCP/" title="网络安全学习（3）：DHCP">网络安全学习（3）：DHCP</a><time datetime="2023-03-16T11:50:55.000Z" title="发表于 2023-03-16 19:50:55">2023-03-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Top_img_than.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By IceWindy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script></div></body></html>

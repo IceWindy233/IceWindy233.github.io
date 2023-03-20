@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>网络安全学习（6）：中间人攻击</title>
+      <link href="/2023/03/20/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%886%EF%BC%89%EF%BC%9A%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/"/>
+      <url>/2023/03/20/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%886%EF%BC%89%EF%BC%9A%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/</url>
+      
+        <content type="html"><![CDATA[<p>主要教程为利用Kali系统模拟攻击者，利用中间人的攻击手段获取用户登录的用户与密码。</p><p>（请勿在无授权情况下测试！）</p><h2 id="环境介绍">环境介绍</h2><ol><li>设备:均在虚拟环境下<br>WindowsServer2022 ---- 模拟WEB及FTP服务器<br>Windows10                 ---- 模拟客户机<br>Kali                              ---- 攻击机</li><li>Web站点：zhivote</li><li>工具：ettercap</li><li>设备拓扑结构：三台设备在同一网络下，互相可以通讯</li></ol><h2 id="攻击基本原理">攻击基本原理</h2><ol><li>利用的ARP协议漏洞：后到达的ARP协议包会更新ARP缓存表</li><li>ARP协议原理：(为了获取接受目标的MAC地址)<ul><li>发送机发送ARP广播请求</li><li>目标机发送ARP单播应答</li></ul></li><li>攻击人通过发送虚假的ARP应答实现ARP缓存投毒，而其他设备无法对其进行身份（真伪）验证</li></ol><p>因此中间人攻击又称ARP欺骗攻击。</p><h2 id="流程">流程</h2><h3 id="调整网络">调整网络</h3><p>首先我们开启我们的虚拟机，并设置到同一网段内：</p><ul><li>Windows10 ----- 10.1.1.1</li><li>KaliLinux ----- 10.1.1.2</li><li>Windows2022 ----- 10.1.1.3</li></ul><h3 id="搭建ftp服务器">搭建FTP服务器</h3><p>打开Windows2022，点开管理面板，添加角色与功能，选择IIS，点上FTP服务，安装。</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303202110337.png" alt="image.png"></p><p>点开工具，找到IIS</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303202358964.png" alt="image.png"></p><p>完成添加FTP站点后，我们关闭它的匿名登录，开启一般登录。然后我们创建一个user给我们客户机作为帐号。打开cmd</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> user &#123;user name&#125; &#123;user password&#125; /add</span><br></pre></td></tr></table></figure><p>即可添加一个账户。然后我们打开我们共享的那个FTP文件夹，在安全中给予我们的新用户访问权限，接下来我们去客户机验证是否可用</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210007472.png" alt="image.png"></p><p>输入帐号密码，发现可用，即可完成服务搭建。</p><h2 id="开启arp欺骗及sniff嗅探">开启ARP欺骗及sniff嗅探</h2><p>打开Kali Linux，开启工具<code>Ettercap</code>，选择网卡<code>eth0</code>（我们这里只有这个），然后点击对号确定</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210016042.png" alt="image.png"></p><p>然后打开左上角的Host list；接着选择右上角三个点-Hosts-Scan for hosts</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210018444.png" alt="image.png"></p><p>接着我们就可以扫描到我们另外两台虚拟机了</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210018463.png" alt="image.png"></p><p>选择<code>10.1.1.1</code>，然后<code>Add to Target 1</code>，接着选择<code>10.1.1.3</code>，然后<code>Add to Target2</code>；添加完成目标后，我们开始投毒：找到右上角的小地球，选择<code>ARP posisoning</code>，即可完成投毒。</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210022130.png" alt="image.png"></p><p>如何检验是否投毒成功呢，我们在客户机上使用<code>arp -a</code>查看ARP缓存表</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210024476.png" alt="image.png"></p><p>发现<code>10.1.1.2</code>和<code>10.1.1.3</code>的MAC地址一致，证明投毒成功。接下来我们尝试获得帐号密码，在客户机上登录FTP服务器，然后我们在Kali上就成功发现获取到了帐号密码</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303210026847.png" alt="image.png"></p><p>由于FTP为明文传输，因此已经抓取了正确的帐号密码了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> 攻击原理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>网络安全学习（5）：AWVS</title>
       <link href="/2023/03/19/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%885%EF%BC%89%EF%BC%9AAWVS/"/>
       <url>/2023/03/19/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%885%EF%BC%89%EF%BC%9AAWVS/</url>
