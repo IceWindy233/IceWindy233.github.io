@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SQL注入（1）：概述、分类、靶场搭建</title>
+      <link href="/2023/03/29/SQL%E6%B3%A8%E5%85%A5%EF%BC%881%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA/"/>
+      <url>/2023/03/29/SQL%E6%B3%A8%E5%85%A5%EF%BC%881%EF%BC%89%EF%BC%9A%E6%A6%82%E8%BF%B0%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="sql注入概述">SQL注入概述</h2><p>SQL注入即通过将SQL命令插入到WEB表单提交等地方，最终达到欺骗服务器执行恶意的SQL命令，从而进一步入侵服务器。</p><h2 id="注入分类">注入分类</h2><h3 id="按查询字段分类">按查询字段分类</h3><ul><li>字符型：当输入的参数为字符串时，被称为字符型</li><li>数字型：当输入的参数为整型时，可以认为是数字型注入</li></ul><h3 id="按照注入方法">按照注入方法</h3><ul><li>Union注入</li><li>报错注入</li><li>布尔注入</li><li>时间注入</li><li>堆叠注入</li></ul><h2 id="靶场搭建">靶场搭建</h2><p>环境：WindowsServer2022虚拟机</p><p>工具：</p><p>小皮phpstudy <a href="https://www.xp.cn/">https://www.xp.cn/</a></p><p>靶机 <a href="https://github.com/Audi-1/sqli-labs">https://github.com/Audi-1/sqli-labs</a></p><h3 id="虚拟机网络设置与关闭防火墙">虚拟机网络设置与关闭防火墙</h3><p>在VMware中，我们将虚拟机设置为桥接模式，然后我们可以通过<code>ipconfig</code>查看到我们的ip地址</p><p>然后我们需要将环境的防火墙关闭，否则外部无法访问</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303292143577.png" alt="image-20230329214327554"></p><h3 id="php环境搭建">PHP环境搭建</h3><p>由于我们靶场环境是php5.x的版本，而我们下载安装后的phpstudy版本为7.x，因此建议对其进行降级。</p><p>接着我们将我们下载好的靶场，解压复制到小皮的网站目录下（图中“打开根目录”）</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303292147179.png" alt="image-20230329214745153"></p><p>为了方便我们管理页面，我们把靶场改名为<code>sqli</code>。然后我们开启Apache和MySQL，在实体机浏览器中打开我们上面通过ipconfig查询到的IP地址，如果出现下面页面证明PHP环境搭建完成</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303292204828.png" alt="image-20230329220440790"></p><p>我们在地址后面加上我们目录的名字，例如<code>10.0.0.218/sqli</code>就可以打开我们的靶场。</p><h3 id="连接数据库">连接数据库</h3><p>在我们构建完PHP环境后，还需要将我们靶机的数据库连接到MySQL服务。</p><p>在靶机的目录下找到<code>sql-connections</code>，用任意编辑器打开<code>db-creds.inc</code></p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303300037024.png" alt="image-20230330003754838"></p><p>修改用户名密码，如果你的小皮没有修改过MySQL的账户密码，则应该都是root。修改完成后保存，打开我们的页面，点击<code>Setup/reset Database for labs</code>，如果页面出现大部分的<code>successfully</code>则表明数据已经插入到数据库。</p><p>至此，我们的靶场环境就搭建完成了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> SQL注入 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TypeScript快速上手</title>
       <link href="/2023/03/28/TypeScript%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"/>
       <url>/2023/03/28/TypeScript%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</url>
