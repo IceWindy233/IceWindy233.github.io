@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SQL注入（5）：extractValue、updateXml报错注入</title>
+      <link href="/2023/04/06/SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89%EF%BC%9AextractValue%E3%80%81updateXml%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/"/>
+      <url>/2023/04/06/SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89%EF%BC%9AextractValue%E3%80%81updateXml%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="报错注入">报错注入</h2><p>首先报错注入需要一个基础</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062126010.png" alt="image-20230406212644828"></p><p><strong>报错注入</strong>就是：</p><p>构造语句，让错误信息中夹杂可以显示数据库内容的查询语句。</p><p>该注入方式常见于没有回显结果的，但是注入点输错结果会报错的的情况。例如Less-5</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062140027.png" alt="image-20230406214058004" style="zoom: 67%;" /><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062141792.png" alt="image-20230406214123768" style="zoom:67%;" /><p>但是我们通过这个报错又可以获取到数据库库名叫<code>security</code>。通过这个逻辑注入的方式就被称之为报错注入。</p><p>报错注入分为12种</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062154085.png" alt="image-20230406215431914" style="zoom: 50%;" /><p>常见的报错注入为前三种：</p><ul><li>floor()报错注入</li><li>extractValue()报错注入</li><li>updataXml()报错注入</li></ul><p>其中第二和第三种原理基本一致，只是函数的内容不太一样。</p><h2 id="extractvalue-报错注入">extractValue()报错注入</h2><h3 id="extractvalue-函数">extractValue()函数</h3><p>函数extractValue()包含两个参数</p><ul><li>第一个参数为XML文档对象名称</li><li>第二个参数为路径</li></ul><p>该函数用于查询数据库内XML文档对象的内容。而updateXml()则是用于更新XML文档内容。</p><p>使用例：</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062241765.png" alt="image-20230406224140650"></p><p>创建表的命令的含义是，在创建一个xml表，表内有一列名字叫<code>doc</code>，为varchar类型，长度150。</p><p>现在我们想查询作者是谁，我们可以用extractValue()进行查询</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select extractvalue(doc, &#x27;/book/author/surname&#x27;) from xml;</span><br></pre></td></tr></table></figure><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062249549.png" alt="image-20230406224906514"></p><h3 id="报错信息">报错信息</h3><p>单纯的写错路径或者对象的名称，是不会返回任何报错信息的</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062306419.png" alt="image-20230406230628356" style="zoom:50%;" /><p>而把查询参数的格式符号写错，才会显示出报错信息</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062307764.png" alt="image-20230406230728717" style="zoom:50%;" /><p>而我们发现，此查询在报错信息这里可以把我们的信息回显回来。因此我们可以寻找一个机会，在报错之前，执行我们的查询语句，并且将报错信息回显回来。</p><p>利用<code>concat()</code>拼接的效果，我们将会引起报错的字符<code>~</code>(0x7e)和我们要执行的语句拼接在一起，从而使得引起报错，且得到查询结果</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select extractvalue(1, concat(0x7e,(select database()))) from xml;</span><br></pre></td></tr></table></figure><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062315007.png" alt="image-20230406231540980"></p><p>这样我们就查询到我们所需的信息。</p><h3 id="靶机实例">靶机实例</h3><p>对于我们的靶机实例less-5,我们使用上面的方法进行注入。</p><p>构造注入语句</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:8081/Less-5/?id=1&#x27; union select 1,2,extractvalue(1, concat(0x7e,(select database())))--+</span><br></pre></td></tr></table></figure><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304062320142.png" alt="image-20230406232005116" style="zoom: 80%;" /><p>我们成功利用报错信息查询出当前页面数据库的名字。实际上后面不使用union也是可以的，只要是能够执行语句的方法都是可以的，例如</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:8081/Less-5/?id=1&#x27; and 1=extractvalue(1, concat(0x7e,(select database())))--+</span><br></pre></td></tr></table></figure><p>接下来查询表名列名仅需要替换掉<code>select database()</code>的内容即可，与前面的过程差异不大。不再作出演示。</p><p>**值得注意的是：**报错信息一次只能返回32个字符，因此我们可以用到<code>substring()</code>函数解决这个问问题。substring()函数包含三个参数</p><ul><li>第一个参数是要控制输出的字符串，也就是我们的返回值</li><li>第二个参数是从哪个字符开始显示</li><li>第三个参数是一次性显示多少个字符</li></ul><p>因此我们用这个函数每次显示指定数量的字符，这样就不会触及到报错信息的上限了。</p><h2 id="updatexml-报错注入">updateXml()报错注入</h2><p>updateXml()报错注入的逻辑与extractValue()报错注入的逻辑类似。</p><h3 id="updataxml-函数">updataXml()函数</h3><p>该函数具有三个参数</p><ul><li>第一个参数是XML文档对象的名称</li><li>第二个参数是路径</li><li>第三个参数是要替换成的新字符串</li></ul><h3 id="报错信息">报错信息</h3><p>与extractValue()触发报错信息的方式类似，都是通过错误的路径触发错误信息。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select updateXml(1, concat(0x7e,(select database())), 1) from xml;</span><br></pre></td></tr></table></figure><p>具体注入过程参考上面已经写过的注入即可，不再重复展示。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> SQL注入 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入（4）：union注入</title>
       <link href="/2023/04/02/SQL%E6%B3%A8%E5%85%A5%EF%BC%884%EF%BC%89%EF%BC%9Aunion%E6%B3%A8%E5%85%A5/"/>
       <url>/2023/04/02/SQL%E6%B3%A8%E5%85%A5%EF%BC%884%EF%BC%89%EF%BC%9Aunion%E6%B3%A8%E5%85%A5/</url>
