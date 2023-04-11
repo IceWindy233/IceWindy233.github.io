@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>搭建ChatGPT镜像站</title>
+      <link href="/2023/04/11/%E6%90%AD%E5%BB%BAChatGPT%E9%95%9C%E5%83%8F%E7%AB%99/"/>
+      <url>/2023/04/11/%E6%90%AD%E5%BB%BAChatGPT%E9%95%9C%E5%83%8F%E7%AB%99/</url>
+      
+        <content type="html"><![CDATA[<h2 id="需要准备的东西">需要准备的东西</h2><ul><li><p>一个ChatGPT帐号</p><p>如果没有帐号，请参考https://mirror.xyz/0x6E12A28086548B11dfcc20c75440E0B3c10721f5/9O9CSqyKDj4BKUIil7NC1Sa1LJM-3hsPqaeW_QjfFBc</p></li><li><p>一台服务器</p></li><li><p>所使用的项目地址：<a href="https://github.com/Chanzhaoyu/chatgpt-web">https://github.com/Chanzhaoyu/chatgpt-web</a></p></li></ul><h2 id="使用docker部署教程">使用Docker部署教程</h2><p>为了便利部署，这里使用docker进行部署。</p><p>在服务器上使用docker拉取<code>chatgpt-web</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull chenzhaoyu94/chatgpt-web</span><br></pre></td></tr></table></figure><p>登录ChatGPT帐号后，打开https://chat.openai.com/api/auth/session</p><p>打开后会有一串JSON字符串，找到<code>&quot;accessToken&quot;:</code>，将后面双引号的内容复制下来。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name chatgpt-web -d -p 3002:3002 --env OPENAI_ACCESS_TOKEN=[刚刚复制的内容] chatgpt-web</span><br></pre></td></tr></table></figure><p>然后从外网使用<code>[你的ip]:3002</code>即可访问你的镜像站。</p><h3 id="可以使用的环境参数">可以使用的环境参数</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二选一</span></span><br><span class="line">OPENAI_API_KEY: sk-xxx</span><br><span class="line"><span class="comment"># 二选一</span></span><br><span class="line">OPENAI_ACCESS_TOKEN: xxx</span><br><span class="line"><span class="comment"># API接口地址，可选，设置 OPENAI_API_KEY 时可用</span></span><br><span class="line">OPENAI_API_BASE_URL: xxx</span><br><span class="line"><span class="comment"># API模型，可选，设置 OPENAI_API_KEY 时可用，https://platform.openai.com/docs/models</span></span><br><span class="line"><span class="comment"># gpt-4, gpt-4-0314, gpt-4-32k, gpt-4-32k-0314, gpt-3.5-turbo, gpt-3.5-turbo-0301, text-davinci-003, text-davinci-002, code-davinci-002</span></span><br><span class="line">OPENAI_API_MODEL: xxx</span><br><span class="line"><span class="comment"># 反向代理，可选</span></span><br><span class="line">API_REVERSE_PROXY: xxx</span><br><span class="line"><span class="comment"># 访问权限密钥，可选</span></span><br><span class="line">AUTH_SECRET_KEY: xxx</span><br><span class="line"><span class="comment"># 每小时最大请求次数，可选，默认无限</span></span><br><span class="line">MAX_REQUEST_PER_HOUR: <span class="number">0</span></span><br><span class="line"><span class="comment"># 超时，单位毫秒，可选</span></span><br><span class="line">TIMEOUT_MS: <span class="number">60000</span></span><br><span class="line"><span class="comment"># Socks代理，可选，和 SOCKS_PROXY_PORT 一起时生效</span></span><br><span class="line">SOCKS_PROXY_HOST: xxx</span><br><span class="line"><span class="comment"># Socks代理端口，可选，和 SOCKS_PROXY_HOST 一起时生效</span></span><br><span class="line">SOCKS_PROXY_PORT: xxx</span><br><span class="line"><span class="comment"># HTTPS 代理，可选，支持 http，https，socks5</span></span><br><span class="line">HTTPS_PROXY: http://xxx:<span class="number">7890</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小服务搭建 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入（6）：floor报错</title>
       <link href="/2023/04/10/SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89%EF%BC%9Afloor%E6%8A%A5%E9%94%99/"/>
       <url>/2023/04/10/SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89%EF%BC%9Afloor%E6%8A%A5%E9%94%99/</url>
