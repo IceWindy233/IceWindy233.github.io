@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SQL注入（7）：布尔盲注</title>
+      <link href="/2023/04/12/SQL%E6%B3%A8%E5%85%A5%EF%BC%887%EF%BC%89%EF%BC%9A%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/"/>
+      <url>/2023/04/12/SQL%E6%B3%A8%E5%85%A5%EF%BC%887%EF%BC%89%EF%BC%9A%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="盲注">盲注</h2><p>页面没有错误回显，不知道数据库具体返回值的情况下，对数据库中的内容进行猜解，实行SQL注入被称为盲注。常见的盲注的分类有三种</p><ul><li>布尔盲注</li><li>时间盲注</li><li>报错盲注</li></ul><p>使用盲注的情况该为如下情况</p><ol><li>页面没有回显位</li><li>页面没有报错</li></ol><h2 id="布尔盲注">布尔盲注</h2><p>而且使用布尔盲注的情况除了需要满足前面两种情况外，还需要满足页面会返回真假两种状态。布尔注入就是利用页面返回不同，逐个猜解数据。</p><p>什么叫真假状态呢？</p><h3 id="真假状态">真假状态</h3><p>真假状态指的就是页面只有查询成功和查询不成功两种界面，没有别的回显示。</p><p>如下例子</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304120113511.png" alt="image-20230412011301475" style="zoom:80%;" /><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304120112079.png" alt="image-20230412011248055" style="zoom:80%;" /><p>在这个例子中，页面只有查询到和查询不到两种结果，即使是第二种能使得查询报错的用法也只能让页面没有任何回显。</p><p>而布尔盲注就是利用页面返回的不同，逐个猜解数据。由于布尔盲注工作量比较大，往往的我们都是使用自动化工具去完成操作，手动注入并不多，学习的目的是为了如果碰到网站真实存在这种注入，但需要我们手动注入来尝试绕过对方WAF再编写自动化工具注入的情况。</p><h3 id="布尔盲注的条件">布尔盲注的条件</h3><p>一般而言，我们可以尝试<code>1=1</code>和<code>1=2</code>来判断页面是否存在注入的条件</p><p>页面为真：</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304120121409.png" alt="image-20230412012101381" style="zoom:80%;" /><p>页面为假：</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304120121790.png" alt="image-20230412012127770" style="zoom:80%;" /><p>一旦判断得到页面存在真假两种情况，就可以使用布尔盲注</p><h3 id="关键函数">关键函数</h3><ul><li><p><code>ascii()</code>将字母、字符转换为ascii码；方便我们进行将结果转换成数字进行大小比大小的一个比较，以此来利用页面真假值。可以利用大于<code>&gt;</code>等比较符进行二分法猜解。</p></li><li><p><code>substr([字符串],start,num)</code>将[字符串]从第<code>start</code>个字符，提取<code>num</code>个字符；由于ascii()只能转换一个字符，因此用于配合ascii()逐个字符猜出查询内容。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ascii(substr((select database()),1,1) &gt; 100</span><br></pre></td></tr></table></figure><p>配合<code>limit start,num</code>来限定查询的行数</p></li><li><p><code>limit start,num</code>从第<code>start</code>行开始，显示<code>num</code>行</p></li></ul><h3 id="闭合符判断">闭合符判断</h3><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304121713076.png" alt="image-20230412171304004"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> SQL注入 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>搭建ChatGPT镜像站</title>
       <link href="/2023/04/11/%E6%90%AD%E5%BB%BAChatGPT%E9%95%9C%E5%83%8F%E7%AB%99/"/>
       <url>/2023/04/11/%E6%90%AD%E5%BB%BAChatGPT%E9%95%9C%E5%83%8F%E7%AB%99/</url>
