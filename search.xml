@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SQL注入（10）：POST注入</title>
+      <link href="/2023/04/22/SQL%E6%B3%A8%E5%85%A5%EF%BC%8810%EF%BC%89%EF%BC%9APOST%E6%B3%A8%E5%85%A5/"/>
+      <url>/2023/04/22/SQL%E6%B3%A8%E5%85%A5%EF%BC%8810%EF%BC%89%EF%BC%9APOST%E6%B3%A8%E5%85%A5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="post提交注入">POST提交注入</h2><p>POST提交注入有别于我们之前的注入方式，我们之前的注入方式都采用了GET请求的方式，而POST提交注入是使用POST请求的方式进行尝试注入。</p><h3 id="post提交-get提交对比">POST提交、GET提交对比</h3><ul><li><p>get提交可以被缓存，post提交不会</p><p>在浏览器地址栏、历史记录、书签都可以保存GET提交</p></li><li><p>get提交有长度限制，最长2048个字符；</p><p>post提交没有长度要求，不是只允许使用ASCII字符，还可以使用二进制数据</p></li></ul><p>往往来说，POST提交比GET提交更安全</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> SQL注入 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入（9）：DNSlog注入</title>
       <link href="/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/"/>
       <url>/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/</url>
