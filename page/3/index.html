@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-04-24 13:13:33'
+  postUpdate: '2023-04-29 01:46:22'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -236,18 +236,11 @@ Windows2022 ----- 10.1.1.3
 
 创建容器，并将3443端口映射到物理即的13443端口
 
-1docker run -it -d -p 13443:3443 secfa/docker-awvs
+123docker run -it -d -p 13443:3443 secfa/docker-awvs//Windows下可能需要添加一个参数docker run -it -d --cap-add LINUX_IMMUTABLE -p 13443:3443 secfa/docker-awvs
 
 访问awvs，在浏览器中打开https://127.0.0.1:13443（其中127.0.0.1可以替换为Docker所在服务器的地址）
 
-由于https的原因，首次访问这个网页会弹出不信任，直接无视访问即可。若是Google Chrome可能相对更麻烦一些，建议自行查看相关问题解决方案。
-默认的登录账户密码为
-12admin@admin.comadmin123
-
-若发现网页为英文，可以通过点击右上角的用户，选择Profile
-
-
-进入页面后，在Langu ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/18/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%887%EF%BC%89%EF%BC%9A%EF%BC%9AKPI/" title="网络安全学习（4）：KPI">网络安全学习（4）：KPI</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-18T08:53:34.000Z" title="发表于 2023-03-18 16:53:34">2023-03-18</time></span></div><div class="content">PKI
+由于https的原因，首次访问这个网页会弹出不信任，直接无视访问即可。若是Google Chrome可能相对更麻烦一些，建议自 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/18/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%887%EF%BC%89%EF%BC%9A%EF%BC%9AKPI/" title="网络安全学习（4）：KPI">网络安全学习（4）：KPI</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-18T08:53:34.000Z" title="发表于 2023-03-18 16:53:34">2023-03-18</time></span></div><div class="content">PKI
 PKI：Public Key Infrastructure 公钥基础设施
 作用：通过加密技术和数字签名保证信息的安全
 组成：公钥加密技术、数字证书、CA、RA

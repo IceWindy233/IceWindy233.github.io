@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-04-24 13:13:33'
+  postUpdate: '2023-04-29 01:46:22'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -176,8 +176,21 @@ get提交有长度限制，最长2048个字符；
 post提交没有长度要求，不是只允许使用ASCII字符，还可以使用二进制数据
 
 
-往往来说，POST提交比GET提交更安全
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/" title="SQL注入（9）：DNSlog注入">SQL注入（9）：DNSlog注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-17T15:12:46.000Z" title="发表于 2023-04-17 23:12:46">2023-04-17</time></span></div><div class="content">DNSlog注入
+POST提交演示
+这里我们使用less-11进行演示，并使用burpsuite进行抓包演示
+
+我们可以发现，在内容区存在三个参数uname、passwd和submit。这三个参数就是我们刚刚提交的登录操作，我们可以选择放行Forward或丢弃Drop，这里我们选择放行。发现出现登录失败的提示。
+
+一般来说，登陆的场景都是通过POST的方式提交的。
+联合注入
+我们在前面抓包分析后，发现提交的参数有三个，我们可以在hackbar添加Post data尝试我们之前GET提交熟悉的的流程，对网站注入点进行测试
+
+
+判断注入点闭合，并注释后面语句
+
+
+
+group by二分法判断查询列 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/" title="SQL注入（9）：DNSlog注入">SQL注入（9）：DNSlog注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-17T15:12:46.000Z" title="发表于 2023-04-17 23:12:46">2023-04-17</time></span></div><div class="content">DNSlog注入
 DNSlog注入实际上是属于盲注的一种，但是比盲注效率高一点。
 在一定的情况下，如果我们想对一个网站使用布尔或时间盲注，手动注入会对WAF的绕过会非常有帮助，但是效率不高，因此我们往往会使用SQLmap等工具注入，但是这种工具对很多网站都有限制。这时候就该尝试DNSlog注入。
 这种注入方式，相较于布尔或时间盲注而言，好处在于可以一组一组进行测试，不用再一个一个字符进行逐以测试，比其他两个盲注效率要高，但是要求服务器的读写权限都要对MySQL开启，如果没有开启的话，是不能使用这种注入方式的。
