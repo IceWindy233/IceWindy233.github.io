@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-07-29 17:27:38'
+  postUpdate: '2023-07-29 17:36:35'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -182,12 +182,14 @@ TCP端口信息收集
 
 从结果上看，有三个端口是开放的。
 进行UDP端口信息收集
-通常TCP协议扫描会比较慢，因此我们可以同时进行UDP端口信息收集
 1sudo nmap -sU --top-ports 20 10.10.10.9 -oA nmapscan/UDP
 解析：
 
 -sU：UDP扫描
-–top-ports 20：最常用的20 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/14/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%883%EF%BC%89%EF%BC%9ADNS/" title="信息收集（3）：DNS">信息收集（3）：DNS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-14T05:19:40.000Z" title="发表于 2023-07-14 13:19:40">2023-07-14</time></span></div><div class="content">NSLOOKUP
+–top-ports 20：最常用的20个端口
+
+
+可以看到扫描结果都是open|filtered的状态，没 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/07/14/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%883%EF%BC%89%EF%BC%9ADNS/" title="信息收集（3）：DNS">信息收集（3）：DNS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-14T05:19:40.000Z" title="发表于 2023-07-14 13:19:40">2023-07-14</time></span></div><div class="content">NSLOOKUP
 nslookup具有两种模式，交互和非交互
 非交互模式
 
