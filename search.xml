@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>Windows内核提权-JuicyPotato</title>
+      <link href="/2023/07/30/Windows%E5%86%85%E6%A0%B8%E6%8F%90%E6%9D%83-JuicyPotato/"/>
+      <url>/2023/07/30/Windows%E5%86%85%E6%A0%B8%E6%8F%90%E6%9D%83-JuicyPotato/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Powershell渗透测试工具-Nishang</title>
+      <link href="/2023/07/30/Powershell%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7-Nishang/"/>
+      <url>/2023/07/30/Powershell%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7-Nishang/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTB靶机-Bastard</title>
       <link href="/2023/07/24/HTB%E9%9D%B6%E6%9C%BA-Bastard/"/>
       <url>/2023/07/24/HTB%E9%9D%B6%E6%9C%BA-Bastard/</url>
@@ -58,9 +112,9 @@
     
     
     <entry>
-      <title>网络安全学习（9）：NETCAT</title>
-      <link href="/2023/07/07/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%889%EF%BC%89%EF%BC%9ANETCAT/"/>
-      <url>/2023/07/07/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%889%EF%BC%89%EF%BC%9ANETCAT/</url>
+      <title>网络工具瑞士军刀-NETCAT</title>
+      <link href="/2023/07/07/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7%E7%91%9E%E5%A3%AB%E5%86%9B%E5%88%80-NETCAT/"/>
+      <url>/2023/07/07/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7%E7%91%9E%E5%A3%AB%E5%86%9B%E5%88%80-NETCAT/</url>
       
         <content type="html"><![CDATA[<h2 id="netcat是什么">NETCAT是什么</h2><p>netcat被称为网络工具中的瑞士军刀，体积小功能多</p><ul><li>侦听模式 / 传输模式</li><li>telnet / 获取banner信息</li><li>传输文本信息</li><li>传输文件/目录，作为一个文件服务器或是说FTP服务器</li><li>加密传输文件</li><li>远程控制/木马，有个很理想的特性是杀毒软件几乎不会把NC当作病毒</li><li>加密所有流量</li><li>流媒体服务器</li><li>远程克隆硬盘（电子取证相关）</li></ul><h2 id="telnet-banner">telnet / banner</h2><ul><li><p>nc -nv 192.168.31.1 80</p><p>-n: 直接使用IP地址，不使用dns</p><p>-v: 展示详细信息</p></li></ul><p>连接后可以使用HTML相关的一些指令，例如<code>head /</code>等</p><h2 id="传输文本信息">传输文本信息</h2><ul><li>A：nc -l -p 4444</li><li>B：nc -nv 对方的IP 4444</li></ul><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307111450990.png" alt="image-20230711142317666"></p><p>这个功能可以在数字取证中使用，例如我们需要将ls -l的结果输出到另外一台机子上，并将结果输出到一个文本文件中，我们就可以用到这个功能</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307111457678.png" alt="image-20230711145721657"></p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307111457914.png" alt="image-20230711145750890"></p><h2 id="传输文件-目录">传输文件/目录</h2><h3 id="传输文件">传输文件</h3><ul><li>A： nc -lp 4444 &gt; 保存的名称</li><li>B： nc -nv 目标ip 4444 &lt; 要传递文件</li></ul><p>或</p><ul><li>A：nc -lp 4444 &lt; 要传输的名称</li><li>B： nc -nv 目标ip 4444 &gt; 保存的名称</li></ul><h3 id="传输目录">传输目录</h3><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307121334218.png" alt="image-20230712133423205"></p><p>-q的含义是传输完毕后1秒关闭通讯</p><h3 id="加密传文件">加密传文件</h3><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307121334489.png" alt="image-20230712133446454"></p><p>实际上后面两种都是通过管道对文件或者目录进行处理之后变成一个文件再进行传输</p><h2 id="流媒体服务">流媒体服务</h2><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307121416991.png" alt="image-20230712141601955"></p><p>实际上也是和前面几种类似的</p><h2 id="远程克隆硬盘">远程克隆硬盘</h2><p>原理上与上面的也是类似的，使用dd将硬盘打包为一个文件，然后用nc传输</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307121430777.png" alt="image-20230712143044737"></p><h2 id="端口扫描">端口扫描</h2><ul><li><p>nc -nvz 1.1.1.1 1-65535</p><p>-z : zero-I/O mode[used for scanning]</p><p>默认情况下使用的是tcp协议探测</p></li><li><p>nc -nvzu 1.1.1.1 1-1024</p><p>-u : 使用udp协议探测</p></li></ul><h2 id="远程控制">远程控制</h2><p>nc在一定程度上能够替代ssh</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307121512591.png" alt="image-20230712151231539"></p><p>正向：B控制A，反向：A控制B</p><p>即提供<code>-c bash</code>那边是被控制一端</p><h2 id="ncat">ncat</h2><p>nc本身缺少加密和身份验证的能力，而ncat是一个更加强大版本的nc，它是nmap工具包的一部分。基本功能与nc无差别，不具体介绍，这里介绍一下ncat的加密功能。</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202307131505583.png" alt="image-20230713150534535"></p>]]></content>
       
@@ -712,9 +766,9 @@
     
     
     <entry>
-      <title>网络安全学习（8）：wireshark</title>
-      <link href="/2023/03/22/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%888%EF%BC%89%EF%BC%9Awireshark/"/>
-      <url>/2023/03/22/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%EF%BC%888%EF%BC%89%EF%BC%9Awireshark/</url>
+      <title>抓包分析-wireshark</title>
+      <link href="/2023/03/22/%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90-wireshark/"/>
+      <url>/2023/03/22/%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90-wireshark/</url>
       
         <content type="html"><![CDATA[<p>WireShark是一个网络封包分析软件，可以直接与网卡进行数据报文交互。是一个非常强大的抓包工具。</p><h2 id="软件的安装">软件的安装</h2><p>个人环境为：Manjaro Linux X86_64</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S wireshark-qt</span><br></pre></td></tr></table></figure><p>我们需要使用Root权限去打开WireShark，否则会无法抓取到我们网卡的网络封包，例如</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303231726229.png" alt="image.png"></p><p>我们有两种方式的通过Root权限打开WireShark，第一种是在命令行通过<code>sudo wireshark &amp;</code>执行，但是控制台关闭WireShark也会关闭。</p><p>第二种是使用<code>sudo</code>的图形化版本<code>gksu</code>，然后在wireshark的<code>.desktop</code>内修改<code>Excu</code></p><ol><li>安装<code>gksu</code></li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S gksu</span><br></pre></td></tr></table></figure><ol start="2"><li>打开<code>/usr/share/applications</code>，用编辑器打开WireShark的快捷方式，将<code>Excu</code>一行修改成这样</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec=gksu wireshark %f</span><br></pre></td></tr></table></figure><p>接下来我们打开命令行会看到这样的窗口</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303231733061.png" alt="image.png"></p><p>证明成功，输入密码打开即可看到我们的网卡。</p><h2 id="基础使用">基础使用</h2><p>首先我们选到<code>捕获</code>-<code>选项</code></p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303232059703.png" alt=""></p><p>这里会展示出所有的接口，展开接口我们会看到我们的ip地址，通过这个地址，我们可以找到我们的网卡。选择网卡，点击开始，WireShark就会开启捕获流经的数据包</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303232101857.png" alt="image.png"></p><p>为了方便我们查看，WireShark将不同数据包分成不同颜色以便分辨（虽然我没啥用）。我们来测试一下抓包，比如我们尝试<code>ping baidu.com</code></p><ol><li>执行需要抓包操作</li><li>我们可以通过过滤栏设置过滤条件筛选我们需要的数据包，具体的筛选操作我们在下面提到。我们这里使用<code>icmp</code>，筛选到我们发出的ping操作</li></ol><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303232108168.png" alt="image.png"></p><h2 id="主要界面">主要界面</h2><p>过滤器。用于设置过滤条件筛选数据包</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303232214598.png" alt="image.png"></p><p>数据包列表，用于显示捕获到的数据包。不同协议数据包使用不同颜色进行区分；</p><p>信息从左到右分别是编号，时间戳，源地址，目标地址，协议，长度，信息</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303232215935.png" alt="image.png"></p><p>数据包详细信息。在数据包列表选择指定的数据包，在数据包中会有详细信息内容。可以用于查看协议中的每一个字段。其内容分别为：</p><ul><li>Frame：物理层数据帧概况</li><li>Ethernet II：数据链路层以太网帧头部信息</li><li>Internet Protocol Version 4（IPv4）：网络层IP包头信息</li><li>Transmission Control Protocol：传输层的数据短头部信息，此处是TCP，User Datagram Protocol为UDP</li><li>Hypertext Transfer Protocol: 应用层的信息，此处是HTTP协议HTTP</li></ul><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303232231494.png" alt="image.png"></p><p>数据包字节区</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303232234194.png" alt="image.png"></p><h2 id="过滤器">过滤器</h2><p>WiresShark具有两种过滤器。值得我们注意的是，<strong>两种过滤器的语法都有所不同</strong>，捕获过滤器（抓包前）和显示过滤器（抓包后）的语法具有一定的区别。</p><h3 id="捕获过滤器">捕获过滤器</h3><p>捕获过滤器的语法格式为</p><p><code>&lt;Protocol&gt; &lt;Direction&gt; &lt;Host&gt; &lt;Value&gt; &lt;Logical Operation&gt; &lt;other expression&gt;</code></p><ul><li>Protocol：协议。若未指明协议，则为默认使用所有支持的协议。</li><li>DIrecion：方向。用于指定来源或目的地。取值有<code>src(来源)、dst(目的地)</code>以及<code>src and dst</code>和<code>src or dst</code>。默认会使用<code>src or dst</code></li><li>Host(s)：主机地址。</li><li>Logical Operation：逻辑运算。<ul><li>and 与</li><li>or 或</li><li>not 非</li><li>() 改变优先级。默认优先级为not最高，从左至右运算</li></ul></li><li>Other expression：其他表达式。</li></ul><h4 id="基于类型过滤">基于类型过滤</h4><p>可能使用的类型有主机host，网段net，端口port，端口范围portrange，特殊类型</p><ol><li><p>主机Host<br>捕获主机10.0.0.1的包：host 10.0.0.1</p></li><li><p>网段net<br>后面可以跟的值有三种形式：net mask CIDR</p><ul><li>net:<br>net 10.0.0.0 <a href="//xn--255-iq0f38ib8jvp2b.255.255.255">//对应掩码255.255.255.255</a><br>net 10.0.0   <a href="//xn--255-iq0f38ib8jvp2b.255.255.0">//对应掩码255.255.255.0</a><br>…类推</li><li>mask:<br>net 10.0.0.0 mask 255.255.255.0</li><li>CIDR:<br>net 10.0.0.0/24</li></ul></li><li><p>端口port<br>捕获端口为80的包：port 80</p></li><li><p>端口范围portrange<br>捕获端口范围为1-100的包：portrange 1-100</p></li><li><p>特殊类型 gateway Host</p></li></ol><h4 id="基于方向过滤">基于方向过滤</h4><p>可以在host、net、port、portrange前添加这些关键词</p><ol><li><p>源src<br>捕获源地址为10.0.0.1的数据包：src host 10.0.0.1<br>其他3个都是类似如此使用，不再作出演示</p></li><li><p>目标dst</p></li><li><p>源或者目标src or dst</p></li><li><p>源和目标src and dst</p></li><li><p>特殊方向<br>除了上述4种，还有两种特殊方向:</p><ul><li>广播：broadcast</li><li>多播：multicast<br>捕获以太网广播流量：ether broadcast<br>捕获以太网多播流量：ether multicast</li></ul></li></ol><h4 id="基于协议过滤">基于协议过滤</h4><p>WIreShark支持如下协议过滤：</p><p>ether、fddi、 wlan、 <strong>ip(ipv4、ipv6)</strong>、arprarp、decnet、 lat、 sca、 moproc、 mopdl、 <strong>tcp</strong>、<strong>udp</strong></p><p>通过协议与前面的过滤规则逻辑运算，可以达到精准过滤</p><p>例子：过滤源主机为10.0.0.1并且为tcp协议端口号为80的数据 src host 10.0.0.1 and tcp port 80</p><h4 id="基于数据过滤">基于数据过滤</h4><ol><li><p>长度过滤<br>可以使用less(&lt;=)、greater(&gt;=)关键词<br>长度小于等于12：less 12</p></li><li><p>内容过滤<br>语法格式：<code>proto[expr:size] relop express</code></p><ul><li>proto：协议</li><li>expr：指定协议的偏移地址*</li><li>size：指定数据长度</li><li>relop：运算符，<br>关系运算符有 <code>&gt;,&lt;,&gt;=,&lt;=,==,!=</code><br>二进制运算符有 <code>+，-，*，/，%，&amp;，|，^,&lt;&lt;,&gt;&gt;</code></li></ul><p>协议的偏移地址：指在网络数据包中用于标识数据包中所包含的协议类型的字段的位置偏移量。这个偏移地址的值通常是一个固定的值，以字节为单位表示，用于从数据包的开始位置或数据链路层的头部开始计算。</p></li></ol><h3 id="显示过滤器">显示过滤器</h3><p>这里只列举出常见的显示过滤器规则</p><h4 id="地址过滤">地址过滤</h4><ul><li><p>对源地址、目的地址过滤<br>ip.src == 10.0.0.1    ip.dst == 10.0.0.1</p></li><li><p>对源地址或者目的地址过滤（or）<br>ip.addr == 10.0.0.1</p></li><li><p>排除某个地址的数据包<br>!(ip.addr == 10.0.0.1)</p></li></ul><h4 id="端口过滤">端口过滤</h4><p>传输层协议名(tcp、udp).端口方向 值大小判断 端口号</p><ul><li><p>对源端口、目的端口过滤<br>tcp.srcport == 80    tcp.dstport == 80</p></li><li><p>对源端口或者目标端口过滤（or）<br>tcp.port == 80</p></li><li><p>大于某个端口过滤<br>tcp.port &lt;= 100</p></li></ul><h4 id="协议过滤">协议过滤</h4><p>直接在过滤框内输入协议名即可</p><p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303251323154.png" alt="image.png"></p><h4 id="http相关">http相关</h4><ul><li><p>过滤出请求地址中包含“user”的请求<br>http.request.uri contains user</p></li><li><p>过滤域名<br>http.host == <a href="http://www.baidu.com">www.baidu.com</a></p></li><li><p>模糊过滤域名<br>http.host contains baidu</p></li><li><p>过滤content_type类型<br>http.content_type == ‘text/html’</p></li><li><p>过滤请求方法<br>http.request.method == get</p></li><li><p>过滤响应码<br>http.request.code == 200</p></li><li><p>过滤含有特定内容的cookie数据包<br>http.cookie contains userid</p></li></ul>]]></content>
       
