@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
 <meta property="article:published_time" content="2023-04-22T06:45:55.000Z">
-<meta property="article:modified_time" content="2023-09-08T12:42:24.476Z">
+<meta property="article:modified_time" content="2023-09-08T12:50:22.066Z">
 <meta property="article:author" content="IceWindy">
 <meta property="article:tag" content="网络安全">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-08 20:42:24'
+  postUpdate: '2023-09-08 20:50:22'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -168,7 +168,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SQL注入（10）：POST注入</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-22T06:45:55.000Z" title="发表于 2023-04-22 14:45:55">2023-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-08T12:42:24.476Z" title="更新于 2023-09-08 20:42:24">2023-09-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/">SQL注入</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">452</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="post提交注入">POST提交注入</h2>
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SQL注入（10）：POST注入</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-22T06:45:55.000Z" title="发表于 2023-04-22 14:45:55">2023-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-08T12:50:22.066Z" title="更新于 2023-09-08 20:50:22">2023-09-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/">SQL注入</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">452</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="post提交注入">POST提交注入</h2>
 <p>POST提交注入有别于我们之前的注入方式，我们之前的注入方式都采用了GET请求的方式，而POST提交注入是使用POST请求的方式进行尝试注入。</p>
 <h3 id="post提交-get提交对比">POST提交、GET提交对比</h3>
 <ul>
@@ -183,35 +183,35 @@
 </ul>
 <h3 id="post提交演示">POST提交演示</h3>
 <p>这里我们使用less-11进行演示，并使用burpsuite进行抓包演示</p>
-<img src="image.icewindy.cn/202304282346059.png" alt="image-20230428234628954" style="zoom: 50%;" />
+<img src="https://image.icewindy.cn/202304282346059.png" alt="image-20230428234628954" style="zoom: 50%;" />
 <p>我们可以发现，在内容区存在三个参数uname、passwd和submit。这三个参数就是我们刚刚提交的登录操作，我们可以选择放行Forward或丢弃Drop，这里我们选择放行。发现出现登录失败的提示。</p>
-<img src="image.icewindy.cn/202304282347552.png" alt="image-20230428234720489" style="zoom:67%;" />
+<img src="https://image.icewindy.cn/202304282347552.png" alt="image-20230428234720489" style="zoom:67%;" />
 <p>一般来说，登陆的场景都是通过POST的方式提交的。</p>
 <h3 id="联合注入">联合注入</h3>
 <p>我们在前面抓包分析后，发现提交的参数有三个，我们可以在hackbar添加Post data尝试我们之前GET提交熟悉的的流程，对网站注入点进行测试</p>
 <ul>
 <li>
 <p>判断注入点闭合，并注释后面语句</p>
-<img src="image.icewindy.cn/202304290016917.png" alt="image-20230429001620832" style="zoom: 50%;" />
+<img src="https://image.icewindy.cn/202304290016917.png" alt="image-20230429001620832" style="zoom: 50%;" />
 </li>
 <li>
 <p>group by二分法判断查询列数。发现无报错列数不符即可</p>
-<img src="image.icewindy.cn/202304290019136.png" alt="image-20230429001934053" style="zoom:50%;" />
+<img src="https://image.icewindy.cn/202304290019136.png" alt="image-20230429001934053" style="zoom:50%;" />
 </li>
 <li>
 <p>把uname修改为不存在数字或为空（我这里已经是不存在的），测试联合查询</p>
-<img src="image.icewindy.cn/202304290022996.png" alt="image-20230429002235928" style="zoom:50%;" />
+<img src="https://image.icewindy.cn/202304290022996.png" alt="image-20230429002235928" style="zoom:50%;" />
 </li>
 <li>
 <p>依次拿到靶机数据库名（可直接database()）、表名、列名</p>
 <p>表名</p>
-<img src="image.icewindy.cn/202304290025662.png" alt="image-20230429002530619" style="zoom:67%;" />
+<img src="https://image.icewindy.cn/202304290025662.png" alt="image-20230429002530619" style="zoom:67%;" />
 <p>列名</p>
-<img src="image.icewindy.cn/202304290027327.png" alt="image-20230429002709272" style="zoom:67%;" />
+<img src="https://image.icewindy.cn/202304290027327.png" alt="image-20230429002709272" style="zoom:67%;" />
 </li>
 <li>
 <p>拿取最终目标</p>
-<img src="image.icewindy.cn/202304290029629.png" alt="image-20230429002940565" style="zoom: 50%;" />
+<img src="https://image.icewindy.cn/202304290029629.png" alt="image-20230429002940565" style="zoom: 50%;" />
 </li>
 </ul>
 <p>对于其他注入方式来说，流程上和方法上大致都无差异，最大差异在于把<code>--+</code>替换成<code>#</code>作注释掉后续代码。</p>
