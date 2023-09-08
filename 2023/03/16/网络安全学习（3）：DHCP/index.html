@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
 <meta property="article:published_time" content="2023-03-16T11:50:55.000Z">
-<meta property="article:modified_time" content="2023-03-17T08:13:06.552Z">
+<meta property="article:modified_time" content="2023-09-08T12:42:24.498Z">
 <meta property="article:author" content="IceWindy">
 <meta property="article:tag" content="网络安全">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-03-17 16:13:06'
+  postUpdate: '2023-09-08 20:42:24'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -168,7 +168,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">网络安全学习（3）：DHCP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-16T11:50:55.000Z" title="发表于 2023-03-16 19:50:55">2023-03-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-17T08:13:06.552Z" title="更新于 2023-03-17 16:13:06">2023-03-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">网络基础</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="dhcp">DHCP</h2>
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">网络安全学习（3）：DHCP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-16T11:50:55.000Z" title="发表于 2023-03-16 19:50:55">2023-03-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-08T12:42:24.498Z" title="更新于 2023-09-08 20:42:24">2023-09-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">网络基础</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="dhcp">DHCP</h2>
 <p>DHCP具体在这里不会赘述，主要讲DHCP原理、部署、安全。</p>
 <h3 id="dhcp原理">DHCP原理</h3>
 <p>可以称为DHCP租约过程，分为四个步骤</p>
@@ -195,21 +195,21 @@
 <h2 id="部署dhcp服务器">部署DHCP服务器</h2>
 <p>使用的服务器版本：Windows Server 2022</p>
 <p>首先我们打开设置，找到应用，选择程序与功能（相关设置）</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303171441317.png" alt=""></p>
+<p><img src="image.icewindy.cn/202303171441317.png" alt=""></p>
 <p>我们选择启用或关闭Windows功能，按步骤选择DHCP服务器，完成功能的安装。接着我们对虚拟机进行设置，将其设置为内部网络，并创建一个虚拟网络</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303171445639.png" alt=""></p>
+<p><img src="image.icewindy.cn/202303171445639.png" alt=""></p>
 <p>然后我们进入到WindowsServer的网络连接设置，打开TCP/IP设置</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303171446799.png" alt=""></p>
+<p><img src="image.icewindy.cn/202303171446799.png" alt=""></p>
 <p>我们需要设置我们的网段，这里我们使用<code>10.1.1.x</code>网段，子网掩码选择<code>255.255.255.0</code>。设置完成后，我们使用netstat -an查看我们服务器的网络状况</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303171450717.png" alt=""></p>
+<p><img src="image.icewindy.cn/202303171450717.png" alt=""></p>
 <p>发现存在这两个端口，这两个端口就是我们提供DHCP协议服务的端口。</p>
 <p>接下来我们要设置我们的<code>地址池/作用域</code>。我们通过管理工具，选择工具，打开DHCP，出现一个这样的界面</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303171454877.png" alt=""></p>
+<p><img src="image.icewindy.cn/202303171454877.png" alt=""></p>
 <p>首先我们需要右键IPv4，选择新建作用域，我们可以按照我们的需求分配地址池，我一般习惯从11开始，并且预留结束，即250结束。然后长度选择24</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303171458946.png" alt=""></p>
+<p><img src="image.icewindy.cn/202303171458946.png" alt=""></p>
 <p>排除ip和租期可以根据自己需求分配。DNS和网关地址都由具体情况而修改。WINS服务器可以直接跳过。即可完成部署。</p>
 <p>接着我们进入客户机，同样修改网络到同一个虚拟网下，开启自动获取IP地址</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303171518443.png" alt=""></p>
+<p><img src="image.icewindy.cn/202303171518443.png" alt=""></p>
 <p>已成功获取到DHCP分配的地址。</p>
 <p>常见的客户机上关于获取DHCP相关的命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /release 释放IP（取消租约）</span><br><span class="line">ipconfig /renew   重新获取IP（有IP时，发送Request续约，无IP时，发送Discovery重新获取IP）</span><br></pre></td></tr></table></figure>
@@ -220,7 +220,7 @@
 <h2 id="选项优先级">选项优先级</h2>
 <p>首先我们来介绍服务器选项，假设我们在这台DHCP服务器上需要部署多个网段的分配，我们之前提及，我们需要为作用域分配作用域选项，包括DNS服务器、路由器等。</p>
 <p>我们为了简化创建流程我们可以在创建时，把部分设置都留空，然后在作用域的同一层里面我们发现有一个服务器选项。</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202303171539105.png" alt=""></p>
+<p><img src="image.icewindy.cn/202303171539105.png" alt=""></p>
 <p>这个服务器选项会默认继承给作用域内。</p>
 <p>但是我们发现网关这个选项，是没有办法通过在服务器选项中继承下来的，因为每个网段他们的网关都不相同，因此我们要给每个作用域自行设置网关。</p>
 <p>跟面向对象语言中继承的关系很相同，作用域可以重写继承下来的服务器选项，这个就是选项优先级。</p>

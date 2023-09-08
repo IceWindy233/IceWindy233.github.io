@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
 <meta property="article:published_time" content="2023-03-30T14:03:47.000Z">
-<meta property="article:modified_time" content="2023-04-02T08:40:56.090Z">
+<meta property="article:modified_time" content="2023-09-08T12:42:24.479Z">
 <meta property="article:author" content="IceWindy">
 <meta property="article:tag" content="网络安全">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-04-02 16:40:56'
+  postUpdate: '2023-09-08 20:42:24'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -168,7 +168,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SQL注入（3）：一次简单的注入过程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-30T14:03:47.000Z" title="发表于 2023-03-30 22:03:47">2023-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-02T08:40:56.090Z" title="更新于 2023-04-02 16:40:56">2023-04-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/">SQL注入</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">670</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一次简单的注入过程">一次简单的注入过程</h2>
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SQL注入（3）：一次简单的注入过程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-30T14:03:47.000Z" title="发表于 2023-03-30 22:03:47">2023-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-08T12:42:24.479Z" title="更新于 2023-09-08 20:42:24">2023-09-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/">SQL注入</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">670</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一次简单的注入过程">一次简单的注入过程</h2>
 <p>上个笔记我们提及了闭合方式如何判断和判断之后有什么用。这里我们使用union联合注入来演示一次简单的注入，union联合注入就是闭合后可以添加使得原查询和第二个查询同时执行。继续使用less-1来作演示。</p>
 <p>根据之前的笔记，我们已经判断出less-1使用的是字符型闭合，然后我们又判断出闭合的方式是使用单引号闭合，然后我们可以使用<code>--+</code>将末尾多余的单引号提出。</p>
 <h3 id="判断列数">判断列数</h3>
@@ -179,15 +179,15 @@
 <ol>
 <li>
 <p>首先我们尝试一个比较大的列数，发现无法正常返回结果</p>
-<img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304021326496.png" alt="image-20230402132649462" style="zoom:50%;" />
+<img src="image.icewindy.cn/202304021326496.png" alt="image-20230402132649462" style="zoom:50%;" />
 </li>
 <li>
 <p>接着我们尝试其一半的列数</p>
-<img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304021327887.png" alt="image-20230402132745861" style="zoom:50%;" />
+<img src="image.icewindy.cn/202304021327887.png" alt="image-20230402132745861" style="zoom:50%;" />
 </li>
 <li>
 <p>继续尝试一半的列数，发现可以正常</p>
-<img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304021628685.png" alt="image-20230402162825661" style="zoom:50%;" />
+<img src="image.icewindy.cn/202304021628685.png" alt="image-20230402162825661" style="zoom:50%;" />
 </li>
 <li>
 <p>然后我们往后加大列数来测试，发现4不行，3可以，则3为列数</p>
@@ -201,10 +201,10 @@
 <h3 id="查询回显位">查询回显位</h3>
 <p>找到列数之后，我们就可以使用联合查询了。我们可以使用随便一些数字或者字符作为占列符，填充足够3列，然后再加入我们想要查询的内容。</p>
 <p>但是我们发现，页面它只能显示出第一行的内容。因此我们需要让原查询为空，让我们的页面实现出我们的代码，一般来说，我们让原查询结果为空即可，这里我们让<code>id=-1</code></p>
-<img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304021629041.png" alt="image-20230402162944014" style="zoom:67%;" />
+<img src="image.icewindy.cn/202304021629041.png" alt="image-20230402162944014" style="zoom:67%;" />
 <h3 id="查询所需数据">查询所需数据</h3>
 <p>到现在我们就可以注入我们想要的查询，例如我们想查询一个database()和version()，我们只需要将这两个方法填入2, 3位即可</p>
-<img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202304021633119.png" alt="image-20230402163358087" style="zoom:50%;" />
+<img src="image.icewindy.cn/202304021633119.png" alt="image-20230402163358087" style="zoom:50%;" />
 <p>至此，注入完成。</p>
 <h2 id="总结">总结</h2>
 <p>一个简单的SQL注入有以下步骤</p>

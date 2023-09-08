@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
 <meta property="article:published_time" content="2022-04-22T09:06:02.000Z">
-<meta property="article:modified_time" content="2022-11-17T12:57:53.000Z">
+<meta property="article:modified_time" content="2023-09-08T12:42:24.452Z">
 <meta property="article:author" content="IceWindy">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-11-17 20:57:53'
+  postUpdate: '2023-09-08 20:42:24'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -168,19 +168,19 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git入门笔记（2）：远程仓库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-22T09:06:02.000Z" title="发表于 2022-04-22 17:06:02">2022-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-17T12:57:53.000Z" title="更新于 2022-11-17 20:57:53">2022-11-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E8%83%BD/">实用技能</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="git入门笔记-二">Git入门笔记（二）</h2>
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">81</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git入门笔记（2）：远程仓库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-22T09:06:02.000Z" title="发表于 2022-04-22 17:06:02">2022-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-08T12:42:24.452Z" title="更新于 2023-09-08 20:42:24">2023-09-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E8%83%BD/">实用技能</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="git入门笔记-二">Git入门笔记（二）</h2>
 <h3 id="远程仓库">远程仓库</h3>
 <h4 id="克隆项目到本地">克隆项目到本地</h4>
 <p>很简单，<code>git clone &lt;url&gt;</code>在url填入远程仓库的地址就可以clone到本地了，url处有两种地址，一种是通过SSH进行克隆，另外一种是通过HTTPS的方式进行克隆。</p>
-<img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202204221855787.png" alt="image-20220422185525713" style="zoom:67%;" />
+<img src="image.icewindy.cn/202204221855787.png" alt="image-20220422185525713" style="zoom:67%;" />
 <p>上面为SSH的方式，下面为HTTPS的方式。</p>
 <h4 id="初始化远程仓库">初始化远程仓库</h4>
 <h5 id="https">HTTPS</h5>
 <p>以GitHub为例子，具体账号与仓库创建不再赘述。</p>
 <p>仓库创建好了之后，我们看到我们的仓库是没有初始化的，GitHub页面上会出现一个初始化的教程。</p>
-<img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202204222053081.png" alt="image-20220422205301003" style="zoom: 33%;" />
+<img src="image.icewindy.cn/202204222053081.png" alt="image-20220422205301003" style="zoom: 33%;" />
 <p>我们照着教程上初始化即可，简单来说，它的初始化过程就是，先生成一个<code>README.md</code>，接着创建一个本地仓库，提交<code>README.md</code>到本地仓库，然后将本地仓库推送到远程仓库，即可完成初始化。</p>
-<img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202204222103895.png" alt="image-20220422210303739" style="zoom: 40%;" />
+<img src="image.icewindy.cn/202204222103895.png" alt="image-20220422210303739" style="zoom: 40%;" />
 <h5 id="配置ssh">配置SSH</h5>
 <p>Git支持多种协议，其中包括SSH，SSH速度相当不错，比HTTPS效果更佳。我们来配置一下SSH。</p>
 <p>第一步，我们检查一下电脑上是否已经存在<code>SSH Key</code>。</p>
@@ -231,7 +231,7 @@
 <p>第三步，添加<code>SSH Key</code>至Github。</p>
 <p>用任何文本编辑器打开你的公钥<code>id_rsa.pub</code>，复制文件内所有信息。</p>
 <p>打开你的Github，点击你的头像，选择<code>settings</code>，然后再<code>Access</code>中找到<code>SSH and GPG keys</code>选项，选择<code>New SSH key</code>。</p>
-<p><img src="https://icewindy-blog.oss-cn-shenzhen.aliyuncs.com/202204242038466.png" alt="image-20220424203852243"></p>
+<p><img src="image.icewindy.cn/202204242038466.png" alt="image-20220424203852243"></p>
 <p>在<code>title</code>填入你想给这个<code>SSH Key</code>的备注，在<code>Key</code>中粘贴进刚刚复制的信息，点击<code>Add SSH key</code>即可。</p>
 <p>这样就添加成功<code>SSH Key</code>了。</p>
 <p>第四步，测试SSH Key。</p>
