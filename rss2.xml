@@ -15,8 +15,36 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 12 Nov 2023 13:52:44 GMT</pubDate>
+    <pubDate>Sat, 09 Dec 2023 13:56:54 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>polar靶场2023冬季个人挑战赛writeup-web</title>
+      <link>http://www.icewindy.cn/2023/12/09/polar%E9%9D%B6%E5%9C%BA2023%E5%86%AC%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwriteup-web/</link>
+      <guid>http://www.icewindy.cn/2023/12/09/polar%E9%9D%B6%E5%9C%BA2023%E5%86%AC%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwriteup-web/</guid>
+      <pubDate>Sat, 09 Dec 2023 07:54:33 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;简单&quot;&gt;简单&lt;/h1&gt;
+&lt;h2 id=&quot;cool&quot;&gt;cool&lt;/h2&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/CTF/">CTF</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      
+      <comments>http://www.icewindy.cn/2023/12/09/polar%E9%9D%B6%E5%9C%BA2023%E5%86%AC%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwriteup-web/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>HTB靶机-codify</title>
@@ -269,34 +297,6 @@
       
       
       <comments>http://www.icewindy.cn/2023/04/22/SQL%E6%B3%A8%E5%85%A5%EF%BC%8810%EF%BC%89%EF%BC%9APOST%E6%B3%A8%E5%85%A5/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>SQL注入（9）：DNSlog注入</title>
-      <link>http://www.icewindy.cn/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/</link>
-      <guid>http://www.icewindy.cn/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/</guid>
-      <pubDate>Mon, 17 Apr 2023 15:12:46 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;dnslog注入&quot;&gt;DNSlog注入&lt;/h2&gt;
-&lt;p&gt;DNSlog注入实际上是属于盲注的一种，但是比盲注效率高一点。&lt;/p&gt;
-&lt;p&gt;在一定的情况下，如果我们想对一个网站使用布尔或时间盲注，手动注入会对WAF的绕过会非常有帮助，但是效率不高，因此我们往往会使用SQL</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/">SQL注入</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2023/04/17/SQL%E6%B3%A8%E5%85%A5%EF%BC%889%EF%BC%89%EF%BC%9ADNSlog%E6%B3%A8%E5%85%A5/#disqus_thread</comments>
       
     </item>
     
