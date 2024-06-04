@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
 <meta property="article:published_time" content="2024-03-25T11:32:16.000Z">
-<meta property="article:modified_time" content="2024-05-18T16:17:13.714Z">
+<meta property="article:modified_time" content="2024-06-04T02:20:57.135Z">
 <meta property="article:author" content="IceWindy">
 <meta property="article:tag" content="网络安全">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-05-19 00:17:13'
+  postUpdate: '2024-06-04 10:20:57'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -169,7 +169,7 @@
     }
     detectApple()
     })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/rss2.xml" title="IceWindy's Blog" type="application/rss+xml">
-<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">30</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">护网面试可能会被问的内容总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-25T11:32:16.000Z" title="发表于 2024-03-25 19:32:16">2024-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-18T16:17:13.714Z" title="更新于 2024-05-19 00:17:13">2024-05-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="owasp-top-10">OWASP Top 10</h1>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">30</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">护网面试可能会被问的内容总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-25T11:32:16.000Z" title="发表于 2024-03-25 19:32:16">2024-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-04T02:20:57.135Z" title="更新于 2024-06-04 10:20:57">2024-06-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="owasp-top-10">OWASP Top 10</h1>
 <h2 id="注入-injection">注入 Injection</h2>
 <h3 id="原理">原理</h3>
 <p>通常由应用程序缺少对输入进行安全性检查所引起的。攻击者把一些包含攻击代码当做命令或者查询语句发送给解释器，这些恶意数据可以欺骗解释器，从而执行计划外的命令或者未授权访问数据。</p>
@@ -324,6 +324,7 @@
 <li>
 <p>时间盲注不能使用工具或者脚本，怎么样注入较快</p>
 <ul>
+<li>尝试外带查询</li>
 <li>优化查询策略采用二分查找法</li>
 <li>简化数据集</li>
 </ul>
@@ -339,7 +340,7 @@
 </li>
 <li>
 <p>验证码有什么缺陷</p>
-<img src="https://image.3001.net/images/20211109/1636448772_618a3a047225c16f3e3ae.png!small" alt="img" style="zoom: 67%;" />
+<img src="https://image.icewindy.cn/2024/06/14c4999851266cb42842284b90e5beb5.jpeg" alt="img" style="zoom: 67%;" />
 </li>
 <li>
 <p>一个企业需要做暴露面处理，需要注意哪些地方</p>
