@@ -15,21 +15,22 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 04 Jun 2024 02:20:57 GMT</pubDate>
+    <pubDate>Sun, 20 Apr 2025 02:01:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>护网面试可能会被问的内容总结</title>
-      <link>http://www.icewindy.cn/2024/03/25/%E6%8A%A4%E7%BD%91%E9%9D%A2%E8%AF%95%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%A2%AB%E9%97%AE%E7%9A%84%E5%86%85%E5%AE%B9%E6%80%BB%E7%BB%93/</link>
-      <guid>http://www.icewindy.cn/2024/03/25/%E6%8A%A4%E7%BD%91%E9%9D%A2%E8%AF%95%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%A2%AB%E9%97%AE%E7%9A%84%E5%86%85%E5%AE%B9%E6%80%BB%E7%BB%93/</guid>
+      <title>HVV面试题</title>
+      <link>http://www.icewindy.cn/2024/03/25/HVV%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <guid>http://www.icewindy.cn/2024/03/25/HVV%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <pubDate>Mon, 25 Mar 2024 11:32:16 GMT</pubDate>
       
         
         
-      <description>&lt;h1 id=&quot;owasp-top-10&quot;&gt;OWASP Top 10&lt;/h1&gt;
-&lt;h2 id=&quot;注入-injection&quot;&gt;注入 Injection&lt;/h2&gt;
-&lt;h3 id=&quot;原理&quot;&gt;原理&lt;/h3&gt;
-&lt;p&gt;通常由应用程序缺少对输入进行安全性检查所引起的。攻击者把一些包含攻击代码当</description>
+      <description>&lt;h2 id=&quot;国誉2024初筛&quot;&gt;国誉2024初筛&lt;/h2&gt;
+&lt;h3 id=&quot;用过什么安全设备&quot;&gt;用过什么安全设备&lt;/h3&gt;
+&lt;h3 id=&quot;给你一个登录框-可能有什么漏洞&quot;&gt;给你一个登录框，可能有什么漏洞&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;sql注入、xss、csrf、会话劫持&lt;/</description>
         
       
       
@@ -43,7 +44,7 @@
       <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
       
       
-      <comments>http://www.icewindy.cn/2024/03/25/%E6%8A%A4%E7%BD%91%E9%9D%A2%E8%AF%95%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%A2%AB%E9%97%AE%E7%9A%84%E5%86%85%E5%AE%B9%E6%80%BB%E7%BB%93/#disqus_thread</comments>
+      <comments>http://www.icewindy.cn/2024/03/25/HVV%E9%9D%A2%E8%AF%95%E9%A2%98/#disqus_thread</comments>
       
     </item>
     
