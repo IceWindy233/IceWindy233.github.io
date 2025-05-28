@@ -15,8 +15,36 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 11 May 2025 14:18:47 GMT</pubDate>
+    <pubDate>Tue, 27 May 2025 13:27:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>渗透+应急靶机：vulntarget-m</title>
+      <link>http://www.icewindy.cn/2025/05/27/%E6%B8%97%E9%80%8F-%E5%BA%94%E6%80%A5%E9%9D%B6%E6%9C%BA%EF%BC%9Avulntarget-m/</link>
+      <guid>http://www.icewindy.cn/2025/05/27/%E6%B8%97%E9%80%8F-%E5%BA%94%E6%80%A5%E9%9D%B6%E6%9C%BA%EF%BC%9Avulntarget-m/</guid>
+      <pubDate>Tue, 27 May 2025 11:23:50 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;靶机拓扑图及配置&quot;&gt;靶机拓扑图及配置&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://image.icewindy.cn/2025/05/da2a004bae0949da0684cc0302064bed.&quot; alt=&quot;图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;靶机配置：&lt;a h</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/">靶机</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/05/27/%E6%B8%97%E9%80%8F-%E5%BA%94%E6%80%A5%E9%9D%B6%E6%9C%BA%EF%BC%9Avulntarget-m/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>URLDNS反序列化利用链</title>
@@ -277,33 +305,6 @@
       
       
       <comments>http://www.icewindy.cn/2023/09/24/HTB%E9%9D%B6%E6%9C%BA-APT/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Windows内核提权-JuicyPotato</title>
-      <link>http://www.icewindy.cn/2023/07/30/Windows%E5%86%85%E6%A0%B8%E6%8F%90%E6%9D%83-JuicyPotato/</link>
-      <guid>http://www.icewindy.cn/2023/07/30/Windows%E5%86%85%E6%A0%B8%E6%8F%90%E6%9D%83-JuicyPotato/</guid>
-      <pubDate>Sun, 30 Jul 2023 05:18:17 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;juicypotato简介&quot;&gt;JuicyPotato简介&lt;/h2&gt;
-&lt;p&gt;JuciyPotato俗称烂土豆，是一个基于MS16-075漏洞利用工具RottenPotatoN上改进的内核提权工具。&lt;a href=&quot;https://github.com/ohpe/ju</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%B7%A5%E5%85%B7/">工具</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2023/07/30/Windows%E5%86%85%E6%A0%B8%E6%8F%90%E6%9D%83-JuicyPotato/#disqus_thread</comments>
       
     </item>
     
