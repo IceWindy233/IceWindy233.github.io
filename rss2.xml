@@ -15,8 +15,35 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 27 May 2025 13:27:38 GMT</pubDate>
+    <pubDate>Wed, 04 Jun 2025 14:52:11 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CobaltStrike流量特征</title>
+      <link>http://www.icewindy.cn/2025/06/01/CobaltStrike%E6%B5%81%E9%87%8F%E7%89%B9%E5%BE%81/</link>
+      <guid>http://www.icewindy.cn/2025/06/01/CobaltStrike%E6%B5%81%E9%87%8F%E7%89%B9%E5%BE%81/</guid>
+      <pubDate>Sun, 01 Jun 2025 07:46:36 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;原文与图片来源：&lt;a href=&quot;https://www.ddosi.org/cobaltstrike/&quot;&gt;https://www.ddosi.org/cobaltstrike/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;基础特征-修改profile-证书可隐藏&quot;&gt;基础特征（修改pr</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E8%93%9D%E9%98%9F/">蓝队</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/06/01/CobaltStrike%E6%B5%81%E9%87%8F%E7%89%B9%E5%BE%81/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>渗透+应急靶机：vulntarget-m</title>
@@ -277,34 +304,6 @@
       
       
       <comments>http://www.icewindy.cn/2023/11/12/HTB%E9%9D%B6%E6%9C%BA-codify/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>HTB靶机-APT</title>
-      <link>http://www.icewindy.cn/2023/09/24/HTB%E9%9D%B6%E6%9C%BA-APT/</link>
-      <guid>http://www.icewindy.cn/2023/09/24/HTB%E9%9D%B6%E6%9C%BA-APT/</guid>
-      <pubDate>Sun, 24 Sep 2023 02:35:17 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;nmap扫描&quot;&gt;Nmap扫描&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;tcp端口扫描&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.icewindy.cn/2024/02/f79bf7b14fc620a9a8bfebcbd10fe1ca.</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/">靶机</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2023/09/24/HTB%E9%9D%B6%E6%9C%BA-APT/#disqus_thread</comments>
       
     </item>
     
