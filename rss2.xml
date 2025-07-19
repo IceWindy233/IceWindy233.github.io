@@ -15,8 +15,36 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 04 Jun 2025 14:52:11 GMT</pubDate>
+    <pubDate>Sat, 19 Jul 2025 09:13:54 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>SQL注入判断数据库类型</title>
+      <link>http://www.icewindy.cn/2025/07/18/SQL%E6%B3%A8%E5%85%A5%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/</link>
+      <guid>http://www.icewindy.cn/2025/07/18/SQL%E6%B3%A8%E5%85%A5%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/</guid>
+      <pubDate>Fri, 18 Jul 2025 14:09:35 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;基于报错信息判断&quot;&gt;基于报错信息判断&lt;/h2&gt;
+&lt;p&gt;如果注入点对报错信息直接进行返回的话，我们可以通过他返回的报错信息判断得到数据库的类型，以下为不完全列举，具体可以直接把报错语句丢到搜索引擎或AI查询&lt;/p&gt;
+&lt;h3 id=&quot;mysql错误信息&quot;&gt;MySQL错</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/SQL%E6%B3%A8%E5%85%A5/">SQL注入</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/07/18/SQL%E6%B3%A8%E5%85%A5%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>CobaltStrike流量特征</title>
@@ -277,33 +305,6 @@
       
       
       <comments>http://www.icewindy.cn/2023/12/09/polar%E9%9D%B6%E5%9C%BA2023%E5%86%AC%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwriteup-web/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>HTB靶机-codify</title>
-      <link>http://www.icewindy.cn/2023/11/12/HTB%E9%9D%B6%E6%9C%BA-codify/</link>
-      <guid>http://www.icewindy.cn/2023/11/12/HTB%E9%9D%B6%E6%9C%BA-codify/</guid>
-      <pubDate>Sun, 12 Nov 2023 06:58:08 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;连接并检查稳定性&quot;&gt;连接并检查稳定性&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://image.icewindy.cn/2023/11/e649170f28c540a2dc2e2722f67992c0.png&quot; alt=&quot;image-202311121503</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%9D%B6%E6%9C%BA/">靶机</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2023/11/12/HTB%E9%9D%B6%E6%9C%BA-codify/#disqus_thread</comments>
       
     </item>
     
