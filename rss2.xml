@@ -15,8 +15,36 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sat, 19 Jul 2025 09:13:54 GMT</pubDate>
+    <pubDate>Sun, 20 Jul 2025 13:05:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Android逆向(1):APK文件结构、基础修改</title>
+      <link>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91-1-APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/</link>
+      <guid>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91-1-APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/</guid>
+      <pubDate>Sat, 19 Jul 2025 11:53:10 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;apk文件结构&quot;&gt;APK文件结构&lt;/h2&gt;
+&lt;p&gt;APK全程Android Package，相当于一个压缩文件。以压缩包的形式打开一个APK可以看到他的结构：&lt;/p&gt;
+&lt;img src=&quot;https://image.icewindy.cn/2025/07/983b</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/Android%E9%80%86%E5%90%91/">Android逆向</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91-1-APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>SQL注入判断数据库类型</title>
@@ -277,34 +305,6 @@
       
       
       <comments>http://www.icewindy.cn/2023/12/10/smb%E5%88%A9%E7%94%A8-vulnhub%E9%9D%B6%E6%9C%BAWestWild-v1-1/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>polar靶场2023冬季个人挑战赛writeup-web</title>
-      <link>http://www.icewindy.cn/2023/12/09/polar%E9%9D%B6%E5%9C%BA2023%E5%86%AC%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwriteup-web/</link>
-      <guid>http://www.icewindy.cn/2023/12/09/polar%E9%9D%B6%E5%9C%BA2023%E5%86%AC%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwriteup-web/</guid>
-      <pubDate>Sat, 09 Dec 2023 07:54:33 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h1 id=&quot;简单&quot;&gt;简单&lt;/h1&gt;
-&lt;h2 id=&quot;cool&quot;&gt;cool&lt;/h2&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/CTF/">CTF</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2023/12/09/polar%E9%9D%B6%E5%9C%BA2023%E5%86%AC%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwriteup-web/#disqus_thread</comments>
       
     </item>
     

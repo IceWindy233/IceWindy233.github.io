@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Android逆向(1):APK文件结构、基础修改</title>
+      <link href="/2025/07/19/Android%E9%80%86%E5%90%91-1-APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/"/>
+      <url>/2025/07/19/Android%E9%80%86%E5%90%91-1-APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/</url>
+      
+        <content type="html"><![CDATA[<h2 id="apk文件结构">APK文件结构</h2><p>APK全程Android Package，相当于一个压缩文件。以压缩包的形式打开一个APK可以看到他的结构：</p><img src="https://image.icewindy.cn/2025/07/983bc1d5485ba4cc2ffa86c63047af2a.png" alt="image-20250719215326654" style="zoom:67%;" /><table><thead><tr><th style="text-align:left">文件</th><th style="text-align:left">描述</th></tr></thead><tbody><tr><td style="text-align:left">kotlin</td><td style="text-align:left">使用kotlin编写的Android应用时携带的库</td></tr><tr><td style="text-align:left">META-INF</td><td style="text-align:left">保存应用的签名信息，用于验证应用完整性</td></tr><tr><td style="text-align:left">okhttp3</td><td style="text-align:left">一个依赖包</td></tr><tr><td style="text-align:left">res</td><td style="text-align:left">存放app前端用到的一些图形组件库，一些情况下APP会将证书放在里面的raw目录底下</td></tr><tr><td style="text-align:left">assets</td><td style="text-align:left">存放app的资源文件，通常存放图片之类的静态资源，有时候会存放app的证书，一些仅由HTML5封装的app，其前端代码也会存放在该文件夹下</td></tr><tr><td style="text-align:left">AndroidManifest.xml</td><td style="text-align:left">APK的应用清单，描述了应用的名字、版本、权限、引用的库文件等信息</td></tr><tr><td style="text-align:left">classes.dex</td><td style="text-align:left">java源码编译后的java字节码文件，应用运行的主要逻辑</td></tr><tr><td style="text-align:left">resources.arsc</td><td style="text-align:left">编译后的二进制资源文件，为一个映射表</td></tr></tbody></table><h2 id="汉化">汉化</h2><p>流程图</p><img src="https://image.icewindy.cn/2025/07/f6ae457edfba43acb15133c874889da5.png" alt="image.png" style="zoom:50%;" /><p>现在我们的示例app里面有一个需要我们汉化的地方</p><img src="https://image.icewindy.cn/2025/07/c3b465ddc5aa3b6c2ba3395ea9126074.png" alt="image.png" style="zoom: 33%;" /><p>现在我们用第一种方法：我们使用NP管理器，打开APK，搜索hello</p><img src="https://image.icewindy.cn/2025/07/4522538a142b85d07c76083f3d069f3b.png" alt="image.png" style="zoom: 50%;" /><p>通过这种方式我们可以找到我们需要修改的地方</p><img src="https://image.icewindy.cn/2025/07/b6400f163e861bc5fe138e3191291eee.png" alt="image.png" style="zoom:50%;" /><p>直接进行修改成“你好，吾爱破解”，然后保存并安装即可。</p><p>第二种方法适用于我们需要定位再复制内容的情况，例如上面俄文的部分，我们可以通过开发者助手这个app进行定位布局，并且复制再进行修改</p><img src="https://image.icewindy.cn/2025/07/1d81292f2847fc7057fe48596777bf48.png" alt="image-20250720184433576" style="zoom: 33%;" /><p>我们通过第一种方法同样的操作后我们发现了这个语句被放在了<code>resources.arsc</code>文件内，通过np管理器的翻译功能我们可以进入到他的编辑页面，选择DEFAULT，找到对应的语句我们就可以进行修改了</p><img src="https://image.icewindy.cn/2025/07/aaa19b85622f07b2ad230171bcc2299e.png" alt="image-20250720185151008" style="zoom:50%;" /><p>然后我们app内还有最后一个，最后一句是硬编码存放在<code>classes.dex</code>，我们用Dex编辑进入，搜索对应的字符串</p><img src="https://image.icewindy.cn/2025/07/6a25e515a8cabd82aaf0023a1e5d140e.png" alt="image-20250720185530758" style="zoom:50%;" /><img src="https://image.icewindy.cn/2025/07/c027c1229963f28c8a6f31ca8126f79a.png" alt="image-20250720185715156" style="zoom:50%;" /><p>保存，并让np管理器进行签名即可完成修改汉化。</p><img src="https://image.icewindy.cn/2025/07/9f09f964bb4fdff04f6b002d63bb8164.png" alt="image-20250720185841054" style="zoom: 33%;" /><h2 id="androidmanifest-xml">AndroidManifest.xml</h2><p>AndroidManifest.xml文件是整个应用程序的信息描述文件，定义了应用程序中包含的<code>Activity</code>、<code>Service</code>、<code>Content provider</code>、<code>BroadcastReceiver</code>组件信息。</p><p>它描述了package中暴露的组件和他们的实现类，还有各种能被处理的数据和启动位置。</p><p>几个比较常见的属性</p><table><thead><tr><th>属性</th><th>定义</th></tr></thead><tbody><tr><td>versionCode</td><td>版本号</td></tr><tr><td>versionName</td><td>版本名</td></tr><tr><td>package</td><td>包名</td></tr><tr><td>uses-permission android:name=&quot;&quot;</td><td>应用权限</td></tr><tr><td>android:label=&quot;@string/app_name&quot;</td><td>APP名称</td></tr><tr><td>android:icon=&quot;@mipmap/ic_launcher&quot;</td><td>APP图标位置</td></tr><tr><td>android:debuggable=“true”</td><td>是否开启DEBUG权限</td></tr></tbody></table><p>通过反编译后编辑他的属性的值再签名打包，我们可以做到删除某些权限，或者修改他的名称图标之类的，当然对签名验证的APP直接采用这种方式不太可行。</p><p>反编译后的AndroidManifest.xml如下</p><img src="https://image.icewindy.cn/2025/07/58730a6d000cb6d874f6dea20a534bc1.png" alt="image-20250720205028011" style="zoom: 33%;" /><p>我们来尝试修改应用名字和图标，直接可以使用NP管理器的功能，里面有<code>通用编辑功能</code>，我们可以通过这种方式修改</p><img src="https://image.icewindy.cn/2025/07/94ba65e2542223abb7ad70c37af4e0aa.png" alt="image-20250720205153614" style="zoom:50%;" /><h2 id="课后作业">课后作业</h2><p>这个课程还有一个课后作业，第一个是自己尝试双开，第二个是替换图片。第一个就懒得做了，直接做第二个，在res文件夹里面找到图片替换即可</p><p><img src="https://image.icewindy.cn/2025/07/bd46d63e2d2fc09653c608fd2fc0e173.png" alt="image-20250720210510149"></p><p>不知道有没有其他法子，目前只会这种（</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 移动安全 </category>
+          
+          <category> Android逆向 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 移动安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入判断数据库类型</title>
       <link href="/2025/07/18/SQL%E6%B3%A8%E5%85%A5%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/"/>
       <url>/2025/07/18/SQL%E6%B3%A8%E5%85%A5%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/</url>
