@@ -15,13 +15,70 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 21 Jul 2025 09:03:22 GMT</pubDate>
+    <pubDate>Tue, 22 Jul 2025 11:20:20 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>信息安全工程师软考（2）：网络攻击原理与常用方法</title>
+      <link>http://www.icewindy.cn/2025/07/22/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%882%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <guid>http://www.icewindy.cn/2025/07/22/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%882%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      <pubDate>Tue, 22 Jul 2025 06:22:42 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;网络攻击基础与模型&quot;&gt;网络攻击基础与模型&lt;/h2&gt;
+&lt;h3 id=&quot;攻击原理表&quot;&gt;攻击原理表&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;攻击者分类：黑客（挑战/好奇）、间谍（获取情报）、恐怖主义者（恐怖事件）、公司职员（报复）、职业犯罪分子（经济利益）、破坏者（无目的破坏）&lt;/</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/07/22/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%882%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Android逆向(3):四大组件、Activity、弹窗定位</title>
+      <link>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91-3-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/</link>
+      <guid>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91-3-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/</guid>
+      <pubDate>Tue, 22 Jul 2025 02:49:35 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;广告类型&quot;&gt;广告类型&lt;/h2&gt;
+&lt;p&gt;启动广告 弹窗&amp;amp;更新广告 横幅广告&lt;/p&gt;
+&lt;img src=&quot;https://image.icewindy.cn/2025/07/af919988c7f3f7ae142bb4e4f0f010b8.png&quot; style</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/Android%E9%80%86%E5%90%91/">Android逆向</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91-3-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>信息安全工程师软考（1）:网络信息安全基础、管理、法律法规</title>
-      <link>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89/</link>
-      <guid>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89/</guid>
+      <link>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E3%80%81%E7%AE%A1%E7%90%86%E3%80%81%E6%B3%95%E5%BE%8B%E6%B3%95%E8%A7%84/</link>
+      <guid>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E3%80%81%E7%AE%A1%E7%90%86%E3%80%81%E6%B3%95%E5%BE%8B%E6%B3%95%E8%A7%84/</guid>
       <pubDate>Mon, 21 Jul 2025 04:52:17 GMT</pubDate>
       
         
@@ -44,7 +101,7 @@
       <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
       
       
-      <comments>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89/#disqus_thread</comments>
+      <comments>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E3%80%81%E7%AE%A1%E7%90%86%E3%80%81%E6%B3%95%E5%BE%8B%E6%B3%95%E8%A7%84/#disqus_thread</comments>
       
     </item>
     
@@ -247,67 +304,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/04/20/docker%E7%9A%84deamon-json%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9%E5%90%8E%E9%87%8D%E5%90%AFDocker%E6%9C%8D%E5%8A%A1%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Fastjson RCE漏洞</title>
-      <link>http://www.icewindy.cn/2025/04/20/FastjsonRCE%E6%BC%8F%E6%B4%9E/</link>
-      <guid>http://www.icewindy.cn/2025/04/20/FastjsonRCE%E6%BC%8F%E6%B4%9E/</guid>
-      <pubDate>Sun, 20 Apr 2025 02:06:35 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;fastjson漏洞&quot;&gt;Fastjson漏洞&lt;/h2&gt;
-&lt;h3 id=&quot;判断是否使用fastjson&quot;&gt;判断是否使用Fastjson&lt;/h3&gt;
-&lt;p&gt;本次测试以vulhub提供的版本1.2.24和1.2.45为例&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;单&lt;code&gt;&amp;</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%9D%A2%E8%AF%95/">面试</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/04/20/FastjsonRCE%E6%BC%8F%E6%B4%9E/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>HVV面试题</title>
-      <link>http://www.icewindy.cn/2024/03/25/HVV%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
-      <guid>http://www.icewindy.cn/2024/03/25/HVV%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
-      <pubDate>Mon, 25 Mar 2024 11:32:16 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;国誉2024初筛&quot;&gt;国誉2024初筛&lt;/h2&gt;
-&lt;h3 id=&quot;用过什么安全设备&quot;&gt;用过什么安全设备&lt;/h3&gt;
-&lt;h3 id=&quot;给你一个登录框-可能有什么漏洞&quot;&gt;给你一个登录框，可能有什么漏洞&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;sql注入、xss、csrf、会话劫持&lt;/</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%9D%A2%E8%AF%95/">面试</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2024/03/25/HVV%E9%9D%A2%E8%AF%95%E9%A2%98/#disqus_thread</comments>
       
     </item>
     
