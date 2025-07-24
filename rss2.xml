@@ -15,8 +15,35 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 23 Jul 2025 07:52:29 GMT</pubDate>
+    <pubDate>Thu, 24 Jul 2025 09:46:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（4）：网络安全体系与模型</title>
+      <link>http://www.icewindy.cn/2025/07/24/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%884%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%A8%A1%E5%9E%8B/</link>
+      <guid>http://www.icewindy.cn/2025/07/24/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%884%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%A8%A1%E5%9E%8B/</guid>
+      <pubDate>Thu, 24 Jul 2025 07:06:46 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+&lt;img src=&quot;https://image.icewindy.cn/2025/07/eb474358276b7b05a9070031c5e14efc.png&quot; alt=&quot;image-20250724151954533&quot; style=&quot;z</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/07/24/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%884%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%A8%A1%E5%9E%8B/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（3）：密码学</title>
@@ -79,9 +106,9 @@
     </item>
     
     <item>
-      <title>Android逆向(3):四大组件、Activity、弹窗定位</title>
-      <link>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91-3-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/</link>
-      <guid>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91-3-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/</guid>
+      <title>Android逆向（3）：四大组件、Activity、弹窗定位</title>
+      <link>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91%EF%BC%883%EF%BC%89%EF%BC%9A%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/</link>
+      <guid>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91%EF%BC%883%EF%BC%89%EF%BC%9A%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/</guid>
       <pubDate>Tue, 22 Jul 2025 02:49:35 GMT</pubDate>
       
         
@@ -102,7 +129,7 @@
       <category domain="http://www.icewindy.cn/tags/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
       
       
-      <comments>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91-3-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/#disqus_thread</comments>
+      <comments>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91%EF%BC%883%EF%BC%89%EF%BC%9A%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D/#disqus_thread</comments>
       
     </item>
     
@@ -137,9 +164,9 @@
     </item>
     
     <item>
-      <title>Android逆向(2):smali基础</title>
-      <link>http://www.icewindy.cn/2025/07/21/Android%E9%80%86%E5%90%91-2-smali%E5%9F%BA%E7%A1%80/</link>
-      <guid>http://www.icewindy.cn/2025/07/21/Android%E9%80%86%E5%90%91-2-smali%E5%9F%BA%E7%A1%80/</guid>
+      <title>Android逆向（2）：smali基础</title>
+      <link>http://www.icewindy.cn/2025/07/21/Android%E9%80%86%E5%90%91%EF%BC%882%EF%BC%89%EF%BC%9Asmali%E5%9F%BA%E7%A1%80/</link>
+      <guid>http://www.icewindy.cn/2025/07/21/Android%E9%80%86%E5%90%91%EF%BC%882%EF%BC%89%EF%BC%9Asmali%E5%9F%BA%E7%A1%80/</guid>
       <pubDate>Mon, 21 Jul 2025 03:17:35 GMT</pubDate>
       
         
@@ -161,14 +188,14 @@
       <category domain="http://www.icewindy.cn/tags/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
       
       
-      <comments>http://www.icewindy.cn/2025/07/21/Android%E9%80%86%E5%90%91-2-smali%E5%9F%BA%E7%A1%80/#disqus_thread</comments>
+      <comments>http://www.icewindy.cn/2025/07/21/Android%E9%80%86%E5%90%91%EF%BC%882%EF%BC%89%EF%BC%9Asmali%E5%9F%BA%E7%A1%80/#disqus_thread</comments>
       
     </item>
     
     <item>
-      <title>Android逆向(1):APK文件结构、基础修改</title>
-      <link>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91-1-APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/</link>
-      <guid>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91-1-APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/</guid>
+      <title>Android逆向（1）：APK文件结构、基础修改</title>
+      <link>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91%EF%BC%881%EF%BC%89%EF%BC%9AAPK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/</link>
+      <guid>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91%EF%BC%881%EF%BC%89%EF%BC%9AAPK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/</guid>
       <pubDate>Sat, 19 Jul 2025 11:53:10 GMT</pubDate>
       
         
@@ -189,7 +216,7 @@
       <category domain="http://www.icewindy.cn/tags/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
       
       
-      <comments>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91-1-APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/#disqus_thread</comments>
+      <comments>http://www.icewindy.cn/2025/07/19/Android%E9%80%86%E5%90%91%EF%BC%881%EF%BC%89%EF%BC%9AAPK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9/#disqus_thread</comments>
       
     </item>
     
@@ -273,36 +300,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/05/27/%E6%B8%97%E9%80%8F-%E5%BA%94%E6%80%A5%E9%9D%B6%E6%9C%BA%EF%BC%9Avulntarget-m/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>URLDNS反序列化利用链</title>
-      <link>http://www.icewindy.cn/2025/05/09/URLDNS%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%A9%E7%94%A8%E9%93%BE/</link>
-      <guid>http://www.icewindy.cn/2025/05/09/URLDNS%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%A9%E7%94%A8%E9%93%BE/</guid>
-      <pubDate>Fri, 09 May 2025 08:53:19 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;urldns&quot;&gt;URLDNS&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;URLDNS&lt;/code&gt;为ysoserial工具中的一条反序列化利用链，一般用于检测是否存在反序列化漏洞。&lt;/p&gt;
-&lt;p&gt;该利用链有以下特点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;不限制JDK版本，不使用第三方依赖</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/Java%E5%AE%89%E5%85%A8/">Java安全</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/05/09/URLDNS%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%A9%E7%94%A8%E9%93%BE/#disqus_thread</comments>
       
     </item>
     
