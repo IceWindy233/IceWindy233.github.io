@@ -15,8 +15,38 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 07 Aug 2025 06:10:57 GMT</pubDate>
+    <pubDate>Thu, 07 Aug 2025 07:53:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（9）：VPN技术原理及应用</title>
+      <link>http://www.icewindy.cn/2025/08/07/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%889%EF%BC%89%EF%BC%9AVPN%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/</link>
+      <guid>http://www.icewindy.cn/2025/08/07/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%889%EF%BC%89%EF%BC%9AVPN%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/</guid>
+      <pubDate>Thu, 07 Aug 2025 06:34:08 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;vpn概述&quot;&gt;VPN概述&lt;/h2&gt;
+&lt;h3 id=&quot;vpn概念&quot;&gt;vpn概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;本质：Virtual Private Network（虚拟专用网）的缩写，通过在不可信任的公共网络上建立加密通道实现安全通信&lt;/li&gt;
+&lt;li&gt;核心机制：将需</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/07/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%889%EF%BC%89%EF%BC%9AVPN%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（8）：防火墙</title>
@@ -280,36 +310,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/07/22/Android%E9%80%86%E5%90%91%EF%BC%883%EF%BC%89%EF%BC%9A%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E3%80%81Activity%E3%80%81%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D%E3%80%81%E5%B8%83%E5%B1%80%E4%BC%98%E5%8C%96/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（1）:网络信息安全基础、管理、法律法规</title>
-      <link>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E3%80%81%E7%AE%A1%E7%90%86%E3%80%81%E6%B3%95%E5%BE%8B%E6%B3%95%E8%A7%84/</link>
-      <guid>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E3%80%81%E7%AE%A1%E7%90%86%E3%80%81%E6%B3%95%E5%BE%8B%E6%B3%95%E8%A7%84/</guid>
-      <pubDate>Mon, 21 Jul 2025 04:52:17 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;网络安全基础&quot;&gt;网络安全基础&lt;/h2&gt;
-&lt;h3 id=&quot;网络安全基本概念&quot;&gt;网络安全基本概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;信息化社会的主要特征：&lt;strong&gt;数字化、网络化、智能化&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;网络信息安全（狭义）：&lt;strong&gt;机密性</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/07/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%881%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E3%80%81%E7%AE%A1%E7%90%86%E3%80%81%E6%B3%95%E5%BE%8B%E6%B3%95%E8%A7%84/#disqus_thread</comments>
       
     </item>
     
