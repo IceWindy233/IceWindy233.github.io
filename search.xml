@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>信息安全工程师软考（10）：入侵检测</title>
+      <link href="/2025/08/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/"/>
+      <url>/2025/08/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="入侵检测概述">入侵检测概述</h2><ul><li>判断依据：对目标的操作是否超出了目标的安全策略范围。例如只有读权限却进行写操作就属于入侵行为。</li><li>检测方式：通过<strong>收集操作系统、系统程序、应用程序、网络包等信息，发现违背安全策略或危及系统安全的行为</strong>。</li><li>系统定义：具有入侵检测功能的系统称为入侵检测系统（Intrusion Detection System，简称IDS）。</li><li>IDS只可以检测，不能阻断。IDS一般为旁路部署，IPS一般是串行部署</li></ul><h3 id="入侵检测模型">入侵检测模型</h3><p><img src="https://image.icewindy.cn/2025/08/d13d4555f55c78e923f0912110ff4ef5.png" alt="image-20250808163131912"></p><ul><li>早期模型原理：根据审计记录数据生成系统轮廓（如正常行为基线），通过检测轮廓变化发现入侵。</li><li><strong>CIDF模型</strong>组成：<ul><li><strong>事件产生器</strong>：从计算环境获取事件并进行标准化</li><li><strong>事件分析器</strong>：分析数据并产生结果（判断是否为攻击）</li><li><strong>响应单元</strong>：根据分析结果做出响应动作</li><li><strong>事件数据库</strong>：存储中间和最终数据</li><li>模型特点：各组件协同工作，简单事件直接响应，复杂事件需经分析器处理。</li></ul></li></ul><h3 id="入侵检测作用">入侵检测作用</h3><ul><li>核心角色：扮演**&quot;预警机&quot;或&quot;安全巡逻人员&quot;<strong>角色，<strong>不是阻止</strong>入侵事件发生，而是通过检测技术来</strong>发现**系统中企图或已经违背安全策略的行为。</li><li>六大功能：<ul><li>发现系统中的入侵或异常行为</li><li>检验现有安全措施有效性</li><li>分析系统面临的威胁</li><li>阻止安全事件扩大（及时报警触发应急响应）</li><li>指导安全策略制定</li><li>提供网络犯罪取证证据</li></ul></li><li>与防火墙区别：防火墙像门卫只能检测大门进出，IDS能发现内部异常行为。</li><li>入侵检测技术还常用于<strong>安全态势感知</strong>。</li></ul><h3 id="安全态势感知">安全态势感知</h3><img src="https://image.icewindy.cn/2025/08/153a4a6983e512d6e1111b8a9edfed65.png" alt="image-20250808163737403" style="zoom: 33%;" /><ul><li>基本原理：<ul><li>数据采集：日志（来自IDS、终端Agent、网络设备等）和流量（专用探针或网络设备内置功能）</li><li>分析处理：大数据关联分析、时间序列分析等</li></ul></li><li>核心价值：<ul><li>统一分析海量安全数据</li><li>可视化展示全网安全态势</li><li>预测攻击发展趋势</li></ul></li><li>典型应用：<ul><li>威胁地图展示（国家/地区威胁热度排行）</li><li>资产风险态势监控</li><li>攻击源追踪分析</li></ul></li><li>实施要点：<ul><li>需要配套安全设备提供数据源</li><li>终端需部署EDR等探针软件</li><li>实际效果依赖数据质量和分析算法</li></ul></li></ul><h2 id="入侵检测原理与分类">入侵检测原理与分类</h2><h3 id="入侵检测原理">入侵检测原理</h3><h4 id="误用检测">误用检测</h4><p><img src="https://image.icewindy.cn/2025/08/5775cf8e4505f3666972ff7aca9f65b7.png" alt="image-20250808163944117"></p><ul><li>定义：又称基于特征的入侵检测方法，通过已知入侵模式库进行特征匹配检测</li><li>分类：<ul><li>基于条件概率（贝叶斯定理）</li><li>基于状态迁移</li><li>基于键盘监控</li><li>基于规则</li></ul></li><li>核心缺点：<strong>高度依赖特征库，无法检测新型攻击</strong></li></ul><h4 id="异常检测">异常检测</h4><p><img src="https://image.icewindy.cn/2025/08/96369173a3835f00e47ea737d1f7d1e3.png" alt="image-20250808164040477"></p><ul><li>定义：通过统计分析建立系统正常行为基线，检测偏离基线的异常行为</li><li>典型示例：<ul><li>常规成都登录突然出现上海登录记录</li></ul></li><li>分类：<ul><li>基于统计</li><li>基于模式预测</li><li>基于文本分类</li><li>基于贝叶斯推理</li></ul></li><li>核心缺点：<strong>存在较高误报率</strong></li><li>优势：<strong>能检测未知攻击类型</strong></li></ul><h3 id="入侵检测系统组成与分类">入侵检测系统组成与分类</h3><h4 id="系统组成">系统组成</h4><img src="https://image.icewindy.cn/2025/08/ba64700fe3d5e518c898adda2444954f.png" alt="image-20250808164646579" style="zoom:50%;" /><ul><li>核心模块：<ul><li>数据采集模块：收集审计记录/协议数据等</li><li>入侵分析引擎：核心检测模块</li><li>应急处理模块：实施防护措施</li><li>管理配置模块：用户配置接口</li><li>辅助模块：支持分析引擎运行</li></ul></li><li>工作流程：数据采集→分析检测→报警/应急处理</li></ul><h4 id="分类">分类</h4><h5 id="hids-基于主机的入侵检测系统">HIDS 基于主机的入侵检测系统</h5><img src="https://image.icewindy.cn/2025/08/4c7c9bfada1eaec064bce25032b1f13b.png" alt="image-20250808164910713" style="zoom:50%;" /><ul><li><p>检测依据：</p><ul><li>CPU/内存/磁盘使用率</li><li>网络端口状态</li><li>注册表变更</li><li>文件完整性</li><li>进程信息</li><li>系统调用记录</li></ul></li><li><p>数据来源：主机日志文件、系统调用记录等</p></li><li><p>部署特点：需在每个终端安装Agent</p></li><li><p>典型代表：杀毒软件、终端安全软件</p></li></ul><h5 id="nids基于网络的入侵检测系统">NIDS基于网络的入侵检测系统</h5><ul><li><p>基于网络的入侵检测系统的优点</p><ul><li>大规模监控：单点可监控整个网络出口流量</li><li>非侵入式：旁路部署不影响正常网络通信</li><li>隐蔽性强：对攻击者不可见（通过流量镜像分析）</li></ul></li><li><p>基于网络的入侵检测系统的缺点</p><ul><li>高速网络局限：可能出现丢包漏检</li><li>VLAN监测限制：交换机镜像端口不足导致覆盖不全</li><li>加密流量盲区：无法解析加密协议内容</li><li>结果不可见：仅能检测攻击行为无法确认攻击结果</li></ul></li></ul><h5 id="dids基于网络的分布式入侵检测系统">DIDS基于网络的分布式入侵检测系统</h5><ul><li><p>产生背景：</p><ul><li>漏洞分布分散化</li><li>攻击行为协同化</li><li>数据来源多元化</li><li>网络流量高速化</li></ul></li><li><p>系统类型：</p><img src="https://image.icewindy.cn/2025/08/56d85bcb9571939574b74cac00ae72da.png" alt="image-20250808165123660" style="zoom: 50%;" /><ul><li>HDIDS（主机分布式）：主机检测器Agent（EDR）+入侵管理控制器</li><li>NDIDS（网络分布式）：网络探测器+管理控制器</li></ul></li><li><p>典型架构：</p><ul><li>前端探测器分布式部署</li><li>后端管理平台集中分析</li></ul></li><li><p>现代演进：态势感知系统的技术前身</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考 </category>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软考 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>信息安全工程师软考（9）：VPN技术原理及应用</title>
       <link href="/2025/08/07/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%889%EF%BC%89%EF%BC%9AVPN%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/"/>
       <url>/2025/08/07/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%889%EF%BC%89%EF%BC%9AVPN%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/</url>
