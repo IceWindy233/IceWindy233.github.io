@@ -15,8 +15,37 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 08 Aug 2025 09:19:11 GMT</pubDate>
+    <pubDate>Tue, 12 Aug 2025 09:32:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（11）：网络物理隔离</title>
+      <link>http://www.icewindy.cn/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/</link>
+      <guid>http://www.icewindy.cn/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/</guid>
+      <pubDate>Tue, 12 Aug 2025 06:08:43 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;网络物理隔离技术&quot;&gt;网络物理隔离技术&lt;/h2&gt;
+&lt;h3 id=&quot;概述&quot;&gt;概述&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;定义：网络物理隔离是&lt;strong&gt;既满足内外网数据交换需求，又能防止网络安全事件出现&lt;/strong&gt;的安全技术。其基本原理是&lt;strong&gt;避免&lt;/str</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（10）：入侵检测</title>
@@ -282,35 +311,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/07/23/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%883%EF%BC%89%EF%BC%9A%E5%AF%86%E7%A0%81%E5%AD%A6/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（2）：网络攻击原理与常用方法</title>
-      <link>http://www.icewindy.cn/2025/07/22/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%882%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</link>
-      <guid>http://www.icewindy.cn/2025/07/22/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%882%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
-      <pubDate>Tue, 22 Jul 2025 06:22:42 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;网络攻击基础与模型&quot;&gt;网络攻击基础与模型&lt;/h2&gt;
-&lt;h3 id=&quot;攻击原理表&quot;&gt;攻击原理表&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;攻击者分类：黑客（挑战/好奇）、间谍（获取情报）、恐怖主义者（恐怖事件）、公司职员（报复）、职业犯罪分子（经济利益）、破坏者（无目的破坏）&lt;/</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/07/22/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%882%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/#disqus_thread</comments>
       
     </item>
     
