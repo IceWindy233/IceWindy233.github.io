@@ -15,8 +15,42 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 13 Aug 2025 08:23:47 GMT</pubDate>
+    <pubDate>Thu, 14 Aug 2025 08:37:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（13）：网络安全漏洞</title>
+      <link>http://www.icewindy.cn/2025/08/14/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8813%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/</link>
+      <guid>http://www.icewindy.cn/2025/08/14/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8813%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/</guid>
+      <pubDate>Thu, 14 Aug 2025 04:22:58 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;网络安全漏洞分类与管理&quot;&gt;网络安全漏洞分类与管理&lt;/h2&gt;
+&lt;h3 id=&quot;分类&quot;&gt;分类&lt;/h3&gt;
+&lt;h4 id=&quot;cve漏洞分类&quot;&gt;CVE漏洞分类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;维护机构：美国MITRE公司&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;核心功能：&lt;</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/14/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8813%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（12）：网络安全审计</title>
@@ -283,33 +317,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/07/29/Android%E9%80%86%E5%90%91%EF%BC%884%EF%BC%89%EF%BC%9A%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%E3%80%81log%E6%8F%92%E6%A1%A9/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（4）：网络安全体系与模型</title>
-      <link>http://www.icewindy.cn/2025/07/24/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%884%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%A8%A1%E5%9E%8B/</link>
-      <guid>http://www.icewindy.cn/2025/07/24/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%884%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%A8%A1%E5%9E%8B/</guid>
-      <pubDate>Thu, 24 Jul 2025 07:06:46 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
-&lt;img src=&quot;https://image.icewindy.cn/2025/07/eb474358276b7b05a9070031c5e14efc.png&quot; alt=&quot;image-20250724151954533&quot; style=&quot;z</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/07/24/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%884%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%A8%A1%E5%9E%8B/#disqus_thread</comments>
       
     </item>
     
