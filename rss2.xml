@@ -15,8 +15,41 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 14 Aug 2025 08:37:46 GMT</pubDate>
+    <pubDate>Tue, 19 Aug 2025 09:44:23 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（14）：恶意代码</title>
+      <link>http://www.icewindy.cn/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/</link>
+      <guid>http://www.icewindy.cn/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/</guid>
+      <pubDate>Fri, 15 Aug 2025 07:47:08 GMT</pubDate>
+      
+        
+        
+      <description>&lt;ul&gt;
+&lt;li&gt;恶意代码Malicious Code&lt;/li&gt;
+&lt;li&gt;病毒Virus&lt;/li&gt;
+&lt;li&gt;蠕虫Worms&lt;/li&gt;
+&lt;li&gt;特洛伊木马Trojan Horse&lt;/li&gt;
+&lt;li&gt;逻辑炸弹Logic Bombs&lt;/li&gt;
+&lt;li&gt;细菌Bacteria&lt;/li&gt;
+&lt;</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（13）：网络安全漏洞</title>
@@ -288,35 +321,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/01/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%885%EF%BC%89%EF%BC%9A%E7%89%A9%E7%90%86%E5%AE%89%E5%85%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Android逆向（4）：动态调试、log插桩</title>
-      <link>http://www.icewindy.cn/2025/07/29/Android%E9%80%86%E5%90%91%EF%BC%884%EF%BC%89%EF%BC%9A%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%E3%80%81log%E6%8F%92%E6%A1%A9/</link>
-      <guid>http://www.icewindy.cn/2025/07/29/Android%E9%80%86%E5%90%91%EF%BC%884%EF%BC%89%EF%BC%9A%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%E3%80%81log%E6%8F%92%E6%A1%A9/</guid>
-      <pubDate>Tue, 29 Jul 2025 06:51:20 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;动态调试&quot;&gt;动态调试&lt;/h2&gt;
-&lt;p&gt;动态调试是指自带的调试器跟踪自己软件的运行，可以在调试的过程中知道参数或者局部变量的值以及履清代码运行的先后顺序。多用于爆破注册码。&lt;/p&gt;
-&lt;h2 id=&quot;动态调试步骤&quot;&gt;动态调试步骤&lt;/h2&gt;
-&lt;h3 id=&quot;修改debu</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/Android%E9%80%86%E5%90%91/">Android逆向</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/07/29/Android%E9%80%86%E5%90%91%EF%BC%884%EF%BC%89%EF%BC%9A%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%E3%80%81log%E6%8F%92%E6%A1%A9/#disqus_thread</comments>
       
     </item>
     

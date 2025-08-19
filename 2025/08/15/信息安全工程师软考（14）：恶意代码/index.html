@@ -1,0 +1,780 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>信息安全工程师软考（14）：恶意代码 | IceWindy's Blog</title><meta name="keywords" content="软考"><meta name="author" content="IceWindy"><meta name="copyright" content="IceWindy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="恶意代码Malicious Code 病毒Virus 蠕虫Worms 特洛伊木马Trojan Horse 逻辑炸弹Logic Bombs 细菌Bacteria 恶意脚本Malicious Scripts 间谍软件Spyware  恶意代码概述 分类  被动传播:  病毒、木马、间谍软件、逻辑炸弹 特点：需要用户交互触发（如运行带毒文件）   主动传播:  网络蠕虫（典型代表，具有自主传播能力）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息安全工程师软考（14）：恶意代码">
+<meta property="og:url" content="http://www.icewindy.cn/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/index.html">
+<meta property="og:site_name" content="IceWindy&#39;s Blog">
+<meta property="og:description" content="恶意代码Malicious Code 病毒Virus 蠕虫Worms 特洛伊木马Trojan Horse 逻辑炸弹Logic Bombs 细菌Bacteria 恶意脚本Malicious Scripts 间谍软件Spyware  恶意代码概述 分类  被动传播:  病毒、木马、间谍软件、逻辑炸弹 特点：需要用户交互触发（如运行带毒文件）   主动传播:  网络蠕虫（典型代表，具有自主传播能力）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
+<meta property="article:published_time" content="2025-08-15T07:47:08.000Z">
+<meta property="article:modified_time" content="2025-08-19T09:44:23.876Z">
+<meta property="article:author" content="IceWindy">
+<meta property="article:tag" content="软考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.icewindy.cn/img/Top_img_than.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.icewindy.cn/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3755c90ac8644596cd3b47a85dd40cef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '信息安全工程师软考（14）：恶意代码',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-08-19 17:44:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/rss2.xml" title="IceWindy's Blog" type="application/rss+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">110</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">36</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">信息安全工程师软考（14）：恶意代码</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-15T07:47:08.000Z" title="发表于 2025-08-15 15:47:08">2025-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-19T09:44:23.876Z" title="更新于 2025-08-19 17:44:23">2025-08-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E8%80%83/">软考</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.4k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li>恶意代码Malicious Code</li>
+<li>病毒Virus</li>
+<li>蠕虫Worms</li>
+<li>特洛伊木马Trojan Horse</li>
+<li>逻辑炸弹Logic Bombs</li>
+<li>细菌Bacteria</li>
+<li>恶意脚本Malicious Scripts</li>
+<li>间谍软件Spyware</li>
+</ul>
+<h2 id="恶意代码概述">恶意代码概述</h2>
+<h3 id="分类">分类</h3>
+<ul>
+<li>被动传播:
+<ul>
+<li>病毒、木马、间谍软件、逻辑炸弹</li>
+<li>特点：需要用户交互触发（如运行带毒文件）</li>
+</ul>
+</li>
+<li>主动传播:
+<ul>
+<li>网络蠕虫（典型代表，具有自主传播能力）</li>
+<li>现代病毒可能兼具主动传播特性</li>
+</ul>
+</li>
+</ul>
+<h3 id="攻击模型">攻击模型</h3>
+<img src="https://image.icewindy.cn/2025/08/d0810b7f963a6fa2b8b9c66b55d5b550.png" alt="image-20250818154128041" style="zoom:50%;" />
+<ol>
+<li>侵入系统
+<ul>
+<li>感染途径:
+<ul>
+<li>下载携带恶意代码的程序（如破解软件）</li>
+<li>恶意邮件附件（如钓鱼邮件中的.doc文件）</li>
+<li>移动介质传播（U盘/光盘自动运行）</li>
+<li>系统预装植入（非官方系统镜像风险）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>维持或提升权限
+<ul>
+<li>核心目标: 获取更高权限（如从普通用户提权至管理员）</li>
+<li>实现方式: 利用系统漏洞或密码窃取技术</li>
+</ul>
+</li>
+<li>隐蔽
+<ul>
+<li>常见手段:
+<ul>
+<li>修改文件名/扩展名伪装（如.exe伪装为.txt）</li>
+<li>删除原始感染文件</li>
+<li>关闭安全软件（如禁用杀毒服务）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>潜伏
+<ul>
+<li>触发条件:
+<ul>
+<li>时间触发（如60天后激活）</li>
+<li>感染规模触发（如感染40%主机后爆发）</li>
+<li>典型实例：勒索病毒的延迟爆发策略</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>破坏
+<ul>
+<li>攻击维度:
+<ul>
+<li>数据窃取（破坏机密性）</li>
+<li>系统篡改（破坏完整性）</li>
+<li>服务拒绝（破坏可用性）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>重复
+<ul>
+<li>自动化过程: 重复①-⑤步实现持续感染扩散</li>
+</ul>
+</li>
+</ol>
+<h3 id="恶意代码生存技术">恶意代码生存技术</h3>
+<img src="https://image.icewindy.cn/2025/08/ee9d136e5754608eb65837dca00351a4.png" alt="image-20250818154414151" style="zoom: 50%;" />
+<img src="https://image.icewindy.cn/2025/08/210c3fd741b556003b29d046c7bf6173.png" alt="image-20250818155709617" style="zoom:50%;" />
+<img src="https://image.icewindy.cn/2025/08/2332bee76fd99cc18ba870968c97ad27.png" alt="image-20250818160645659" style="zoom:50%;" />
+<h3 id="恶意代码攻击技术">恶意代码攻击技术</h3>
+<ul>
+<li>进程注入：将恶意代码注入系统/网络服务实现隐蔽运行，只需安装一次即可持续活跃。典型特征是&quot;寄生&quot;于合法进程。</li>
+<li>超级管理：通过攻击反恶意代码软件（如关闭杀毒软件）实现隐蔽。考试重点：题干描述&quot;使安全软件瘫痪&quot;即指向该技术。</li>
+<li>端口反向连接：利用防火墙&quot;内松外紧&quot;特性，由被控端主动连接控制端。</li>
+<li>缓冲区溢出：利用程序漏洞获取控制权，使传播方式从被动变主动。</li>
+</ul>
+<h3 id="恶意代码分析技术">恶意代码分析技术</h3>
+<img src="https://image.icewindy.cn/2025/08/16c4a5d06e2af9d9791ebb1266aa5f96.png" alt="image-20250818162737312" style="zoom:67%;" />
+<h4 id="静态分析">静态分析</h4>
+<ul>
+<li>反恶意代码检测：
+<ul>
+<li>特征代码法：比对已知恶意代码特征</li>
+<li>校验和法：通过哈希值比对文件完整性（如注册表校验）</li>
+<li>行为监测法：监控可疑行为模式</li>
+<li>软件模拟法：虚拟环境运行检测</li>
+</ul>
+</li>
+<li>字符串分析：提取样本中的敏感字符串，包括：
+<ul>
+<li>恶意代码名称/作者信息</li>
+<li>后门密码/关联网址</li>
+<li>调用库函数特征</li>
+</ul>
+</li>
+<li>脚本分析：直接查看JS/Perl/Shell等脚本语言的源代码</li>
+<li>反编译分析：将EXE还原为高级语言代码，可读性较差</li>
+<li>反汇编分析：
+<ul>
+<li>线性遍历：从入口点顺序反汇编，可能遗漏跳转表数据</li>
+<li>递归遍历：通过控制流指令指导反汇编，解决线性法缺陷</li>
+</ul>
+</li>
+</ul>
+<h4 id="动态分析">动态分析</h4>
+<ul>
+<li>文件监测：追踪恶意代码对文件的增删改操作</li>
+<li>进程监测：监控异常进程创建或权限盗用</li>
+<li>网络监测：使用嗅探器分析传播内容</li>
+<li>注册表监测：监控系统配置数据库的异常修改</li>
+<li>动态反汇编：
+<ul>
+<li>同内存调试：调试器与恶意代码同地址空间，需修改目标程序地址</li>
+<li>仿真调试：通过虚拟化技术隔离调试，可绕过反跟踪技术但开销大</li>
+</ul>
+</li>
+</ul>
+<h3 id="防范策略">防范策略</h3>
+<img src="https://image.icewindy.cn/2025/08/17920503626487033524c592a4e1f599.png" alt="image-20250818163144649" style="zoom:50%;" />
+<ul>
+<li><strong>组织管理</strong>：
+<ul>
+<li>核心是责任落实到人（“有人担责措施才会跟上”）</li>
+<li>包含安全意识培养、安全制度建立等管理措施</li>
+</ul>
+</li>
+<li><strong>技术防御</strong>：
+<ul>
+<li>预防：杀毒软件部署、系统加固、访问控制</li>
+<li>检测：漏洞扫描、注册表审查</li>
+<li>应急响应：备份恢复、补丁管理</li>
+</ul>
+</li>
+<li>实施要点：符合等保2.0要求，<strong>管理措施与技术措施必须同步实施</strong></li>
+</ul>
+<h2 id="计算机病毒">计算机病毒</h2>
+<ul>
+<li>定义特征：计算机病毒是一组具有<strong>自我复制、传播能力的程序代码</strong>，常依附在可执行文件或文档文件中。</li>
+<li>四大特性：
+<ul>
+<li>隐蔽性：附加在正常软件中，用户未察觉时触发执行</li>
+<li>传染性：通过自我复制感染无病毒程序或磁盘引导区</li>
+<li>潜伏性：满足触发条件才执行恶意功能</li>
+<li>破坏性：后果不可预测，包括数据丢失、系统瘫痪等</li>
+</ul>
+</li>
+<li>核心组件：
+<ul>
+<li><strong>复制传染部件(replicator)</strong></li>
+<li><strong>隐藏部件(concealer)</strong></li>
+<li><strong>破坏部件(bomb)</strong></li>
+</ul>
+</li>
+<li>生命周期：
+<ul>
+<li><strong>复制传播阶段</strong>：持续数周至数年，<strong>主动</strong>搜寻新主机感染</li>
+<li><strong>激活阶段</strong>：根据日期/时间/感染文件数等条件触发破坏</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见类型与技术">常见类型与技术</h3>
+<img src="https://image.icewindy.cn/2025/08/212f75038d28aa65177fb1ea4cb5dd4f.png" alt="image-20250818172515559" style="zoom:50%;" />
+<h3 id="常见特征码">常见特征码</h3>
+<ul>
+<li>系统病毒：前缀Win32/PE，感染Windows系统的exe或dll文件</li>
+<li>蠕虫病毒：前缀Worm（如冲击波病毒）</li>
+<li>木马病毒：前缀Trojan（如游戏木马）</li>
+<li>脚本病毒：前缀Script（如欢乐时光病毒）</li>
+<li>宏病毒：前缀Macro（如Word97病毒）</li>
+<li>后门病毒：前缀Backdoor（如隐藏账号病毒）</li>
+<li>破坏程序病毒：前缀Harm（如熊猫烧香）</li>
+<li>捆绑机病毒：前缀Binder</li>
+</ul>
+<h3 id="防范策略与技术">防范策略与技术</h3>
+<ul>
+<li>查找计算机病毒源
+<ul>
+<li>比较法：对比原始备份与检测对象的完整性</li>
+<li>搜索法：扫描特定字节串识别病毒特征</li>
+<li>特征字识别法：抽取关键特征字加速识别</li>
+<li>分析法：逆向分析病毒代码结构</li>
+</ul>
+</li>
+<li>阻断计算机病毒传播途径（<strong>重点</strong>）
+<ul>
+<li>用户管理：培养安全意识，不运行未知软件</li>
+<li>载体消除：专机专用，禁用外部存储介质</li>
+<li>服务控制：关闭非必要功能（如脚本语言）</li>
+<li>网络隔离：生产网与办公网安全分区</li>
+</ul>
+</li>
+<li>主动查杀计算机病毒
+<ul>
+<li>定期病毒检测</li>
+<li>建立多级防护体系（如终端+网络层防护）</li>
+</ul>
+</li>
+<li>应急响应和灾备（<strong>重点</strong>）
+<ul>
+<li>备份：最有效方法，需系统级备份关键数据</li>
+<li>数据修复：部分恢复被破坏文件（如勒索病毒）</li>
+<li>网络过滤：防火墙/AV设备隔离感染主机</li>
+<li>应急预案：制定标准化处置流程</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算机病毒防护方案">计算机病毒防护方案</h3>
+<ul>
+<li>单机防护：终端杀毒软件（最后防线）</li>
+<li>网络防护：集中监控平台+特征库统一更新</li>
+<li>分级防护：终端-局域网-广域网三级管理</li>
+<li>邮件防护：网关处过滤病毒邮件</li>
+<li>网关防护：防火墙联动查杀（不影响带宽）</li>
+</ul>
+<h3 id="应用案例">应用案例</h3>
+<img src="https://image.icewindy.cn/2025/08/00dc3de9a94e214158ce5d071fa02d0c.png" alt="image-20250818174727764" style="zoom: 50%;" />
+<ul>
+<li>
+<p>基于网络病毒防御的安装部署模式示例图解析</p>
+<ul>
+<li>
+<p>架构特点：</p>
+<ul>
+<li>出口防火墙过滤互联网威胁</li>
+<li>服务器/工作站安装反病毒软件</li>
+<li>控制平台集中管理升级任务</li>
+</ul>
+</li>
+<li>
+<p>优势：减少出口带宽占用（特征库本地分发）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>局域网病毒防御架构示例图解析</p>
+<ul>
+<li>
+<p>三级管理：</p>
+<ul>
+<li>终端杀毒软件实时防护</li>
+<li>监控中心收集威胁情报</li>
+<li>总部平台统管分支机构</li>
+</ul>
+</li>
+<li>
+<p>信息流：通过Email/平台上报病毒事件</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="特洛伊木马">特洛伊木马</h2>
+<ul>
+<li>定义：具有伪装能力、隐蔽执行非法功能的恶意程序，英文简称Trojan Horse。</li>
+<li>传播特性：与病毒和蠕虫不同，木马不具有自我传播能力，而是通过电子邮件附件、文件捆绑等方式传播。</li>
+<li>危害表现：攻击者可远程控制受害计算机，进行文件访问、命令执行或DDoS攻击等操作。</li>
+<li>分类：
+<ul>
+<li>本地特洛伊木马：仅运行在单台主机，无远程通信功能（如UNIX系统下的盗用口令木马）</li>
+<li>网络特洛伊木马：由远程控制端和代理端组成，具有网络通信功能（当前主流类型）</li>
+</ul>
+</li>
+</ul>
+<h3 id="木马运行机制">木马运行机制</h3>
+<p><img src="https://image.icewindy.cn/2025/08/b94048c69385b80219eec2df4ace173c.png" alt="image-20250819160611983"></p>
+<ul>
+<li>五阶段攻击过程：
+<ul>
+<li>目标搜寻：通过网络扫描等方式寻找潜在目标</li>
+<li>信息收集：获取目标系统类型、网络结构、应用软件、用户习惯等信息</li>
+<li>木马植入：通过网页点击、邮件附件等途径植入，需分析系统脆弱性</li>
+<li>行为隐藏：包括本地活动隐藏（文件/进程隐藏）和远程通信隐藏</li>
+<li>攻击实施：满足触发条件后执行窃密、远程控制等恶意操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="木马植入技术">木马植入技术</h3>
+<p>特洛伊<strong>木马植入</strong>是木马攻击系统<strong>最关键的一步</strong>。植入的方法可以分为：</p>
+<ul>
+<li>被动植入：
+<ul>
+<li>特点：依赖用户手工操作，通过<strong>社会工程学伪装成合法程序</strong></li>
+<li>典型方法：
+<ul>
+<li>文件捆绑法（绑定到常用软件安装包）</li>
+<li>邮件附件法（伪装成合法附件）</li>
+<li>Web网页法（隐藏在HTML文件中）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>主动植入：
+<ul>
+<li>特点：无需用户交互，自动完成植入</li>
+<li>技术原理：利用系统漏洞自动部署木马程序</li>
+</ul>
+</li>
+</ul>
+<h3 id="木马隐藏技术">木马隐藏技术</h3>
+<ul>
+<li>本地隐藏：
+<ul>
+<li>LKM技术：通过动态加载内核模块实现</li>
+<li>具体方法：文件隐藏、进程隐藏、通信连接隐藏</li>
+</ul>
+</li>
+<li>远程隐藏：
+<ul>
+<li>通信内容加密</li>
+<li>端口复用（如使用80端口）</li>
+<li>网络隐蔽通道</li>
+</ul>
+</li>
+</ul>
+<img src="https://image.icewindy.cn/2025/08/68498ed1a8682b7bc958ca90df1e4610.png" alt="image-20250819161106910" style="zoom:50%;" />
+<h3 id="木马存活技术">木马存活技术</h3>
+<p>特洛伊木马存活能力取决于网络木马<strong>逃避安全监测能力</strong>。常见的技术包括：</p>
+<ul>
+<li>超级管理技术：可以使杀毒软件失效</li>
+<li>端口反向连接：由内到外发起，逃避防火墙</li>
+</ul>
+<h3 id="木马防范技术">木马防范技术</h3>
+<ul>
+<li>检测技术：
+<ul>
+<li>端口检测（netstat命令/端口扫描）</li>
+<li>系统文件比对（重点检查自启动文件）</li>
+<li>注册表异常检查</li>
+<li>Rootkit专项检测：
+<ul>
+<li>特征码检测（仅对已知有效）</li>
+<li>指令路径分析（对比CPU指令执行数）</li>
+<li>内核数据读取（直接检查内核结构）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>防护措施：
+<ul>
+<li>网络检测（部署IDS识别木马特征）</li>
+<li>网络阻断（防火墙拦截木马通信）</li>
+<li>系统加固（漏洞修补、完整性保护）</li>
+</ul>
+</li>
+<li>清除方法：
+<ul>
+<li>手工清除（删除文件/恢复注册表）</li>
+<li>专用工具清除（终止通信/修复系统）</li>
+</ul>
+</li>
+</ul>
+<h3 id="rootkit">Rootkit</h3>
+<p>已获取管理员权限的工具。</p>
+<ul>
+<li>词源：Root（超级管理员）+Kit（工具包）</li>
+<li>技术本质：通过修改内核或指令路径隐藏系统对象</li>
+<li>危害：可隐藏文件、进程、端口等系统关键信息</li>
+</ul>
+<h2 id="网络蠕虫">网络蠕虫</h2>
+<ul>
+<li>定义：网络蠕虫是一种具有自我复制和传播能力、可独立自动运行的恶意程序，综合了黑客技术和计算机病毒技术。</li>
+<li>核心特性：
+<ul>
+<li>独立运行：与病毒不同，不依赖宿主文件即可独立运行（病毒需依附文件/程序）</li>
+<li>高传播性：利用系统漏洞节点传播，多模式化传播途径导致发生频率高、影响面广</li>
+<li>破坏力强：历史上80%-90%重大攻击事件由蠕虫引发</li>
+</ul>
+</li>
+<li>功能模块：
+<ul>
+<li>探测模块(Probe)：检测主机脆弱性，建立开放可扩充的传播途径</li>
+<li>传播模块(Transport)：生成蠕虫副本并在主机间传递</li>
+<li>引擎模块(Worm Engine)：搜索算法收集网络拓扑、用户信息等</li>
+<li>负载模块(Payload)：实现蠕虫功能的伪代码</li>
+</ul>
+</li>
+</ul>
+<h3 id="蠕虫运行机制">蠕虫运行机制</h3>
+<ul>
+<li>
+<p>三阶段循环：</p>
+<img src="https://image.icewindy.cn/2025/08/1253297b55cdf0ae27b192e192e756d7.png" alt="image-20250819164127981" style="zoom:50%;" />
+<ul>
+<li>搜索阶段：感染主机扫描网络寻找易感目标（如开放135/RPC、445/SMB端口的主机）</li>
+<li>传送阶段：将蠕虫代码传输至目标主机</li>
+<li>感染阶段：目标主机执行代码成为新感染源，重复前两阶段</li>
+</ul>
+</li>
+<li>
+<p>传播特点：呈指数级扩散（1→10→100→1000）</p>
+</li>
+</ul>
+<h3 id="蠕虫常用技术">蠕虫常用技术</h3>
+<h4 id="扫描技术">扫描技术</h4>
+<ul>
+<li>随机扫描：对整个IP地址空间随机抽取，感染目标非确定性</li>
+<li>顺序扫描：
+<ul>
+<li>按本地优先原则扫描子网（如192.168.1.1→192.168.1.254）</li>
+<li>可能重复扫描导致网络拥塞</li>
+</ul>
+</li>
+<li>选择性扫描（重点发展方向）：
+<ul>
+<li>选择性随机扫描：筛选高概率目标后随机扫描</li>
+<li>基于目标列表扫描：预生成易感主机列表</li>
+<li>基于路由扫描：效率是随机扫描的3.5倍（考试重点）</li>
+<li>基于DNS扫描：利用DNS返回的活跃IP段</li>
+<li>分而治之扫描：分布式分配扫描任务（如主机A扫1.0网段，主机B扫2.0网段）</li>
+</ul>
+</li>
+</ul>
+<h4 id="漏洞利用技术">漏洞利用技术</h4>
+<ul>
+<li>技术类型：
+<ul>
+<li>信任关系漏洞：利用共享打印机/文件等信任链传播</li>
+<li>程序漏洞：缓冲区溢出攻击（如永恒之蓝利用SMB漏洞）</li>
+<li>默认凭证漏洞：弱口令/空口令</li>
+<li>安全意识漏洞：伪装合法文件诱导点击（通用于病毒/木马）</li>
+<li>客户端配置漏洞：利用自动执行下载程序等缺陷</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络蠕虫防范技术">网络蠕虫防范技术</h3>
+<img src="https://image.icewindy.cn/2025/08/d8dd58fb1069849a850369ab9b7feca9.png" alt="image-20250819171833744" style="zoom: 50%;" />
+<h2 id="僵尸网络">僵尸网络</h2>
+<ul>
+<li>定义：攻击者通过入侵手段将僵尸程序植入目标计算机，操纵受害机执行恶意活动的网络</li>
+<li>程序本质：与木马高度相似，区别在于僵尸程序兼具远程控制与攻击功能，可视为&quot;具备攻击性的高级木马&quot;</li>
+<li>控制规模：黑客通过服务端集中控制大量感染主机（如100台），形成可操纵的网络资源</li>
+</ul>
+<h3 id="构建方式">构建方式</h3>
+<ul>
+<li>传播途径：
+<ul>
+<li>远程漏洞攻击</li>
+<li>弱口令扫描入侵</li>
+<li>邮件附件</li>
+<li>恶意文档</li>
+<li>文件共享</li>
+</ul>
+</li>
+<li>共性特征：与蠕虫病毒传播方式高度重合，核心目标是实现恶意代码植入</li>
+</ul>
+<h3 id="运行机制与技术">运行机制与技术</h3>
+<ul>
+<li>三阶段模型：
+<ul>
+<li>传播阶段：通过前述方式感染目标主机，植入僵尸程序</li>
+<li>组网阶段：建立C&amp;C（命令与控制）通道，将分散主机组成可控网络</li>
+<li>攻击阶段：通过控制服务器下发指令，执行DDoS攻击、密码爆破等恶意活动</li>
+</ul>
+</li>
+<li>攻击多样性：具体攻击行为取决于僵尸程序编写时的功能设计，例如：
+<ul>
+<li>耗尽带宽型DDoS攻击</li>
+<li>分布式密码爆破攻击</li>
+<li>数据窃取与横向渗透</li>
+</ul>
+</li>
+</ul>
+<h3 id="防范技术">防范技术</h3>
+<ul>
+<li>四层防御体系：
+<ul>
+<li>威胁监测：
+<ul>
+<li>蜜罐技术（诱捕攻击行为）</li>
+<li>IDS入侵检测系统</li>
+<li>EDR终端检测响应</li>
+<li>态势感知系统</li>
+</ul>
+</li>
+<li>异常检测：分析CC通信等特征流量，识别僵尸网络行为模式</li>
+<li>主动遏制：
+<ul>
+<li>路由级IP黑名单</li>
+<li>DNS域名封禁（针对动态IP变换情况）</li>
+</ul>
+</li>
+<li>终端清除：使用杀毒软件等安全工具查杀僵尸程序</li>
+</ul>
+</li>
+</ul>
+<h2 id="对比">对比</h2>
+<ul>
+<li>
+<p>共性危害：均破坏信息安全三要素（保密性、完整性、可用性）</p>
+</li>
+<li>
+<p>特性对比：</p>
+<ul>
+<li>病毒：
+<ul>
+<li>必须依附宿主文件传播（如绑定EXE文件）</li>
+<li>具备自我复制能力</li>
+<li>典型破坏：文件损坏、系统异常</li>
+</ul>
+</li>
+<li>木马：
+<ul>
+<li>伪装成合法程序诱导执行</li>
+<li>核心功能：信息窃取/远程控制</li>
+<li>无自我复制能力</li>
+<li>典型案例：键盘记录、RAT远程控制</li>
+</ul>
+</li>
+<li>蠕虫：
+<ul>
+<li>独立传播（不依赖宿主文件）</li>
+<li>主要通过移动介质/内网传播</li>
+<li>典型破坏：资源耗尽（如&quot;震网&quot;病毒）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>分类关系：现代恶意代码界限模糊，如勒索软件兼具蠕虫传播与病毒破坏特性</p>
+</li>
+<li>
+<p>僵尸网络与木马的区别</p>
+<ul>
+<li>控制维度：
+<ul>
+<li>木马：针对单机控制（本地/网络木马）</li>
+<li>僵尸网络：规模化控制网络（需大量感染主机）</li>
+</ul>
+</li>
+<li>功能扩展：
+<ul>
+<li>基础木马：仅实现远程控制</li>
+<li>僵尸程序：额外集成攻击模块（如DDoS工具包）</li>
+</ul>
+</li>
+<li>演化关系：僵尸网络本质是网络木马的集群化升级，通过C&amp;C服务器实现集中化管理</li>
+</ul>
+</li>
+</ul>
+<h2 id="其他恶意代码">其他恶意代码</h2>
+<h3 id="逻辑炸弹">逻辑炸弹</h3>
+<ul>
+<li>依附性：依附在其他软件中的程序代码，具有触发执行破坏能力</li>
+<li>触发机制：必须满足特定条件才会执行破坏功能，包括：
+<ul>
+<li>计数器触发（如全网30%感染后爆发）</li>
+<li>时间触发（如首台感染60天后爆发）</li>
+<li>文件触发/特定用户访问触发等</li>
+</ul>
+</li>
+<li>组合攻击：常与其他恶意代码结合使用，增强破坏效果</li>
+</ul>
+<h3 id="陷门-后门">陷门（后门）</h3>
+<ul>
+<li>隐蔽入口：允许绕过系统安全机制访问系统的代码段</li>
+<li>开发用途：最初用于调试程序、系统维护（如预留SSH非标准端口68011）</li>
+<li>攻击利用：攻击者用于维持访问权限（避免重复30天攻击过程）</li>
+<li>传播特性：不具备自动传播和自我复制功能</li>
+</ul>
+<h3 id="细菌">细菌</h3>
+<ul>
+<li>复制机制：通过创建两个文件为基础进行指数级自我复制</li>
+<li>攻击目标：不直接攻击软件，但通过消耗CPU/内存/磁盘空间实施DoS攻击</li>
+<li>典型表现：类似&quot;蠕虫&quot;但无传播性，仅在本机快速复制</li>
+</ul>
+<h3 id="间谍软件">间谍软件</h3>
+<ul>
+<li>隐蔽安装：用户不知情情况下安装（常通过软件捆绑&quot;全家桶&quot;）</li>
+<li>恶意行为：
+<ul>
+<li>弹出广告/浏览器劫持</li>
+<li>记录击键、浏览习惯</li>
+<li>窃取账号密码、信用卡号等敏感信息</li>
+</ul>
+</li>
+<li>传播限制：通常不具备自我复制功能</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E8%80%83/">软考</a></div><div class="post_share"><div class="social-share" data-image="/img/Top_img_than.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">IceWindy</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">110</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">36</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/IceWindy233" target="_blank" title=""><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:me@icewindy.cn" target="_blank" title=""><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.icewindy.cn/rss2.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">恶意代码概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">攻击模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E7%94%9F%E5%AD%98%E6%8A%80%E6%9C%AF"><span class="toc-number">1.3.</span> <span class="toc-text">恶意代码生存技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E6%94%BB%E5%87%BB%E6%8A%80%E6%9C%AF"><span class="toc-number">1.4.</span> <span class="toc-text">恶意代码攻击技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF"><span class="toc-number">1.5.</span> <span class="toc-text">恶意代码分析技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90"><span class="toc-number">1.5.1.</span> <span class="toc-text">静态分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90"><span class="toc-number">1.5.2.</span> <span class="toc-text">动态分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E8%8C%83%E7%AD%96%E7%95%A5"><span class="toc-number">1.6.</span> <span class="toc-text">防范策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%97%85%E6%AF%92"><span class="toc-number">2.</span> <span class="toc-text">计算机病毒</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%B1%BB%E5%9E%8B%E4%B8%8E%E6%8A%80%E6%9C%AF"><span class="toc-number">2.1.</span> <span class="toc-text">常见类型与技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%89%B9%E5%BE%81%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">常见特征码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E8%8C%83%E7%AD%96%E7%95%A5%E4%B8%8E%E6%8A%80%E6%9C%AF"><span class="toc-number">2.3.</span> <span class="toc-text">防范策略与技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%97%85%E6%AF%92%E9%98%B2%E6%8A%A4%E6%96%B9%E6%A1%88"><span class="toc-number">2.4.</span> <span class="toc-text">计算机病毒防护方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="toc-number">2.5.</span> <span class="toc-text">应用案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%B4%9B%E4%BC%8A%E6%9C%A8%E9%A9%AC"><span class="toc-number">3.</span> <span class="toc-text">特洛伊木马</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%A8%E9%A9%AC%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-number">3.1.</span> <span class="toc-text">木马运行机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%A8%E9%A9%AC%E6%A4%8D%E5%85%A5%E6%8A%80%E6%9C%AF"><span class="toc-number">3.2.</span> <span class="toc-text">木马植入技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%A8%E9%A9%AC%E9%9A%90%E8%97%8F%E6%8A%80%E6%9C%AF"><span class="toc-number">3.3.</span> <span class="toc-text">木马隐藏技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%A8%E9%A9%AC%E5%AD%98%E6%B4%BB%E6%8A%80%E6%9C%AF"><span class="toc-number">3.4.</span> <span class="toc-text">木马存活技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%A8%E9%A9%AC%E9%98%B2%E8%8C%83%E6%8A%80%E6%9C%AF"><span class="toc-number">3.5.</span> <span class="toc-text">木马防范技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rootkit"><span class="toc-number">3.6.</span> <span class="toc-text">Rootkit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%A0%95%E8%99%AB"><span class="toc-number">4.</span> <span class="toc-text">网络蠕虫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A0%95%E8%99%AB%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-number">4.1.</span> <span class="toc-text">蠕虫运行机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A0%95%E8%99%AB%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">4.2.</span> <span class="toc-text">蠕虫常用技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E6%8A%80%E6%9C%AF"><span class="toc-number">4.2.1.</span> <span class="toc-text">扫描技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">4.2.2.</span> <span class="toc-text">漏洞利用技术</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%A0%95%E8%99%AB%E9%98%B2%E8%8C%83%E6%8A%80%E6%9C%AF"><span class="toc-number">4.3.</span> <span class="toc-text">网络蠕虫防范技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%83%B5%E5%B0%B8%E7%BD%91%E7%BB%9C"><span class="toc-number">5.</span> <span class="toc-text">僵尸网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-number">5.1.</span> <span class="toc-text">构建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E4%B8%8E%E6%8A%80%E6%9C%AF"><span class="toc-number">5.2.</span> <span class="toc-text">运行机制与技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E8%8C%83%E6%8A%80%E6%9C%AF"><span class="toc-number">5.3.</span> <span class="toc-text">防范技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="toc-number">6.</span> <span class="toc-text">对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text">其他恶意代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E7%82%B8%E5%BC%B9"><span class="toc-number">7.1.</span> <span class="toc-text">逻辑炸弹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%B7%E9%97%A8-%E5%90%8E%E9%97%A8"><span class="toc-number">7.2.</span> <span class="toc-text">陷门（后门）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%86%E8%8F%8C"><span class="toc-number">7.3.</span> <span class="toc-text">细菌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E8%B0%8D%E8%BD%AF%E4%BB%B6"><span class="toc-number">7.4.</span> <span class="toc-text">间谍软件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/" title="信息安全工程师软考（14）：恶意代码">信息安全工程师软考（14）：恶意代码</a><time datetime="2025-08-15T07:47:08.000Z" title="发表于 2025-08-15 15:47:08">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/14/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8813%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/" title="信息安全工程师软考（13）：网络安全漏洞">信息安全工程师软考（13）：网络安全漏洞</a><time datetime="2025-08-14T04:22:58.000Z" title="发表于 2025-08-14 12:22:58">2025-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/13/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8812%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/" title="信息安全工程师软考（12）：网络安全审计">信息安全工程师软考（12）：网络安全审计</a><time datetime="2025-08-13T06:41:41.000Z" title="发表于 2025-08-13 14:41:41">2025-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/" title="信息安全工程师软考（11）：网络物理隔离">信息安全工程师软考（11）：网络物理隔离</a><time datetime="2025-08-12T06:08:43.000Z" title="发表于 2025-08-12 14:08:43">2025-08-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/" title="信息安全工程师软考（10）：入侵检测">信息安全工程师软考（10）：入侵检测</a><time datetime="2025-08-08T08:21:00.000Z" title="发表于 2025-08-08 16:21:00">2025-08-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Top_img_than.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By IceWindy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script></div></body></html>
