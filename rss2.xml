@@ -15,8 +15,38 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 19 Aug 2025 09:44:23 GMT</pubDate>
+    <pubDate>Wed, 20 Aug 2025 09:13:37 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（15）：网络安全主动防御技术</title>
+      <link>http://www.icewindy.cn/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/</link>
+      <guid>http://www.icewindy.cn/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/</guid>
+      <pubDate>Wed, 20 Aug 2025 06:47:22 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;入侵阻断技术&quot;&gt;入侵阻断技术&lt;/h2&gt;
+&lt;h3 id=&quot;入侵阻断-ips-概念&quot;&gt;入侵阻断（IPS）概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;本质特征：属于网络安全主动防御技术，通过阻断网络攻击行为来保护目标对象&lt;/li&gt;
+&lt;li&gt;与IDS关系：入侵检测系统（IDS）的扩</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（14）：恶意代码</title>
@@ -291,36 +321,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/04/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%886%EF%BC%89%EF%BC%9A%E8%AE%A4%E8%AF%81%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（5）：物理安全</title>
-      <link>http://www.icewindy.cn/2025/08/01/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%885%EF%BC%89%EF%BC%9A%E7%89%A9%E7%90%86%E5%AE%89%E5%85%A8/</link>
-      <guid>http://www.icewindy.cn/2025/08/01/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%885%EF%BC%89%EF%BC%9A%E7%89%A9%E7%90%86%E5%AE%89%E5%85%A8/</guid>
-      <pubDate>Fri, 01 Aug 2025 07:14:34 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;物理安全概述&quot;&gt;物理安全概述&lt;/h2&gt;
-&lt;h3 id=&quot;物理安全概念&quot;&gt;物理安全概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;传统定义：涵盖&lt;strong&gt;环境、设备和记录介质&lt;/strong&gt;等支持网络信息系统运行硬件的总体安全&lt;/li&gt;
-&lt;li&gt;广义定义：包含&lt;stron</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/01/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%885%EF%BC%89%EF%BC%9A%E7%89%A9%E7%90%86%E5%AE%89%E5%85%A8/#disqus_thread</comments>
       
     </item>
     

@@ -1,0 +1,630 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>信息安全工程师软考（15）：网络安全主动防御技术 | IceWindy's Blog</title><meta name="keywords" content="软考"><meta name="author" content="IceWindy"><meta name="copyright" content="IceWindy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="入侵阻断技术 入侵阻断（IPS）概念  本质特征：属于网络安全主动防御技术，通过阻断网络攻击行为来保护目标对象 与IDS关系：入侵检测系统（IDS）的扩展升级版，商业产品常将两者集成（如IPS同时具备检测和阻断功能） 核心功能：既能检测攻击特征又能实时阻断攻击流量，工作机制类似路由器或防火墙 IPS具备防火墙和入侵检测等多种功能 由于大多串行部署，IPS需要解决网络通信瓶颈和高可用问题。  IPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息安全工程师软考（15）：网络安全主动防御技术">
+<meta property="og:url" content="http://www.icewindy.cn/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="IceWindy&#39;s Blog">
+<meta property="og:description" content="入侵阻断技术 入侵阻断（IPS）概念  本质特征：属于网络安全主动防御技术，通过阻断网络攻击行为来保护目标对象 与IDS关系：入侵检测系统（IDS）的扩展升级版，商业产品常将两者集成（如IPS同时具备检测和阻断功能） 核心功能：既能检测攻击特征又能实时阻断攻击流量，工作机制类似路由器或防火墙 IPS具备防火墙和入侵检测等多种功能 由于大多串行部署，IPS需要解决网络通信瓶颈和高可用问题。  IPS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
+<meta property="article:published_time" content="2025-08-20T06:47:22.000Z">
+<meta property="article:modified_time" content="2025-08-20T09:13:37.603Z">
+<meta property="article:author" content="IceWindy">
+<meta property="article:tag" content="软考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.icewindy.cn/img/Top_img_than.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.icewindy.cn/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3755c90ac8644596cd3b47a85dd40cef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '信息安全工程师软考（15）：网络安全主动防御技术',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-08-20 17:13:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/rss2.xml" title="IceWindy's Blog" type="application/rss+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">111</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">36</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">信息安全工程师软考（15）：网络安全主动防御技术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-20T06:47:22.000Z" title="发表于 2025-08-20 14:47:22">2025-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-20T09:13:37.603Z" title="更新于 2025-08-20 17:13:37">2025-08-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E8%80%83/">软考</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.3k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="入侵阻断技术">入侵阻断技术</h2>
+<h3 id="入侵阻断-ips-概念">入侵阻断（IPS）概念</h3>
+<ul>
+<li>本质特征：属于网络安全主动防御技术，通过阻断网络攻击行为来保护目标对象</li>
+<li>与IDS关系：入侵检测系统（IDS）的扩展升级版，商业产品常将两者集成（如IPS同时具备检测和阻断功能）</li>
+<li>核心功能：既能检测攻击特征又能实时阻断攻击流量，工作机制类似路由器或防火墙</li>
+<li>IPS具备防火墙和入侵检测等多种功能</li>
+<li>由于大多串行部署，IPS需要解决网络<strong>通信瓶颈和高可用问题</strong>。</li>
+</ul>
+<h3 id="ips部署">IPS部署</h3>
+<ul>
+<li>商用IPS主要采用硬件设备实现，通常串行部署在网络主干，或者<strong>基于旁路阻断</strong></li>
+<li>旁路阻断（SPS，Side Prevent System）：
+<ul>
+<li>通过旁路监测流量，采用报文注入技术阻断攻击</li>
+<li>需配合策略路由或SDN控制器进行流量牵引</li>
+<li>优势：仅检测特定流量，对网络延迟影响较小</li>
+</ul>
+</li>
+<li>部署选择：关键业务系统推荐串行部署，大流量环境可采用旁路部署+智能引流方案</li>
+</ul>
+<h2 id="软件白名单技术">软件白名单技术</h2>
+<h3 id="技术方法">技术方法</h3>
+<ul>
+<li>移动生态构建（合规软件下载平台）：
+<ul>
+<li>建立三级审查流程（初审→复审→终审）</li>
+<li>设置7个工作日的公示期+正式发布阶段</li>
+</ul>
+</li>
+<li>恶意代码防护：
+<ul>
+<li>传统黑名单：依赖病毒特征库，难以防范零日漏洞攻击</li>
+<li>白名单优势：仅允许安装/执行经过认证的可信软件</li>
+</ul>
+</li>
+<li>白环境保护：
+<ul>
+<li>三重控制：<strong>可信设备接入+可信消息传输+可信软件执行</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="技术原理">技术原理</h3>
+<img src="https://image.icewindy.cn/2025/08/3c4001de4ad438547d9249f93c886729.png" alt="image-20250820150437805" style="zoom:67%;" />
+<h2 id="网络流量清洗技术">网络流量清洗技术</h2>
+<h3 id="技术原理">技术原理</h3>
+<p>通过<strong>异常网络流量检测</strong>，而将原本发送给目标设备系统的<strong>流量牵引到流量清洗中心</strong>，清洗完毕后再将留存的<strong>正常流量转送到目标设备系统</strong>，包含三个步骤：</p>
+<ol>
+<li>流量检测：
+<ul>
+<li>核心技术：采用分布式多核硬件架构，基于深度数据包检测技术(DPI)实现</li>
+<li>检测原理：通过实时监测和分析网络流量数据，快速识别隐藏在背景流量中的攻击包</li>
+<li>精准识别：能有效区分正常流量与攻击流量，为后续清洗提供准确依据</li>
+</ul>
+</li>
+<li>流量牵引与清洗：
+<ul>
+<li>核心功能：动态将目标系统流量转发到专用清洗中心进行处理</li>
+<li>典型应用：特别针对大规模DDoS攻击</li>
+</ul>
+</li>
+<li>流量回注：将清洗后的正常流量重新送回目标系统</li>
+</ol>
+<h3 id="流量清洗抗拒绝服务攻击应用示意图">流量清洗抗拒绝服务攻击应用示意图</h3>
+<img src="https://image.icewindy.cn/2025/08/6501e31a8e6fb6316b5f291d4af8af1a.png" alt="image-20250820152108116" style="zoom:50%;" />
+<h3 id="网络流量清洗技术应用">网络流量清洗技术应用</h3>
+<ul>
+<li>畸形数据报文过滤
+<ul>
+<li>LAND攻击：伪造源目相同IP的SYN包，使目标与自己建立TCP空连接消耗资源</li>
+<li>Smurf攻击：假冒目标IP向广播地址发ping请求，引发大量ICMP回复发送至目标</li>
+<li>Fraggle攻击：类似Smurf但使用UDP协议</li>
+<li>WinNuke攻击：攻击135-139端口并设置URG标志位</li>
+<li>Ping of Death：发送超过65535字节的IP分片包导致系统崩溃</li>
+<li>Tear Drop：针对IP分组攻击，将片偏移设置为错位</li>
+<li>TCP Error Flag：将TCP的标志位错误设置</li>
+</ul>
+</li>
+<li>抗拒绝服务攻击</li>
+<li>Web应用保护
+<ul>
+<li>HTTP Get/Post Flood：高频请求淹没服务器</li>
+<li>HTTP Slow Header/Post：慢速连接消耗服务器资源</li>
+<li>HTTPS Flood：加密请求增加服务器计算负担</li>
+</ul>
+</li>
+<li>DDoS高防IP服务
+<ul>
+<li>工作原理：采用代理转发模式，业务流量先经高防IP过滤</li>
+<li>服务优势：云服务商提供的专业防护，无需自建清洗设施</li>
+<li>处理流程：流量牵引→攻击过滤→正常流量回注源站</li>
+</ul>
+</li>
+</ul>
+<h2 id="可信计算技术">可信计算技术</h2>
+<ul>
+<li>
+<p>发展历程：1999年成立TCPA“可信计算平台联盟”，2003年更名为TCG“可信计算组织”，制定了<strong>TPM（Trusted Platform Module）和TNC（Trusted Network Connect）标准</strong>。</p>
+</li>
+<li>
+<p>核心思想：通过<strong>安全芯片（TPM）建立信任根</strong>，从<strong>硬件、BIOS、操作系统</strong>等逐层验证完整性，防止篡改计算组件。</p>
+<img src="https://image.icewindy.cn/2025/08/bd370a01235e2b598c9dc34bcecf2acc.png" alt="image-20250820161638787" style="zoom:67%;" />
+</li>
+<li>
+<p>解释：确保计算设备(PC/服务器)从芯片到应用软件全链条可信，任何环节篡改都会导致系统无法运行。</p>
+</li>
+</ul>
+<h3 id="可信计算系统">可信计算系统</h3>
+<ul>
+<li>四层架构：
+<ul>
+<li>可信根：TPM安全芯片作为信任基础</li>
+<li>硬件平台</li>
+<li>操作系统</li>
+<li>应用系统</li>
+</ul>
+</li>
+<li>三个信任根：
+<ul>
+<li>RTM：可信度量根（启动时逐级校验）</li>
+<li>RTS：可信存储根（密码学相关）</li>
+<li>RTR：可信报告根（完整性报告）</li>
+</ul>
+</li>
+</ul>
+<h3 id="自主可信计算标准体系">自主可信计算标准体系</h3>
+<img src="https://image.icewindy.cn/2025/08/5a5f7cbaf58cc9801c7215d387d3c7ee.png" alt="image-20250820162311551" style="zoom: 67%;" />
+<ul>
+<li>可信计算密码支撑平台组件：
+<ul>
+<li>可信密码模块（TCM）：替代TPM芯片，三个可信根</li>
+<li>TCM服务模块（TSM）</li>
+</ul>
+</li>
+<li>特点：基于自主密码算法，通过三个信任根实现平台完整性验证、身份认证和数据保护。</li>
+</ul>
+<h3 id="可信计算的应用">可信计算的应用</h3>
+<ul>
+<li>
+<p>计算平台保护：</p>
+<ul>
+<li>
+<p>利用TPM/TCM安全芯片对计算平台的关键组件进行<strong>完整性度量和检查</strong></p>
+</li>
+<li>
+<p>启动时校验BIOS/系统组件</p>
+</li>
+<li>
+<p>运行时实时检测内存等硬件变更</p>
+</li>
+</ul>
+</li>
+<li>
+<p>可信网络连接(TNC)：</p>
+<ul>
+<li>利用TPM/TCM安全芯片实现平台<strong>身份认证和完整性验证</strong></li>
+</ul>
+</li>
+<li>
+<p>等保2.0要求：</p>
+<ul>
+<li>对设备引导程序、关键参数进行动态验证</li>
+<li>高安全等级系统需验证应用程序执行环节</li>
+<li>采用主动免疫机制阻断恶意代码</li>
+</ul>
+</li>
+</ul>
+<h2 id="数字水印技术">数字水印技术</h2>
+<h3 id="技术原理">技术原理</h3>
+<ul>
+<li>
+<p>嵌入方法：</p>
+<ul>
+<li>空间域：直接叠加</li>
+<li>变换域：采用扩展频谱技术或Hash函数</li>
+</ul>
+</li>
+<li>
+<p>工作流程：</p>
+<img src="https://image.icewindy.cn/2025/08/26f48670f788e09d525a1f5f37806399.png" alt="image-20250820163215330" style="zoom:50%;" />
+<ul>
+<li>嵌入：原始载体+水印→水印算法→含水印载体</li>
+<li>提取：含水印载体→提取算法→分离出水印和原始载体</li>
+</ul>
+</li>
+</ul>
+<h3 id="应用">应用</h3>
+<ul>
+<li>版权保护：嵌入版权信息</li>
+<li>信息隐藏：将敏感数据隐藏在多媒体中</li>
+<li>信息溯源：嵌入用户ID防止文档泄露</li>
+<li>访问控制：通过检测水印判断访问权限</li>
+</ul>
+<h2 id="网络攻击陷阱技术">网络攻击陷阱技术</h2>
+<ul>
+<li>主动防御特性: 属于<strong>主动防御方法</strong>，核心是通过设置虚假系统诱导攻击（选择题考点1分）</li>
+<li>核心功能:
+<ul>
+<li>消耗攻击者资源</li>
+<li>加重攻击工作量</li>
+<li>迷惑攻击者</li>
+<li>预判攻击行为</li>
+<li>追踪攻击源</li>
+<li>形成威慑力量</li>
+</ul>
+</li>
+<li>技术分类: 蜜罐主机技术（单点诱骗）和陷阱网络技术（体系化诱骗）</li>
+</ul>
+<h3 id="蜜罐技术">蜜罐技术</h3>
+<ul>
+<li>空系统:
+<ul>
+<li>标准硬件配置</li>
+<li>运行完整真实操作系统</li>
+<li>无网络服务（如邮件/Web）</li>
+<li>类似普通PC环境</li>
+</ul>
+</li>
+<li>镜像系统:
+<ul>
+<li>完整复制生产系统</li>
+<li>包含全部应用服务</li>
+<li>实现高仿真诱骗</li>
+</ul>
+</li>
+<li>虚拟系统:
+<ul>
+<li>单物理机运行仿真软件（如VMware/VirtualBox）</li>
+<li>可虚拟多操作系统（Linux/Windows/BSD等）</li>
+</ul>
+</li>
+</ul>
+<h3 id="陷阱网络技术">陷阱网络技术</h3>
+<p>陷阱网络由<strong>多个蜜罐主机、路由器、防火墙、IDS、审计系统</strong>共同组成。目的是为攻击者制造一个攻击环境，供防御者研究攻击者的攻击行为。</p>
+<p>陷阱网络要实现<strong>蜜罐系统、数据控制系统、数据捕获系统、数据记录、数据分析、数据管理</strong>等功能。</p>
+<ul>
+<li>
+<p>第一代:</p>
+<img src="https://image.icewindy.cn/2025/08/f280291a1b010a49c6084561be1b1938.png" alt="image-20250820165750470" style="zoom:80%;" />
+<ul>
+<li>完整<strong>物理网络</strong>架构</li>
+<li>包含独立防火墙/路由器/IDS</li>
+<li>多蜜罐主机分布式部署</li>
+</ul>
+</li>
+<li>
+<p>第二代:</p>
+<p><img src="https://image.icewindy.cn/2025/08/06879ffd937158625f4ee06cc6586c7e.png" alt="image-20250820165810549"></p>
+<ul>
+<li><strong>集成数据控制与捕获系统</strong></li>
+<li>三大优势：
+<ul>
+<li>非授权活动监控</li>
+<li>隐蔽性增强</li>
+<li>主动响应能力（如修改攻击代码字节）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>第三代（虚拟陷阱网络Virtual Honeynets）:</p>
+  <img src="https://image.icewindy.cn/2025/08/30794f8e76c627a3bbe89a072f871259.png" alt="image-20250820165828595" style="zoom:80%;" />
+<ul>
+<li>全功能<strong>集成单设备</strong></li>
+<li>实现：
+<ul>
+<li>蜜罐系统虚拟化</li>
+<li>集中式数据控制</li>
+<li>自动化攻击捕获</li>
+<li>智能行为分析</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="应用">应用</h3>
+<ul>
+<li>恶意代码监测:
+<ul>
+<li>分析蜜罐节点流量</li>
+<li>检测隐蔽通信</li>
+<li>发现APT攻击特征</li>
+</ul>
+</li>
+<li>增强抗攻击能力:
+<ul>
+<li>改变攻防不对称局面</li>
+<li>虚假目标干扰攻击</li>
+<li>为应急响应争取时间</li>
+</ul>
+</li>
+<li>网络态势感知:
+<ul>
+<li>结合大数据分析</li>
+<li>获取攻击者情报（方法/特征/来源）</li>
+</ul>
+</li>
+</ul>
+<h2 id="入侵容忍及系统生存技术">入侵容忍及系统生存技术</h2>
+<h3 id="概念">概念</h3>
+<ul>
+<li>核心理念：允许系统在被入侵后仍能维持核心功能运行，确保网络信息系统具有<strong>容侵能力、可恢复性，保障业务连续性</strong></li>
+<li>安全理念演进：
+<ul>
+<li>1.0时代：防火墙等边界防御（“把入侵者挡在防火墙之外”）</li>
+<li>2.0时代：IPS等威胁检测与隔离（“在内部做检测阻断”）</li>
+<li>3.0时代：容忍入侵并实现系统恢复（“数据可恢复，系统不瘫痪”）</li>
+</ul>
+</li>
+<li>生存性3R方法：
+<ul>
+<li>系统划分：<strong>不可攻破的安全核+可恢复部分</strong></li>
+<li>核心策略：<strong>抵抗(Resistance)、识别(Recognition)、恢复(Recovery)</strong></li>
+<li>基本假设：<strong>基础服务不可攻破、入侵模式有限集、需维持攻防动态平衡</strong></li>
+</ul>
+</li>
+<li>关键技术：
+<ul>
+<li>分布式共识：关键组件分布式部署</li>
+<li>主动恢复：实时检测异常并主动修复</li>
+<li>门限密码：分散存储密码，将私钥﻿<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>﻿分解为﻿<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><msub><mi>d</mi><mn>1</mn></msub><mo>+</mo><msub><mi>d</mi><mn>2</mn></msub><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>+</mo><msub><mi>d</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">d=d_1+d_2+...+d_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>﻿分散存储</li>
+<li>多样性设计：避免单一组件风险</li>
+</ul>
+</li>
+</ul>
+<h3 id="应用">应用</h3>
+<ul>
+<li>弹性CA系统：
+<ul>
+<li>背景：CA私钥泄露会导致PKI体系崩溃</li>
+<li>方案：采用门限密码技术，将私钥﻿<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>﻿分解为﻿<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><msub><mi>d</mi><mn>1</mn></msub><mo>+</mo><msub><mi>d</mi><mn>2</mn></msub><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>+</mo><msub><mi>d</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">d=d_1+d_2+...+d_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>﻿分散存储</li>
+<li>签名流程：客户机向t个服务器发送Hash值﻿<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>﻿，各服务器返回部分签名结果再组合</li>
+</ul>
+</li>
+<li>区块链技术：
+<ul>
+<li>特点：去中心化分布式数据库</li>
+<li>优势：节点对等+共识机制保障数据完整性，单点失效不影响整体</li>
+</ul>
+</li>
+</ul>
+<h2 id="隐私保护技术">隐私保护技术</h2>
+<h3 id="分类">分类</h3>
+<ul>
+<li>身份隐私：可直接识别真实身份的信息（照片、身份证号）</li>
+<li>属性隐私：描述个人特征的数据（年龄、性别、薪资、购物史）</li>
+<li>社交关系隐私：不愿公开的人际关系</li>
+<li>位置轨迹隐私：非自愿公开的行踪信息</li>
+</ul>
+<h3 id="隐私保护技术">隐私保护技术</h3>
+<ul>
+<li>
+<p>核心目标：修改数据使其可公开且保留使用价值</p>
+</li>
+<li>
+<p>主要方法：</p>
+<ul>
+<li>
+<p>k-匿名：泛化处理使元组对应多人（如邮编021**+1940-1950年出生）</p>
+<p><img src="https://image.icewindy.cn/2025/08/1079b22dce4867e907820eeee99ddaf9.png" alt="image-20250820170904334"></p>
+</li>
+<li>
+<p>差分隐私：添加随机噪声干扰数据推导</p>
+</li>
+</ul>
+</li>
+<li>
+<p>技术措施：</p>
+<ul>
+<li>抑制：数据置空（如敏感字段留白）</li>
+<li>泛化：降低精度（年龄→年龄段）</li>
+<li>置换：更改属主关系（假名处理）</li>
+<li>裁剪：分开发布敏感数据（如比特币密钥分段存储）</li>
+<li>扰动：添加噪声（数据增删/变换）</li>
+</ul>
+</li>
+</ul>
+<h3 id="应用">应用</h3>
+<ul>
+<li>匿名化处理：
+<ul>
+<li>方法：替换关键标识符（姓名→&quot;张小姐&quot;，身份证号→****）</li>
+<li>要求：处理后的信息不可复原</li>
+</ul>
+</li>
+<li>去标识化技术：
+<ul>
+<li>假名：综艺节目使用&quot;小王&quot;代称</li>
+<li>加密/Hash：存储密码哈希值（如﻿<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo stretchy="false">(</mo><mtext>密码</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">hash(密码)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord cjk_fallback">密</span><span class="mord cjk_fallback">码</span><span class="mclose">)</span></span></span></span>﻿）</li>
+</ul>
+</li>
+<li>系统敏感数据保护：
+<ul>
+<li>应用场景：路由器配置、系统口令文件</li>
+<li>典型措施：操作系统/数据库口令经Hash处理后存储</li>
+</ul>
+</li>
+</ul>
+<h2 id="网络安全前沿技术发展动向">网络安全前沿技术发展动向</h2>
+<h3 id="网络威胁情报服务">网络威胁情报服务</h3>
+<ul>
+<li>情报内容: 包括安全漏洞、攻击来源IP地址、恶意邮箱、恶意域名、攻击工具等关键安全要素。</li>
+</ul>
+<h3 id="同态加密技术">同态加密技术</h3>
+<ul>
+<li>核心定义:
+<ul>
+<li>数学特性: 指加密函数满足﻿<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo>⊕</mo><mi>E</mi><mo stretchy="false">(</mo><mi>b</mi><mo stretchy="false">)</mo><mo>=</mo><mi>E</mi><mo stretchy="false">(</mo><mi>a</mi><mo>⊕</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">E(a) \oplus E(b) = E(a \oplus b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span>﻿，对密文运算结果与明文直接运算等价</li>
+<li>技术本质: &quot;加密后处理=处理后再解密&quot;的特殊加密方式</li>
+</ul>
+</li>
+<li>应用场景:
+<ul>
+<li>第三方数据处理: 委托不可信方处理数据时（如外包服务），通过密文运算保护原始信息</li>
+<li>云端存储安全: 敏感信息存储远程服务器时，既防止本地泄密又保持数据可用性（如密码哈希存储）</li>
+</ul>
+</li>
+<li>典型案例: 密码哈希技术属于同态加密的实践应用，即使哈希值泄露也无法还原明文，但可正常用于身份认证</li>
+</ul>
+<h3 id="域名服务安全保障">域名服务安全保障</h3>
+<ul>
+<li>主要风险:
+<ul>
+<li>篡改攻击: 利用域名解析系统、WHOIS等环节漏洞修改解析数据</li>
+<li>配置错误: 权威DNS服务器配置不当导致服务中断</li>
+<li>劫持攻击: 通过控制域名管理凭证，将NS记录指向恶意服务器</li>
+<li>软件漏洞: BIND等DNS服务软件自身安全缺陷</li>
+</ul>
+</li>
+<li>解决方案:
+<ul>
+<li>LDNS Cloud服务:
+<ul>
+<li>提供DNS托管、灾备、流量管理、抵抗大规模DDoS攻击和DNS劫持安全等全套服务</li>
+<li>具备抗DDoS和防劫持能力</li>
+</ul>
+</li>
+<li>DNSSEC协议:
+<ul>
+<li>由IETF提出的安全扩展方案</li>
+<li>核心功能：数据源认证+完整性验证</li>
+<li>通过数字签名防止DNS欺骗攻击</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E8%80%83/">软考</a></div><div class="post_share"><div class="social-share" data-image="/img/Top_img_than.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">IceWindy</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">111</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">36</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/IceWindy233" target="_blank" title=""><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:me@icewindy.cn" target="_blank" title=""><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.icewindy.cn/rss2.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A5%E4%BE%B5%E9%98%BB%E6%96%AD%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text">入侵阻断技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E4%BE%B5%E9%98%BB%E6%96%AD-ips-%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">入侵阻断（IPS）概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ips%E9%83%A8%E7%BD%B2"><span class="toc-number">1.2.</span> <span class="toc-text">IPS部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%99%BD%E5%90%8D%E5%8D%95%E6%8A%80%E6%9C%AF"><span class="toc-number">2.</span> <span class="toc-text">软件白名单技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">技术方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">技术原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF"><span class="toc-number">3.</span> <span class="toc-text">网络流量清洗技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%B8%85%E6%B4%97%E6%8A%97%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%94%BB%E5%87%BB%E5%BA%94%E7%94%A8%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">3.2.</span> <span class="toc-text">流量清洗抗拒绝服务攻击应用示意图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F%E6%B8%85%E6%B4%97%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">网络流量清洗技术应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF"><span class="toc-number">4.</span> <span class="toc-text">可信计算技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.1.</span> <span class="toc-text">可信计算系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E4%B8%BB%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%97%E6%A0%87%E5%87%86%E4%BD%93%E7%B3%BB"><span class="toc-number">4.2.</span> <span class="toc-text">自主可信计算标准体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">4.3.</span> <span class="toc-text">可信计算的应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E6%B0%B4%E5%8D%B0%E6%8A%80%E6%9C%AF"><span class="toc-number">5.</span> <span class="toc-text">数字水印技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86"><span class="toc-number">5.1.</span> <span class="toc-text">技术原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">5.2.</span> <span class="toc-text">应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E9%99%B7%E9%98%B1%E6%8A%80%E6%9C%AF"><span class="toc-number">6.</span> <span class="toc-text">网络攻击陷阱技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%9C%9C%E7%BD%90%E6%8A%80%E6%9C%AF"><span class="toc-number">6.1.</span> <span class="toc-text">蜜罐技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%B7%E9%98%B1%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF"><span class="toc-number">6.2.</span> <span class="toc-text">陷阱网络技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">6.3.</span> <span class="toc-text">应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A5%E4%BE%B5%E5%AE%B9%E5%BF%8D%E5%8F%8A%E7%B3%BB%E7%BB%9F%E7%94%9F%E5%AD%98%E6%8A%80%E6%9C%AF"><span class="toc-number">7.</span> <span class="toc-text">入侵容忍及系统生存技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">7.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">7.2.</span> <span class="toc-text">应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E6%8A%80%E6%9C%AF"><span class="toc-number">8.</span> <span class="toc-text">隐私保护技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">8.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E6%8A%80%E6%9C%AF"><span class="toc-number">8.2.</span> <span class="toc-text">隐私保护技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">8.3.</span> <span class="toc-text">应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF%E5%8F%91%E5%B1%95%E5%8A%A8%E5%90%91"><span class="toc-number">9.</span> <span class="toc-text">网络安全前沿技术发展动向</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E6%9C%8D%E5%8A%A1"><span class="toc-number">9.1.</span> <span class="toc-text">网络威胁情报服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%E6%8A%80%E6%9C%AF"><span class="toc-number">9.2.</span> <span class="toc-text">同态加密技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8%E4%BF%9D%E9%9A%9C"><span class="toc-number">9.3.</span> <span class="toc-text">域名服务安全保障</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/" title="信息安全工程师软考（15）：网络安全主动防御技术">信息安全工程师软考（15）：网络安全主动防御技术</a><time datetime="2025-08-20T06:47:22.000Z" title="发表于 2025-08-20 14:47:22">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/" title="信息安全工程师软考（14）：恶意代码">信息安全工程师软考（14）：恶意代码</a><time datetime="2025-08-15T07:47:08.000Z" title="发表于 2025-08-15 15:47:08">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/14/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8813%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/" title="信息安全工程师软考（13）：网络安全漏洞">信息安全工程师软考（13）：网络安全漏洞</a><time datetime="2025-08-14T04:22:58.000Z" title="发表于 2025-08-14 12:22:58">2025-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/13/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8812%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/" title="信息安全工程师软考（12）：网络安全审计">信息安全工程师软考（12）：网络安全审计</a><time datetime="2025-08-13T06:41:41.000Z" title="发表于 2025-08-13 14:41:41">2025-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/" title="信息安全工程师软考（11）：网络物理隔离">信息安全工程师软考（11）：网络物理隔离</a><time datetime="2025-08-12T06:08:43.000Z" title="发表于 2025-08-12 14:08:43">2025-08-12</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Top_img_than.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By IceWindy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script></div></body></html>
