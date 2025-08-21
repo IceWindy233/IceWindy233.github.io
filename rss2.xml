@@ -15,8 +15,38 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 20 Aug 2025 09:13:37 GMT</pubDate>
+    <pubDate>Thu, 21 Aug 2025 07:52:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（16）：网络安全风险评估技术</title>
+      <link>http://www.icewindy.cn/2025/08/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8816%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E6%8A%80%E6%9C%AF/</link>
+      <guid>http://www.icewindy.cn/2025/08/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8816%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E6%8A%80%E6%9C%AF/</guid>
+      <pubDate>Thu, 21 Aug 2025 02:49:18 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;网络安全风险评估过程&quot;&gt;网络安全风险评估过程&lt;/h2&gt;
+&lt;h3 id=&quot;网络安全风险评估概述&quot;&gt;网络安全风险评估概述&lt;/h3&gt;
+&lt;h4 id=&quot;定义&quot;&gt;定义&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;评估依据：依据信息安全&lt;strong&gt;技术和管理标准&lt;/strong&gt;（如等保</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8816%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（15）：网络安全主动防御技术</title>
@@ -289,38 +319,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/05/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%887%EF%BC%89%EF%BC%9A%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（6）：认证技术</title>
-      <link>http://www.icewindy.cn/2025/08/04/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%886%EF%BC%89%EF%BC%9A%E8%AE%A4%E8%AF%81%E6%8A%80%E6%9C%AF/</link>
-      <guid>http://www.icewindy.cn/2025/08/04/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%886%EF%BC%89%EF%BC%9A%E8%AE%A4%E8%AF%81%E6%8A%80%E6%9C%AF/</guid>
-      <pubDate>Mon, 04 Aug 2025 06:58:21 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;认证技术基础与原理&quot;&gt;认证技术基础与原理&lt;/h2&gt;
-&lt;h3 id=&quot;认证基础&quot;&gt;认证基础&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;组成要素：认证技术由**标识(Identification)和鉴别(Authentication)**两部分组成&lt;/p&gt;
-&lt;/li&gt;
-&lt;l</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/04/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%886%EF%BC%89%EF%BC%9A%E8%AE%A4%E8%AF%81%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
       
     </item>
     
