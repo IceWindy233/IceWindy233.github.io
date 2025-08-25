@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>信息安全工程师软考（18）：网络安全测评技术 | IceWindy's Blog</title><meta name="keywords" content="软考"><meta name="author" content="IceWindy"><meta name="copyright" content="IceWindy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="网络安全测评概况 网络安全测评是指按照一定的标准规范要求（如等保2.0等），通过一系列的技术和管理方法，获取评估对象的网络安全状况信息，对其给出相应的网络安全情况综合判定， 测评对象 网络安全测评对象通常包括信息系统的组成要素（操作系统、数据库、交换机、路由器、防火墙等）或信息系统本身（软件平台本身） 网络安全测评类型 基于测评目标分类  等级测评：  实施主体：专业测评机构（需持证） 法律依据：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息安全工程师软考（18）：网络安全测评技术">
+<meta property="og:url" content="http://www.icewindy.cn/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="IceWindy&#39;s Blog">
+<meta property="og:description" content="网络安全测评概况 网络安全测评是指按照一定的标准规范要求（如等保2.0等），通过一系列的技术和管理方法，获取评估对象的网络安全状况信息，对其给出相应的网络安全情况综合判定， 测评对象 网络安全测评对象通常包括信息系统的组成要素（操作系统、数据库、交换机、路由器、防火墙等）或信息系统本身（软件平台本身） 网络安全测评类型 基于测评目标分类  等级测评：  实施主体：专业测评机构（需持证） 法律依据：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
+<meta property="article:published_time" content="2025-08-25T07:36:16.000Z">
+<meta property="article:modified_time" content="2025-08-25T10:28:23.975Z">
+<meta property="article:author" content="IceWindy">
+<meta property="article:tag" content="软考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.icewindy.cn/img/Top_img_than.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.icewindy.cn/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3755c90ac8644596cd3b47a85dd40cef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '信息安全工程师软考（18）：网络安全测评技术',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-08-25 18:28:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/rss2.xml" title="IceWindy's Blog" type="application/rss+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">115</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">36</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">信息安全工程师软考（18）：网络安全测评技术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-25T07:36:16.000Z" title="发表于 2025-08-25 15:36:16">2025-08-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-25T10:28:23.975Z" title="更新于 2025-08-25 18:28:23">2025-08-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E8%80%83/">软考</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="网络安全测评概况">网络安全测评概况</h2>
+<p>网络安全测评是指按照一定的<strong>标准规范要求（如等保2.0等）</strong>，通过一系列的<strong>技术和管理</strong>方法，获取评估对象的网络安全状况信息，对其给出相应的网络安全情况综合判定，</p>
+<h3 id="测评对象">测评对象</h3>
+<p>网络安全测评对象通常包括<strong>信息系统的组成要素（操作系统、数据库、交换机、路由器、防火墙等）或信息系统本身（软件平台本身）</strong></p>
+<h3 id="网络安全测评类型">网络安全测评类型</h3>
+<h4 id="基于测评目标分类">基于测评目标分类</h4>
+<ul>
+<li>等级测评：
+<ul>
+<li>实施主体：专业测评机构（需持证）</li>
+<li>法律依据：网络安全法+等保2.0标准</li>
+<li>适用范围：仅限非涉密系统</li>
+<li>复测周期：三级每年1次/二级每2年1次/四级每半年1次</li>
+<li>整改要求：未通过需持续整改直至达标</li>
+</ul>
+</li>
+<li>验收测评：验证项目是否满足招标安全指标</li>
+<li>风险测评：评估威胁与脆弱性（技术+管理双维度）</li>
+</ul>
+<h4 id="基于实施方式分类">基于实施方式分类</h4>
+<ul>
+<li>安全功能检测：
+<ul>
+<li>方法：渗透测试/漏洞扫描/社会工程等</li>
+<li>形式化验证：数学建模验证（学术研究方向）</li>
+</ul>
+</li>
+<li>安全管理检测：
+<ul>
+<li>三大要素：机构设置/人员配备/制度建设</li>
+</ul>
+</li>
+<li>代码安全审查：
+<ul>
+<li>对定制开发的应用程序源代码进行静态安全扫描和审查</li>
+</ul>
+</li>
+<li>安全渗透测试：
+<ul>
+<li>重点考点：模拟黑客攻击的测试方式</li>
+<li>典型漏洞：SQL注入/XSS/弱口令等</li>
+</ul>
+</li>
+<li>信息系统攻击测试：
+<ul>
+<li>与渗透测试区别：客户定向要求测试（白盒）vs 自由攻击（黑盒）</li>
+</ul>
+</li>
+</ul>
+<h4 id="基于测评对象保密性分类">基于测评对象保密性分类</h4>
+<ul>
+<li>涉密系统：
+<ul>
+<li>主管部门：保密局</li>
+<li>标准依据：<strong>分级保护制度</strong></li>
+<li>特点：相关标准文件不公开</li>
+</ul>
+</li>
+<li>非涉密系统：
+<ul>
+<li>主管部门：公安网安部门</li>
+<li>标准依据：<strong>等级保护制度</strong>（当前为等保2.0）</li>
+</ul>
+</li>
+<li>重要考点：选择题常考两类系统的区分标准</li>
+</ul>
+<h2 id="等级保护测评内容">等级保护测评内容</h2>
+<img src="https://image.icewindy.cn/2025/08/4a2b170036e726b901d829d686ecf06b.png" alt="image-20250825162224589" style="zoom:50%;" />
+<ul>
+<li><strong>技术测评</strong>框架：采用**&quot;一个中心三重防护&quot;<strong>架构，包含安全管理中心、安全通信网络、安全边界和安全计算环境，外加安全物理环境共</strong>五个方面**。</li>
+<li><strong>管理测评</strong>要素：包含安全管理制度、安全管理机构、安全管理人员、安全建设管理和安全运维管理五大模块。</li>
+<li>版本演进：从等保1.0到等保2.0试行稿再到最新稿，技术要求从物理/网络/主机/应用/数据安全演变为物理环境/通信网络/计算环境/应用数据安全。</li>
+</ul>
+<h2 id="测评流程与内容">测评流程与内容</h2>
+<h3 id="等级测评过程">等级测评过程</h3>
+<ul>
+<li>等保2.0规范<strong>四阶段流程</strong>：
+<ul>
+<li>准备活动：明确测评目标和范围</li>
+<li>方案编制：制定详细测评实施方案</li>
+<li>现场测评：实地开展技术和管理测评</li>
+<li>报告编制：形成最终测评报告</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络安全渗透测试过程">网络安全渗透测试过程</h3>
+<ul>
+<li><strong>五阶段流程</strong>：
+<ul>
+<li>委托受理：签订保密协议和测试合同，接收客户资料</li>
+<li>准备阶段：编写测试方案，确定测试时间和配合人员，填写授权单</li>
+<li>实施阶段：分工开展测试，形成渗透测试报告</li>
+<li>综合评估：沟通测试结果，必要时召开评审会，开展复测</li>
+<li>结题阶段：整理归档所有文档记录</li>
+</ul>
+</li>
+<li>关键注意事项：
+<ul>
+<li>客户配合：必须提前确认设备密码等关键信息</li>
+<li>风险告知：授权单需明确测试可能导致业务中断的风险</li>
+<li>测试时间：建议在业务低谷期（如夜间）进行渗透测试</li>
+<li>文档输出：包括测试报告、整改报告、复测报告等系列文档</li>
+</ul>
+</li>
+</ul>
+<h2 id="测评质量管理与标准">测评质量管理与标准</h2>
+<ul>
+<li>核心内容：
+<ul>
+<li>测评机构质量管理体系建立</li>
+<li>测评实施人员管理</li>
+<li>测评设备管理</li>
+<li>测评方法管理</li>
+<li>文件控制</li>
+<li>非符合性工作控制</li>
+<li>体系运行监督</li>
+<li>持续改进机制</li>
+</ul>
+</li>
+<li>国际标准：<strong>ISO 9001</strong>（实际应用标准，非PPT中所述的ISO9000）</li>
+<li>国内认证：
+<ul>
+<li>机构：中国合格评定国家认可委员会（<strong>CNAS</strong>）</li>
+<li>职能：对认证机构、实验室和检查机构的质量管理体系和技术能力进行认可</li>
+</ul>
+</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E8%80%83/">软考</a></div><div class="post_share"><div class="social-share" data-image="/img/Top_img_than.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">IceWindy</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">115</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">36</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/IceWindy233" target="_blank" title=""><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:me@icewindy.cn" target="_blank" title=""><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.icewindy.cn/rss2.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%A6%82%E5%86%B5"><span class="toc-number">1.</span> <span class="toc-text">网络安全测评概况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.</span> <span class="toc-text">测评对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">网络安全测评类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%B5%8B%E8%AF%84%E7%9B%AE%E6%A0%87%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">基于测评目标分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%AE%9E%E6%96%BD%E6%96%B9%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">基于实施方式分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%B5%8B%E8%AF%84%E5%AF%B9%E8%B1%A1%E4%BF%9D%E5%AF%86%E6%80%A7%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.3.</span> <span class="toc-text">基于测评对象保密性分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%89%E7%BA%A7%E4%BF%9D%E6%8A%A4%E6%B5%8B%E8%AF%84%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">等级保护测评内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%84%E6%B5%81%E7%A8%8B%E4%B8%8E%E5%86%85%E5%AE%B9"><span class="toc-number">3.</span> <span class="toc-text">测评流程与内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E7%BA%A7%E6%B5%8B%E8%AF%84%E8%BF%87%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">等级测评过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">网络安全渗透测试过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%84%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E4%B8%8E%E6%A0%87%E5%87%86"><span class="toc-number">4.</span> <span class="toc-text">测评质量管理与标准</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/" title="信息安全工程师软考（18）：网络安全测评技术">信息安全工程师软考（18）：网络安全测评技术</a><time datetime="2025-08-25T07:36:16.000Z" title="发表于 2025-08-25 15:36:16">2025-08-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/25/n8n%EF%BC%881%EF%BC%89%EF%BC%9A%E9%83%A8%E7%BD%B2/" title="n8n（1）：部署">n8n（1）：部署</a><time datetime="2025-08-25T07:20:27.000Z" title="发表于 2025-08-25 15:20:27">2025-08-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/22/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8817%EF%BC%89%EF%BC%9A%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" title="信息安全工程师软考（17）：应急响应">信息安全工程师软考（17）：应急响应</a><time datetime="2025-08-22T06:20:38.000Z" title="发表于 2025-08-22 14:20:38">2025-08-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8816%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E6%8A%80%E6%9C%AF/" title="信息安全工程师软考（16）：网络安全风险评估技术">信息安全工程师软考（16）：网络安全风险评估技术</a><time datetime="2025-08-21T02:49:18.000Z" title="发表于 2025-08-21 10:49:18">2025-08-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/" title="信息安全工程师软考（15）：网络安全主动防御技术">信息安全工程师软考（15）：网络安全主动防御技术</a><time datetime="2025-08-20T06:47:22.000Z" title="发表于 2025-08-20 14:47:22">2025-08-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Top_img_than.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By IceWindy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script></div></body></html>

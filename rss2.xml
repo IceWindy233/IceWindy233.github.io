@@ -15,8 +15,55 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 22 Aug 2025 09:24:42 GMT</pubDate>
+    <pubDate>Mon, 25 Aug 2025 10:28:23 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（18）：网络安全测评技术</title>
+      <link>http://www.icewindy.cn/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/</link>
+      <guid>http://www.icewindy.cn/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/</guid>
+      <pubDate>Mon, 25 Aug 2025 07:36:16 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;网络安全测评概况&quot;&gt;网络安全测评概况&lt;/h2&gt;
+&lt;p&gt;网络安全测评是指按照一定的&lt;strong&gt;标准规范要求（如等保2.0等）&lt;/strong&gt;，通过一系列的&lt;strong&gt;技术和管理&lt;/strong&gt;方法，获取评估对象的网络安全状况信息，对其给出相应的网络安全情</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>n8n（1）：部署</title>
+      <link>http://www.icewindy.cn/2025/08/25/n8n%EF%BC%881%EF%BC%89%EF%BC%9A%E9%83%A8%E7%BD%B2/</link>
+      <guid>http://www.icewindy.cn/2025/08/25/n8n%EF%BC%881%EF%BC%89%EF%BC%9A%E9%83%A8%E7%BD%B2/</guid>
+      <pubDate>Mon, 25 Aug 2025 07:20:27 GMT</pubDate>
+      
+        
+        
+      <description>&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class</description>
+        
+      
+      
+      
+      
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/25/n8n%EF%BC%881%EF%BC%89%EF%BC%9A%E9%83%A8%E7%BD%B2/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（17）：应急响应</title>
@@ -261,65 +308,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（9）：VPN技术原理及应用</title>
-      <link>http://www.icewindy.cn/2025/08/07/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%889%EF%BC%89%EF%BC%9AVPN%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/</link>
-      <guid>http://www.icewindy.cn/2025/08/07/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%889%EF%BC%89%EF%BC%9AVPN%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/</guid>
-      <pubDate>Thu, 07 Aug 2025 06:34:08 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;vpn概述&quot;&gt;VPN概述&lt;/h2&gt;
-&lt;h3 id=&quot;vpn概念&quot;&gt;vpn概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;本质：Virtual Private Network（虚拟专用网）的缩写，通过在不可信任的公共网络上建立加密通道实现安全通信&lt;/li&gt;
-&lt;li&gt;核心机制：将需</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/07/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%889%EF%BC%89%EF%BC%9AVPN%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（8）：防火墙</title>
-      <link>http://www.icewindy.cn/2025/08/06/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%888%EF%BC%89%EF%BC%9A%E9%98%B2%E7%81%AB%E5%A2%99/</link>
-      <guid>http://www.icewindy.cn/2025/08/06/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%888%EF%BC%89%EF%BC%9A%E9%98%B2%E7%81%AB%E5%A2%99/</guid>
-      <pubDate>Wed, 06 Aug 2025 07:58:30 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;防火墙概述&quot;&gt;防火墙概述&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;边界隔离设备: 通过软硬件组合实现内网与外网隔离，既可隔离信任网络与不可信网络（如Internet），也可隔离内网不同区域（如教学区与宿舍区、应用区与数据库区）&lt;/li&gt;
-&lt;li&gt;流量控制机制: 根据安全规则决</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/06/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%888%EF%BC%89%EF%BC%9A%E9%98%B2%E7%81%AB%E5%A2%99/#disqus_thread</comments>
       
     </item>
     
