@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>信息安全工程师软考（19）：操作系统安全 | IceWindy's Blog</title><meta name="keywords" content="软考"><meta name="author" content="IceWindy"><meta name="copyright" content="IceWindy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="操作系统安全概述 概念  核心要素：指满足安全策略要求，具有相应安全机制及功能，符合特定安全标准，能在约束条件下抵御常见网络安全威胁，保障自身安全运行及资源安全。 操作系统分为五个等级：  用户自主保护级 系统审计保护级 安全标记保护级 结构化保护级 访问验证保护级   产业视角：  狭义：侧重产品安全（如国产化操作系统） 广义：侧重产业可控（如配套国产应用生态）   安全目标和需求  安全目标：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息安全工程师软考（19）：操作系统安全">
+<meta property="og:url" content="http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/index.html">
+<meta property="og:site_name" content="IceWindy&#39;s Blog">
+<meta property="og:description" content="操作系统安全概述 概念  核心要素：指满足安全策略要求，具有相应安全机制及功能，符合特定安全标准，能在约束条件下抵御常见网络安全威胁，保障自身安全运行及资源安全。 操作系统分为五个等级：  用户自主保护级 系统审计保护级 安全标记保护级 结构化保护级 访问验证保护级   产业视角：  狭义：侧重产品安全（如国产化操作系统） 广义：侧重产业可控（如配套国产应用生态）   安全目标和需求  安全目标：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
+<meta property="article:published_time" content="2025-08-26T02:38:46.000Z">
+<meta property="article:modified_time" content="2025-08-26T06:53:25.957Z">
+<meta property="article:author" content="IceWindy">
+<meta property="article:tag" content="软考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.icewindy.cn/img/Top_img_than.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3755c90ac8644596cd3b47a85dd40cef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '信息安全工程师软考（19）：操作系统安全',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-08-26 14:53:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/rss2.xml" title="IceWindy's Blog" type="application/rss+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">116</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">36</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">信息安全工程师软考（19）：操作系统安全</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-26T02:38:46.000Z" title="发表于 2025-08-26 10:38:46">2025-08-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-26T06:53:25.957Z" title="更新于 2025-08-26 14:53:25">2025-08-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E8%80%83/">软考</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="操作系统安全概述">操作系统安全概述</h2>
+<h3 id="概念">概念</h3>
+<ul>
+<li>核心要素：指满足安全策略要求，具有相应安全机制及功能，符合特定安全标准，能在约束条件下抵御常见网络安全威胁，保障自身安全运行及资源安全。</li>
+<li>操作系统分为五个等级：
+<ul>
+<li><strong>用户自主保护级</strong></li>
+<li><strong>系统审计保护级</strong></li>
+<li><strong>安全标记保护级</strong></li>
+<li><strong>结构化保护级</strong></li>
+<li><strong>访问验证保护级</strong></li>
+</ul>
+</li>
+<li>产业视角：
+<ul>
+<li>狭义：侧重<strong>产品安全</strong>（如国产化操作系统）</li>
+<li>广义：侧重<strong>产业可控</strong>（如配套国产应用生态）</li>
+</ul>
+</li>
+<li>安全目标和需求
+<ul>
+<li><strong>安全目标</strong>：防范网络安全威胁，保障系统安全运行及资源安全</li>
+<li><strong>六大需求</strong>：
+<ul>
+<li>标识和鉴别：区分用户身份并验证</li>
+<li>访问控制：基于身份的权限管理</li>
+<li>系统资源安全：保障文件等资源的保密性、完整性</li>
+<li>网络安全：支持安全通信协议</li>
+<li>抗攻击：具备防御机制和恢复能力</li>
+<li>自身安全：内置安全防护机制</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="安全机制">安全机制</h3>
+<img src="https://image.icewindy.cn/2025/08/81943b3e4680512c9f0be54ca1319c56.png" alt="image-20250826104545959" style="zoom:80%;" />
+<h2 id="windows安全">Windows安全</h2>
+<h3 id="windows系统架构">Windows系统架构</h3>
+<p>Windows系统划分为三层：</p>
+<ul>
+<li>最底层是<strong>硬件抽象层</strong>：最底层为硬件提供接口，使系统更易移植</li>
+<li>第二层是<strong>内核层</strong>：提供执行、中断、异常处理和同步支持</li>
+<li>第三层是由实现<strong>基本系统服务</strong>的模块组成：包含虚拟内存管理、对象管理、进程线程管理、I/O管理、进程通信和安全参考监督器等模块</li>
+</ul>
+<p><strong>对比UNIX/Linux架构</strong>：硬件层、系统内核层、应用层</p>
+<h3 id="windows安全机制">Windows安全机制</h3>
+<ul>
+<li>
+<p>认证机制：</p>
+<ul>
+<li>本地认证：SAM数据库存储<strong>本地账户/AD域控制器</strong>存储域账户</li>
+<li>网络认证：<strong>Kerberos V5、公钥证书、NTLM</strong></li>
+</ul>
+</li>
+<li>
+<p>访问控制机制：达到橘皮书C2级，实现用户级<strong>自主访问控制</strong></p>
+</li>
+<li>
+<p>审计/日志机制：存储路径：system32\config</p>
+<ul>
+<li>系统日志：SysEvent.evt</li>
+<li>应用日志：AppEvent.evt</li>
+<li>安全日志：SecEvent.evt</li>
+</ul>
+</li>
+<li>
+<p>防火墙：</p>
+<ul>
+<li>NT4/2000：包过滤(ACL)</li>
+<li>XP及以后：自带防火墙</li>
+</ul>
+</li>
+<li>
+<p>文件加密系统：</p>
+<ul>
+<li>
+<p>采用<strong>EFS</strong>在磁盘上加密</p>
+</li>
+<li>
+<p>使用<strong>对称加密算法</strong></p>
+</li>
+<li>
+<p>需密钥才能访问加密文件</p>
+</li>
+</ul>
+</li>
+<li>
+<p>抗攻击机制：新版操作系统增加了<strong>抗攻击安全机制</strong></p>
+<ul>
+<li>堆栈保护/SafeSEH/DEP</li>
+<li>地址随机化(ASLR)</li>
+<li>补丁保护(PathGuard)</li>
+<li>驱动程序签名</li>
+</ul>
+</li>
+</ul>
+<h3 id="windows系统安全分析与增强方法">Windows系统安全分析与增强方法</h3>
+<h4 id="安全威胁">安全威胁</h4>
+<ul>
+<li>口令威胁：空密码/弱密码</li>
+<li>恶意代码：病毒、木马、蠕虫、僵尸网络</li>
+<li>应用漏洞：QQ/微信等第三方软件漏洞</li>
+<li>系统漏洞：SMB/NetBIOS服务漏洞</li>
+<li>物理攻击：服务器被物理窃取</li>
+</ul>
+<h4 id="系统安全增强方法">系统安全增强方法</h4>
+<ul>
+<li>打补丁升级</li>
+<li>停止无用服务/卸载软件</li>
+<li>升级或更换程序</li>
+<li>修改配置权限</li>
+<li>去除特洛伊等恶意程序</li>
+<li>安装安全工具，针对Windows漏洞可以安装自动补丁管理程序</li>
+</ul>
+<h3 id="windows系统安全增强基本步骤">Windows系统安全增强基本步骤</h3>
+<h4 id="1-系统规划">1）系统规划</h4>
+<ul>
+<li>安全目标：防泄密/抗DoS/限制非法访问</li>
+<li>业务用途：个人用与服务器需不同安全级别</li>
+</ul>
+<h4 id="2-最小化安装">2）最小化安装</h4>
+<ul>
+<li>原则：安装最小化的操作系统</li>
+<li>要点：
+<ul>
+<li>使用NTFS分区</li>
+<li>删除不必要服务和组件</li>
+<li>仅安装必需网络协议</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-系统补丁管理">3）系统补丁管理</h4>
+<ul>
+<li>系统补丁补丁需及时更新</li>
+</ul>
+<h4 id="4-配置安装的系统服务">4）配置安装的系统服务</h4>
+<ul>
+<li>不要安装与业务运行无关的服务或应用程序</li>
+<li>安装最新的应用系统和服务软件，定期更新补丁</li>
+</ul>
+<h4 id="5-配置安全策略">5）配置安全策略</h4>
+<ul>
+<li>密码复杂度要求</li>
+<li>账户锁定阈值</li>
+<li>账户锁定时间</li>
+<li>账户锁定计数器</li>
+</ul>
+<h4 id="6-网络服务配置">6）网络服务配置</h4>
+<ul>
+<li>禁用NetBIOS：
+<ul>
+<li>过滤135-139/445端口</li>
+<li>修改注册表禁用</li>
+</ul>
+</li>
+<li>关闭默认共享：通过计算机管理停止共享</li>
+</ul>
+<h4 id="7-文件系统安全">7）文件系统安全</h4>
+<ul>
+<li>删除无用帮助文件</li>
+<li>启用EFS加密文件系统</li>
+<li>修改默认安装目录名</li>
+</ul>
+<h4 id="8-启动安全">8）启动安全</h4>
+<ul>
+<li>设置CMOS密码</li>
+<li>启动选项设为仅限本地磁盘启动</li>
+</ul>
+<h4 id="9-第三方防护">9）第三方防护</h4>
+<ul>
+<li>杀毒软件、EDR等</li>
+</ul>
+<h2 id="unix-linux安全">UNIX/Linux安全</h2>
+<ul>
+<li>分层架构对比：Unix/Linux系统分为<strong>硬件层、系统内核层和应用层</strong>三层结构，与Windows系统的<strong>硬件抽象层、内核和服务模块</strong>三层形成对比考点</li>
+</ul>
+<h3 id="安全机制">安全机制</h3>
+<ul>
+<li>
+<p>Unix/Linux是一种**多用户（多个用户同时使用）、多任务（同时处理多个任务）**的操作系统，具有安全机制：</p>
+<ul>
+<li>
+<p>Unix/Linux认证：</p>
+<ul>
+<li>口令认证：基础认证方式，通过用户名密码验证身份</li>
+<li>终端认证：限制超级用户（如root）只能从特定IP地址远程登录的安全机制</li>
+<li>主机信任：建立主机间的信任关系，使不同主机用户之间无需重复认证</li>
+<li>第三方认证：
+<ul>
+<li>一次一密口令认证S/Key：抵抗重放攻击</li>
+<li>Kerberos认证系统</li>
+<li>插入式身份认证PAM</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>审计机制：</p>
+<ul>
+<li>日志存储：
+<ul>
+<li>Unix早期版本：/usr/adm</li>
+<li>Unix新版：/var/adm</li>
+<li>Solaris/Linux/BSD：/var/log</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>访问控制：通过ACL实现对系统资源控制</p>
+<ul>
+<li>
+<p>权限表示：</p>
+<ul>
+<li>10位表示法：首字母表示文件类型（d为目录，-为普通文件），后9位为权限位</li>
+<li>9位权限分组：每3位一组，分别表示所有者、同组用户、其他用户的rwx权限</li>
+</ul>
+</li>
+<li>
+<p>权限示例：</p>
+<ul>
+<li>rwxr-xr–：所有者可读写执行，同组可读执行，其他用户仅可读</li>
+<li>数字表示法：r=4，w=2，x=1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="系统安全增强技术">系统安全增强技术</h3>
+<ul>
+<li>UNIX/Linux访问控制</li>
+<li>系统安全增强技术的共性
+<ul>
+<li>跨系统通用性：Windows/Linux/Android/iOS等操作系统安全增强技术原理相似，主要包括补丁管理、服务最小化、权限控制等</li>
+<li>核心原则：所有系统都需要打补丁、关闭不必要服务、设置合理权限</li>
+</ul>
+</li>
+<li>设置开机保护口令
+<ul>
+<li>双重保护：
+<ul>
+<li>第一重：操作系统登录密码</li>
+<li>第二重：BIOS/硬盘密码（防止通过PE系统绕过认证）</li>
+</ul>
+</li>
+<li>PE攻击原理：通过外接系统直接读取硬盘数据，绕过操作系统认证</li>
+<li>防护措施：在硬件层设置密码，阻止未经授权的PE系统安装</li>
+</ul>
+</li>
+<li>其他：</li>
+</ul>
+<img src="https://image.icewindy.cn/2025/08/7110b1707f55a8f1dfc0c4ec3b739458.png" alt="image-20250826143957740" style="zoom: 67%;" />
+<h3 id="linux安全增强配置参考">Linux安全增强配置参考</h3>
+<img src="https://image.icewindy.cn/2025/08/7cc7e75492a07bb7ec192741df8685ac.png" alt="image-20250826144231463" style="zoom: 67%;" />
+<img src="https://image.icewindy.cn/2025/08/95ddc8e316c96416e5aabe2bc890a37c.png" alt="image-20250826144537067" style="zoom:67%;" />
+<h3 id="安全模块应用参考">安全模块应用参考</h3>
+<ul>
+<li>
+<p>核心机制:</p>
+<ul>
+<li>LSM框架: Linux安全模块，通过<strong>内核钩子实现轻量级通用访问控制</strong></li>
+<li>模块化扩展: 采用插件方式增强功能，避免直接修改内核</li>
+</ul>
+</li>
+<li>
+<p>安全功能:</p>
+<ul>
+<li>管理员分权：实现权限分离</li>
+<li>最小特权：仅授予必要权限</li>
+<li>访问控制：基于类型的访问控制(TBAC)结合角色，细粒度自主访问控制</li>
+<li>多级安全：禁止上读下写</li>
+</ul>
+</li>
+<li>
+<p>认证模块:</p>
+<ul>
+<li>
+<p>身份验证模块框架PAM：可扩展认证框架，支持多种认证方式(密码/指纹/虹膜)</p>
+<p><img src="https://image.icewindy.cn/2025/08/09a2de5f2159d956ee15b71ef31c6e77.png" alt="image-20250826145029544"></p>
+</li>
+<li>
+<p>SELinux：强制访问控制模块，由策略和实施组成，策略封装在安全服务器中，实施由对象管理器具体执行</p>
+<p>SELinux可以实现<strong>基于角色的访问控制和强制访问控制</strong></p>
+<p><img src="https://image.icewindy.cn/2025/08/aacd1c74cb20760c929c2ec51b6658d6.png" alt="image-20250826144843431"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="国产操作系统安全">国产操作系统安全</h2>
+<ul>
+<li>主要品牌：包括中科方德、中标麒麟、北京宁思普华、深度、华为鸿蒙、阿里飞天、统信UOS等</li>
+</ul>
+<h3 id="国产操作系统的安全风险">国产操作系统的安全风险</h3>
+<ul>
+<li>内核安全风险：继承Linux内核漏洞，包括缓冲区溢出、边界错误、访问验证等问题</li>
+<li>组件安全：
+<ul>
+<li>自主研发组件：新开发组件必然存在漏洞</li>
+<li>第三方组件：如PGP等安全组件漏洞会影响系统整体安全</li>
+</ul>
+</li>
+<li>系统安全配置的安全：人为配置不当</li>
+<li>硬件的安全：底层硬件不安全会导致上层系统失效</li>
+</ul>
+<h3 id="安全防护措施">安全防护措施</h3>
+<ul>
+<li>防护体系：
+<ul>
+<li>管理机制：三权分立（操作员、审计员、安全管理员）</li>
+<li>访问控制：基于角色的访问控制(RBAC)和细粒度自主访问控制</li>
+<li>多级安全：从内核到应用的全方位防护</li>
+</ul>
+</li>
+</ul>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E8%80%83/">软考</a></div><div class="post_share"><div class="social-share" data-image="/img/Top_img_than.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">IceWindy</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">116</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">36</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/IceWindy233" target="_blank" title=""><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:me@icewindy.cn" target="_blank" title=""><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.icewindy.cn/rss2.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">操作系统安全概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text">安全机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows%E5%AE%89%E5%85%A8"><span class="toc-number">2.</span> <span class="toc-text">Windows安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">Windows系统架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="toc-number">2.2.</span> <span class="toc-text">Windows安全机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%88%86%E6%9E%90%E4%B8%8E%E5%A2%9E%E5%BC%BA%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">Windows系统安全分析与增强方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%A8%81%E8%83%81"><span class="toc-number">2.3.1.</span> <span class="toc-text">安全威胁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%A2%9E%E5%BC%BA%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.2.</span> <span class="toc-text">系统安全增强方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#windows%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%A2%9E%E5%BC%BA%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.4.</span> <span class="toc-text">Windows系统安全增强基本步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E8%A7%84%E5%88%92"><span class="toc-number">2.4.1.</span> <span class="toc-text">1）系统规划</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%9C%80%E5%B0%8F%E5%8C%96%E5%AE%89%E8%A3%85"><span class="toc-number">2.4.2.</span> <span class="toc-text">2）最小化安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%B3%BB%E7%BB%9F%E8%A1%A5%E4%B8%81%E7%AE%A1%E7%90%86"><span class="toc-number">2.4.3.</span> <span class="toc-text">3）系统补丁管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.4.4.</span> <span class="toc-text">4）配置安装的系统服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E9%85%8D%E7%BD%AE%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5"><span class="toc-number">2.4.5.</span> <span class="toc-text">5）配置安全策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE"><span class="toc-number">2.4.6.</span> <span class="toc-text">6）网络服务配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8"><span class="toc-number">2.4.7.</span> <span class="toc-text">7）文件系统安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%90%AF%E5%8A%A8%E5%AE%89%E5%85%A8"><span class="toc-number">2.4.8.</span> <span class="toc-text">8）启动安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E7%AC%AC%E4%B8%89%E6%96%B9%E9%98%B2%E6%8A%A4"><span class="toc-number">2.4.9.</span> <span class="toc-text">9）第三方防护</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unix-linux%E5%AE%89%E5%85%A8"><span class="toc-number">3.</span> <span class="toc-text">UNIX&#x2F;Linux安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="toc-number">3.1.</span> <span class="toc-text">安全机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%A2%9E%E5%BC%BA%E6%8A%80%E6%9C%AF"><span class="toc-number">3.2.</span> <span class="toc-text">系统安全增强技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux%E5%AE%89%E5%85%A8%E5%A2%9E%E5%BC%BA%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="toc-number">3.3.</span> <span class="toc-text">Linux安全增强配置参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9D%97%E5%BA%94%E7%94%A8%E5%8F%82%E8%80%83"><span class="toc-number">3.4.</span> <span class="toc-text">安全模块应用参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E4%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8"><span class="toc-number">4.</span> <span class="toc-text">国产操作系统安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BD%E4%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9"><span class="toc-number">4.1.</span> <span class="toc-text">国产操作系统的安全风险</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E6%8E%AA%E6%96%BD"><span class="toc-number">4.2.</span> <span class="toc-text">安全防护措施</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/" title="信息安全工程师软考（19）：操作系统安全">信息安全工程师软考（19）：操作系统安全</a><time datetime="2025-08-26T02:38:46.000Z" title="发表于 2025-08-26 10:38:46">2025-08-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/" title="信息安全工程师软考（18）：网络安全测评技术">信息安全工程师软考（18）：网络安全测评技术</a><time datetime="2025-08-25T07:36:16.000Z" title="发表于 2025-08-25 15:36:16">2025-08-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/25/n8n%EF%BC%881%EF%BC%89%EF%BC%9A%E9%83%A8%E7%BD%B2/" title="n8n（1）：部署">n8n（1）：部署</a><time datetime="2025-08-25T07:20:27.000Z" title="发表于 2025-08-25 15:20:27">2025-08-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/22/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8817%EF%BC%89%EF%BC%9A%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" title="信息安全工程师软考（17）：应急响应">信息安全工程师软考（17）：应急响应</a><time datetime="2025-08-22T06:20:38.000Z" title="发表于 2025-08-22 14:20:38">2025-08-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8816%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E6%8A%80%E6%9C%AF/" title="信息安全工程师软考（16）：网络安全风险评估技术">信息安全工程师软考（16）：网络安全风险评估技术</a><time datetime="2025-08-21T02:49:18.000Z" title="发表于 2025-08-21 10:49:18">2025-08-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Top_img_than.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By IceWindy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script></div></body></html>

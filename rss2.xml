@@ -15,8 +15,38 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 25 Aug 2025 10:28:23 GMT</pubDate>
+    <pubDate>Tue, 26 Aug 2025 06:53:25 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（19）：操作系统安全</title>
+      <link>http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</link>
+      <guid>http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</guid>
+      <pubDate>Tue, 26 Aug 2025 02:38:46 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;操作系统安全概述&quot;&gt;操作系统安全概述&lt;/h2&gt;
+&lt;h3 id=&quot;概念&quot;&gt;概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;核心要素：指满足安全策略要求，具有相应安全机制及功能，符合特定安全标准，能在约束条件下抵御常见网络安全威胁，保障自身安全运行及资源安全。&lt;/li&gt;
+&lt;li&gt;操</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（18）：网络安全测评技术</title>
@@ -279,35 +309,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（10）：入侵检测</title>
-      <link>http://www.icewindy.cn/2025/08/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/</link>
-      <guid>http://www.icewindy.cn/2025/08/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/</guid>
-      <pubDate>Fri, 08 Aug 2025 08:21:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;入侵检测概述&quot;&gt;入侵检测概述&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;判断依据：对目标的操作是否超出了目标的安全策略范围。例如只有读权限却进行写操作就属于入侵行为。&lt;/li&gt;
-&lt;li&gt;检测方式：通过&lt;strong&gt;收集操作系统、系统程序、应用程序、网络包等信息，发现违背安全策</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8810%EF%BC%89%EF%BC%9A%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/#disqus_thread</comments>
       
     </item>
     
