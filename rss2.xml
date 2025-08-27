@@ -15,8 +15,37 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 26 Aug 2025 06:53:25 GMT</pubDate>
+    <pubDate>Wed, 27 Aug 2025 11:12:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（20）：数据库系统安全</title>
+      <link>http://www.icewindy.cn/2025/08/27/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8820%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</link>
+      <guid>http://www.icewindy.cn/2025/08/27/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8820%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</guid>
+      <pubDate>Wed, 27 Aug 2025 06:25:16 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;数据库安全概述&quot;&gt;数据库安全概述&lt;/h2&gt;
+&lt;h3 id=&quot;安全概念&quot;&gt;安全概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CIA特性：数据库安全的核心是保障&lt;strong&gt;机密性(Confidentiality)、完整性(Integrity)、可用性(Availability</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/27/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8820%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（19）：操作系统安全</title>
@@ -280,35 +309,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/13/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8812%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（11）：网络物理隔离</title>
-      <link>http://www.icewindy.cn/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/</link>
-      <guid>http://www.icewindy.cn/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/</guid>
-      <pubDate>Tue, 12 Aug 2025 06:08:43 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;网络物理隔离技术&quot;&gt;网络物理隔离技术&lt;/h2&gt;
-&lt;h3 id=&quot;概述&quot;&gt;概述&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;定义：网络物理隔离是&lt;strong&gt;既满足内外网数据交换需求，又能防止网络安全事件出现&lt;/strong&gt;的安全技术。其基本原理是&lt;strong&gt;避免&lt;/str</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/12/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8811%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%89%A9%E7%90%86%E9%9A%94%E7%A6%BB/#disqus_thread</comments>
       
     </item>
     
