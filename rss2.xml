@@ -15,8 +15,40 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 27 Aug 2025 11:12:16 GMT</pubDate>
+    <pubDate>Fri, 29 Aug 2025 08:14:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（21）：网络设备安全</title>
+      <link>http://www.icewindy.cn/2025/08/29/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8821%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E5%AE%89%E5%85%A8/</link>
+      <guid>http://www.icewindy.cn/2025/08/29/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8821%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E5%AE%89%E5%85%A8/</guid>
+      <pubDate>Fri, 29 Aug 2025 06:38:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;网络设备安全概况&quot;&gt;网络设备安全概况&lt;/h2&gt;
+&lt;h3 id=&quot;交换机安全威胁&quot;&gt;交换机安全威胁&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;MAC地址泛洪（Flooding）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;攻击原理：伪造大量虚假MAC地址发往交换机，耗尽交换机有限的MAC地</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/08/29/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8821%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E5%AE%89%E5%85%A8/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（20）：数据库系统安全</title>
@@ -279,36 +311,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/14/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8813%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（12）：网络安全审计</title>
-      <link>http://www.icewindy.cn/2025/08/13/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8812%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/</link>
-      <guid>http://www.icewindy.cn/2025/08/13/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8812%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/</guid>
-      <pubDate>Wed, 13 Aug 2025 06:41:41 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;网络安全审计概述与组成&quot;&gt;网络安全审计概述与组成&lt;/h2&gt;
-&lt;h3 id=&quot;概念&quot;&gt;概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;核心定位：属于4A安全框架（认证、授权、账号、审计）中的最后一环，是项目实践中应用广泛的重要技术&lt;/li&gt;
-&lt;li&gt;基本定义：对网络信息系统的安全</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/13/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8812%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/#disqus_thread</comments>
       
     </item>
     
