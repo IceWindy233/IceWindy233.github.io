@@ -15,8 +15,57 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 01 Sep 2025 07:40:43 GMT</pubDate>
+    <pubDate>Tue, 02 Sep 2025 09:09:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>信息安全工程师软考（23）：云计算安全</title>
+      <link>http://www.icewindy.cn/2025/09/02/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8823%EF%BC%89%EF%BC%9A%E4%BA%91%E8%AE%A1%E7%AE%97%E5%AE%89%E5%85%A8/</link>
+      <guid>http://www.icewindy.cn/2025/09/02/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8823%EF%BC%89%EF%BC%9A%E4%BA%91%E8%AE%A1%E7%AE%97%E5%AE%89%E5%85%A8/</guid>
+      <pubDate>Tue, 02 Sep 2025 07:30:51 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;云计算概念与威胁分析&quot;&gt;云计算概念与威胁分析&lt;/h2&gt;
+&lt;h3 id=&quot;云计算概念&quot;&gt;云计算概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;服务模式转变：类比从自购发电机到国家电网供电，从自打水井到自来水公司供水，云计算实现了从购买硬件设备到购买IT服务的转变。&lt;/li&gt;
+&lt;l</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/09/02/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8823%EF%BC%89%EF%BC%9A%E4%BA%91%E8%AE%A1%E7%AE%97%E5%AE%89%E5%85%A8/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>APP攻防（1）：</title>
+      <link>http://www.icewindy.cn/2025/09/01/APP%E6%94%BB%E9%98%B2%EF%BC%881%EF%BC%89%EF%BC%9A/</link>
+      <guid>http://www.icewindy.cn/2025/09/01/APP%E6%94%BB%E9%98%B2%EF%BC%881%EF%BC%89%EF%BC%9A/</guid>
+      <pubDate>Mon, 01 Sep 2025 09:59:02 GMT</pubDate>
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/">移动安全</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8/APP%E6%94%BB%E9%98%B2/">APP攻防</category>
+      
+      
+      
+      <comments>http://www.icewindy.cn/2025/09/01/APP%E6%94%BB%E9%98%B2%EF%BC%881%EF%BC%89%EF%BC%9A/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信息安全工程师软考（22）：网站安全</title>
@@ -243,69 +292,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/21/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8816%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（15）：网络安全主动防御技术</title>
-      <link>http://www.icewindy.cn/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/</link>
-      <guid>http://www.icewindy.cn/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/</guid>
-      <pubDate>Wed, 20 Aug 2025 06:47:22 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;入侵阻断技术&quot;&gt;入侵阻断技术&lt;/h2&gt;
-&lt;h3 id=&quot;入侵阻断-ips-概念&quot;&gt;入侵阻断（IPS）概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;本质特征：属于网络安全主动防御技术，通过阻断网络攻击行为来保护目标对象&lt;/li&gt;
-&lt;li&gt;与IDS关系：入侵检测系统（IDS）的扩</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/20/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8815%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%BB%E5%8A%A8%E9%98%B2%E5%BE%A1%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（14）：恶意代码</title>
-      <link>http://www.icewindy.cn/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/</link>
-      <guid>http://www.icewindy.cn/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/</guid>
-      <pubDate>Fri, 15 Aug 2025 07:47:08 GMT</pubDate>
-      
-        
-        
-      <description>&lt;ul&gt;
-&lt;li&gt;恶意代码Malicious Code&lt;/li&gt;
-&lt;li&gt;病毒Virus&lt;/li&gt;
-&lt;li&gt;蠕虫Worms&lt;/li&gt;
-&lt;li&gt;特洛伊木马Trojan Horse&lt;/li&gt;
-&lt;li&gt;逻辑炸弹Logic Bombs&lt;/li&gt;
-&lt;li&gt;细菌Bacteria&lt;/li&gt;
-&lt;</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/15/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8814%EF%BC%89%EF%BC%9A%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/#disqus_thread</comments>
       
     </item>
     
