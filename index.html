@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-10-14 23:57:43'
+  postUpdate: '2025-10-25 14:29:01'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -185,7 +185,7 @@ chacha20
 
 注入技术
 这里以AniYa免杀框架[https://github.com/piiperxyz/AniYa]的注入模块来举例。
-CreateThread
+CreateThread / CreateThreadNative
 技术: 本地线程注入。这是最简单的注入方式，在自身进程空间内执行 shellcode。
 
 使用 VirtualAlloc 在当前进程中分配内存。
@@ -193,12 +193,11 @@ CreateThread
 使用 VirtualProtect 将内存属性修改为可执行。
 调用 CreateThread 创建一个新线程来执行 shellcode。
 
+CreateThreadNative：利用 CreateThread 更底层的方式
 CreateRemoteThread / RtlCreateUserThread
 技术：远程进程注入技术。
 
-通过 OpenProcess 打开一个目标进程的句柄，获取完全控制权限。
-使用 VirtualAllocEx 在目标进程中分配一块内存。
-使 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/17/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83-%E9%94%99%E9%A2%98%E9%9B%86/" title="信息安全工程师软考-错题集">信息安全工程师软考-错题集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-17T09:08:59.000Z" title="发表于 2025-09-17 17:08:59">2025-09-17</time></span></div><div class="content">IPv4保留地址
+通过 Open ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/17/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83-%E9%94%99%E9%A2%98%E9%9B%86/" title="信息安全工程师软考-错题集">信息安全工程师软考-错题集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-17T09:08:59.000Z" title="发表于 2025-09-17 17:08:59">2025-09-17</time></span></div><div class="content">IPv4保留地址
 
 
 私有IP地址
@@ -236,14 +235,13 @@ C类：192.168.0.0 - 192.168.255.255
 
 VPN按照层级分类
 
-数据链路层：PPTP，L2TP，MPLS（2.5层）
-网络层：IPSec，隧道技术
+数据链路层：PPTP，L2TP，ATM，Frame Relay，MPLS
+网络层：IPSec，隧道技术，受控路由过滤
 传输层：SSL
 
 国产密码算法
 
-SM2：椭圆曲线公钥密码算法
-SM3：类似MD5的杂凑 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/03/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8825%EF%BC%89%EF%BC%9A%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" title="信息安全工程师软考（25）：移动应用安全、大数据安全">信息安全工程师软考（25）：移动应用安全、大数据安全</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-03T08:28:40.000Z" title="发表于 2025-09-03 16:28:40">2025-09-03</time></span></div><div class="content">移动应用安全需求分析与保护
+SM2：椭圆曲线公钥 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/03/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8825%EF%BC%89%EF%BC%9A%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E3%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" title="信息安全工程师软考（25）：移动应用安全、大数据安全">信息安全工程师软考（25）：移动应用安全、大数据安全</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-03T08:28:40.000Z" title="发表于 2025-09-03 16:28:40">2025-09-03</time></span></div><div class="content">移动应用安全需求分析与保护
 
 移动应用系统三大组成部分：
 
