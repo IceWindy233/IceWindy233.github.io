@@ -15,8 +15,37 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 24 Oct 2025 07:48:11 GMT</pubDate>
+    <pubDate>Sun, 09 Nov 2025 06:54:01 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>SimpleC2框架设计文档</title>
+      <link>http://www.icewindy.cn/2025/11/09/SimpleC2%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3/</link>
+      <guid>http://www.icewindy.cn/2025/11/09/SimpleC2%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3/</guid>
+      <pubDate>Sun, 09 Nov 2025 06:47:59 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;simplec2-框架设计文档&quot;&gt;**SimpleC2 框架设计文档 **&lt;/h2&gt;
+&lt;h3 id=&quot;1-引言&quot;&gt;1. 引言&lt;/h3&gt;
+&lt;h4 id=&quot;1-1-目的&quot;&gt;1.1 目的&lt;/h4&gt;
+&lt;p&gt;本文档旨在定义一个采用&lt;strong&gt;分离式架构&lt;/strong&gt;</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E6%9D%82%E9%A1%B9/">杂项</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E6%9D%82%E9%A1%B9/%E6%96%87%E6%A1%A3/">文档</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/">开发文档</category>
+      
+      
+      <comments>http://www.icewindy.cn/2025/11/09/SimpleC2%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>shellcode loader杂谈</title>
@@ -289,33 +318,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（18）：网络安全测评技术</title>
-      <link>http://www.icewindy.cn/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/</link>
-      <guid>http://www.icewindy.cn/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/</guid>
-      <pubDate>Mon, 25 Aug 2025 07:36:16 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;网络安全测评概况&quot;&gt;网络安全测评概况&lt;/h2&gt;
-&lt;p&gt;网络安全测评是指按照一定的&lt;strong&gt;标准规范要求（如等保2.0等）&lt;/strong&gt;，通过一系列的&lt;strong&gt;技术和管理&lt;/strong&gt;方法，获取评估对象的网络安全状况信息，对其给出相应的网络安全情</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/25/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8818%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%84%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
       
     </item>
     
