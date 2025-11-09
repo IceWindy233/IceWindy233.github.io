@@ -15,7 +15,7 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 09 Nov 2025 06:54:01 GMT</pubDate>
+    <pubDate>Sun, 09 Nov 2025 07:01:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -26,10 +26,9 @@
       
         
         
-      <description>&lt;h2 id=&quot;simplec2-框架设计文档&quot;&gt;**SimpleC2 框架设计文档 **&lt;/h2&gt;
-&lt;h3 id=&quot;1-引言&quot;&gt;1. 引言&lt;/h3&gt;
-&lt;h4 id=&quot;1-1-目的&quot;&gt;1.1 目的&lt;/h4&gt;
-&lt;p&gt;本文档旨在定义一个采用&lt;strong&gt;分离式架构&lt;/strong&gt;</description>
+      <description>&lt;h2 id=&quot;simplec2-框架设计文档&quot;&gt;SimpleC2 框架设计文档&lt;/h2&gt;
+&lt;p&gt;本文档为项目&lt;a href=&quot;https://github.com/IceWindy233/SimpleC2&quot;&gt;SimpleC2&lt;/a&gt;的设计文档，仅作为设计思路参考。&lt;/p&gt;
+&lt;h</description>
         
       
       
