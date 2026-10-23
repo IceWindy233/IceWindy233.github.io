@@ -15,8 +15,99 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 09 Nov 2025 07:01:36 GMT</pubDate>
+    <pubDate>Fri, 23 Oct 2026 03:41:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>乐**-信息安全工程师一面</title>
+      <link>http://www.icewindy.cn/2026/10/23/%E4%B9%90-%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E4%B8%80%E9%9D%A2/</link>
+      <guid>http://www.icewindy.cn/2026/10/23/%E4%B9%90-%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E4%B8%80%E9%9D%A2/</guid>
+      <pubDate>Fri, 23 Oct 2026 03:39:23 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;面试问题汇总&quot;&gt;面试问题汇总&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;请先做一下自我介绍，并介绍你上一份工作的主要职责。&lt;/li&gt;
+&lt;li&gt;如果IDS告警发现一台Java服务器持续向境外IP发起大量443端口连接，你会如何排查？&lt;/li&gt;
+&lt;li&gt;如果要求你在10分钟内完成初</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E9%9D%A2%E8%AF%95/">面试</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</category>
+      
+      
+      <comments>http://www.icewindy.cn/2026/10/23/%E4%B9%90-%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E4%B8%80%E9%9D%A2/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Pi Agent Compaction 压缩机制</title>
+      <link>http://www.icewindy.cn/2026/09/22/Pi-Agent-Compaction%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8E%8B%E7%BC%A9%E6%9C%BA%E5%88%B6/</link>
+      <guid>http://www.icewindy.cn/2026/09/22/Pi-Agent-Compaction%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8E%8B%E7%BC%A9%E6%9C%BA%E5%88%B6/</guid>
+      <pubDate>Tue, 22 Sep 2026 07:01:44 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;pi-agent-compaction-上下文压缩机制&quot;&gt;Pi Agent Compaction 上下文压缩机制&lt;/h1&gt;
+&lt;h2 id=&quot;1-compaction-上下文压缩是什么&quot;&gt;1. Compaction 上下文压缩是什么&lt;/h2&gt;
+&lt;p&gt;Pi Agent</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/">大模型应用</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/Agent/">Agent</category>
+      
+      
+      <comments>http://www.icewindy.cn/2026/09/22/Pi-Agent-Compaction%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8E%8B%E7%BC%A9%E6%9C%BA%E5%88%B6/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>一些AiAgent开发随手笔记</title>
+      <link>http://www.icewindy.cn/2026/07/22/%E4%B8%80%E4%BA%9BAI-Agent%E5%BC%80%E5%8F%91%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0/</link>
+      <guid>http://www.icewindy.cn/2026/07/22/%E4%B8%80%E4%BA%9BAI-Agent%E5%BC%80%E5%8F%91%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0/</guid>
+      <pubDate>Wed, 22 Jul 2026 07:03:45 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;rag系统如何处理word-pdf&quot;&gt;RAG系统如何处理Word、PDF&lt;/h2&gt;
+&lt;h3 id=&quot;解析&quot;&gt;解析&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Docling / Marker：文档解析器，转换为Markdown文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;云解</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/">大模型应用</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/Agent/">Agent</category>
+      
+      
+      <comments>http://www.icewindy.cn/2026/07/22/%E4%B8%80%E4%BA%9BAI-Agent%E5%BC%80%E5%8F%91%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>SimpleC2框架设计文档</title>
@@ -226,97 +317,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/08/30/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8822%EF%BC%89%EF%BC%9A%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（21）：网络设备安全</title>
-      <link>http://www.icewindy.cn/2025/08/29/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8821%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E5%AE%89%E5%85%A8/</link>
-      <guid>http://www.icewindy.cn/2025/08/29/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8821%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E5%AE%89%E5%85%A8/</guid>
-      <pubDate>Fri, 29 Aug 2025 06:38:24 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;网络设备安全概况&quot;&gt;网络设备安全概况&lt;/h2&gt;
-&lt;h3 id=&quot;交换机安全威胁&quot;&gt;交换机安全威胁&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;MAC地址泛洪（Flooding）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;攻击原理：伪造大量虚假MAC地址发往交换机，耗尽交换机有限的MAC地</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/29/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8821%EF%BC%89%EF%BC%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E5%AE%89%E5%85%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（20）：数据库系统安全</title>
-      <link>http://www.icewindy.cn/2025/08/27/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8820%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</link>
-      <guid>http://www.icewindy.cn/2025/08/27/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8820%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</guid>
-      <pubDate>Wed, 27 Aug 2025 06:25:16 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;数据库安全概述&quot;&gt;数据库安全概述&lt;/h2&gt;
-&lt;h3 id=&quot;安全概念&quot;&gt;安全概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;CIA特性：数据库安全的核心是保障&lt;strong&gt;机密性(Confidentiality)、完整性(Integrity)、可用性(Availability</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/27/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8820%EF%BC%89%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（19）：操作系统安全</title>
-      <link>http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</link>
-      <guid>http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/</guid>
-      <pubDate>Tue, 26 Aug 2025 02:38:46 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;操作系统安全概述&quot;&gt;操作系统安全概述&lt;/h2&gt;
-&lt;h3 id=&quot;概念&quot;&gt;概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;核心要素：指满足安全策略要求，具有相应安全机制及功能，符合特定安全标准，能在约束条件下抵御常见网络安全威胁，保障自身安全运行及资源安全。&lt;/li&gt;
-&lt;li&gt;操</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/26/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/#disqus_thread</comments>
       
     </item>
     
