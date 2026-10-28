@@ -15,8 +15,36 @@
     <atom:link href="http://www.icewindy.cn/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 23 Oct 2026 03:41:50 GMT</pubDate>
+    <pubDate>Wed, 28 Oct 2026 06:54:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>minivllm学习记录（1）</title>
+      <link>http://www.icewindy.cn/2026/10/27/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</link>
+      <guid>http://www.icewindy.cn/2026/10/27/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</guid>
+      <pubDate>Tue, 27 Oct 2026 07:03:55 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;tensor-张量&quot;&gt;Tensor（张量）&lt;/h2&gt;
+&lt;p&gt;在 PyTorch 中，Tensor 是存储数值的多维数组。&lt;/p&gt;
+&lt;p&gt;Tensor 的三个核心属性：&lt;code&gt;shape&lt;/code&gt;、&lt;code&gt;dtype&lt;/code&gt;、&lt;code&gt;devic</description>
+        
+      
+      
+      
+      
+      <category domain="http://www.icewindy.cn/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/">大模型应用</category>
+      
+      <category domain="http://www.icewindy.cn/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <category domain="http://www.icewindy.cn/tags/LLM%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E/">LLM推理引擎</category>
+      
+      
+      <comments>http://www.icewindy.cn/2026/10/27/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>乐**-信息安全工程师一面</title>
@@ -288,35 +316,6 @@
       
       
       <comments>http://www.icewindy.cn/2025/09/02/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8823%EF%BC%89%EF%BC%9A%E4%BA%91%E8%AE%A1%E7%AE%97%E5%AE%89%E5%85%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>信息安全工程师软考（22）：网站安全</title>
-      <link>http://www.icewindy.cn/2025/08/30/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8822%EF%BC%89%EF%BC%9A%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/</link>
-      <guid>http://www.icewindy.cn/2025/08/30/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8822%EF%BC%89%EF%BC%9A%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/</guid>
-      <pubDate>Sat, 30 Aug 2025 08:44:25 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;网站安全威胁与需求分析&quot;&gt;网站安全威胁与需求分析&lt;/h2&gt;
-&lt;h3 id=&quot;网站安全威胁&quot;&gt;网站安全威胁&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;非授权访问&lt;/strong&gt;: 由于网站认证机制缺陷导致服务及信息被非法访问，常见攻击手段包括口令猜测和&amp;quot</description>
-        
-      
-      
-      
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      <category domain="http://www.icewindy.cn/categories/%E8%BD%AF%E8%80%83/%E7%AC%94%E8%AE%B0/">笔记</category>
-      
-      
-      <category domain="http://www.icewindy.cn/tags/%E8%BD%AF%E8%80%83/">软考</category>
-      
-      
-      <comments>http://www.icewindy.cn/2025/08/30/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BD%AF%E8%80%83%EF%BC%8822%EF%BC%89%EF%BC%9A%E7%BD%91%E7%AB%99%E5%AE%89%E5%85%A8/#disqus_thread</comments>
       
     </item>
     

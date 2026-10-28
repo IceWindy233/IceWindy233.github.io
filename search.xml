@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>minivllm学习记录（1）</title>
+      <link href="/2026/10/27/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/"/>
+      <url>/2026/10/27/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="tensor-张量">Tensor（张量）</h2><p>在 PyTorch 中，Tensor 是存储数值的多维数组。</p><p>Tensor 的三个核心属性：<code>shape</code>、<code>dtype</code>、<code>device</code>：</p><ul><li>shape：张量的形状</li><li>dtype：张量的数据类型</li><li>device：张量的计算设备</li></ul><h2 id="把-python-列表变成张量">把 Python 列表变成张量</h2><table><thead><tr><th>特性</th><th>Python List</th><th>PyTorch Tensor</th></tr></thead><tbody><tr><td>存储数字</td><td>支持</td><td>支持</td></tr><tr><td>多维结构</td><td>通过嵌套实现</td><td>原生支持</td></tr><tr><td>元素数据类型</td><td>可以混合类型</td><td>通常为统一 dtype</td></tr><tr><td>逐元素数学运算</td><td>通常需要自己编写逻辑</td><td>原生支持</td></tr><tr><td>GPU 计算</td><td>不直接支持</td><td>支持</td></tr></tbody></table><h3 id="torch-tensor">torch.tensor()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor(data, dtype=dtype)</span><br></pre></td></tr></table></figure><ul><li>data：决定 Tensor 的内容和形状</li><li>dtype：决定这些数字用什么类型表示</li></ul><h3 id="torch-zeros-torch-ones">torch.zeros() / torch.ones()</h3><p>它们不需要输入具体数据，而是根据给定的 Shape 创建 Tensor。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.zeros((<span class="number">2</span>, <span class="number">3</span>)) <span class="comment">#创建一个两行三列填充为&quot;0.&quot;的Tensor</span></span><br><span class="line">torch.ones((<span class="number">2</span>, <span class="number">3</span>))  <span class="comment">#创建一个两行三列填充为&quot;1.&quot;的Tensor</span></span><br></pre></td></tr></table></figure><h2 id="索引">索引</h2><ul><li><code>t[i]</code>：取出指定行。</li><li><code>t[:, j]</code>：取出指定列。</li><li><code>t[-1]</code>：取出最后一行；<code>t[:,-1]</code>：取出最后一列。</li></ul><h2 id="沿着轴聚合：dim">沿着轴聚合：dim</h2><p>核心逻辑：<code>dim</code> 指定的是<strong>被聚合的维度</strong>。</p><h3 id="如何理解">如何理解</h3><p>假设有两名学生，三门科目的成绩，即shape=(2,3)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scores = torch.tensor([</span><br><span class="line">    [<span class="number">80.</span>, <span class="number">90.</span>, <span class="number">100.</span>],  <span class="comment"># 小明</span></span><br><span class="line">    [<span class="number">60.</span>, <span class="number">70.</span>,  <span class="number">80.</span>],  <span class="comment"># 小红</span></span><br><span class="line">])</span><br></pre></td></tr></table></figure><p>也就是学生对应了第0维（2行），成绩对应了第1维（3列）</p><ul><li><p>需求A：计算每名学生的总成绩</p><p>小明：80 + 90 + 100 = 270<br>小红：60 + 70 + 80  = 210</p><p>我们聚合了成绩（第1维），保留了学生（第0维）</p><p>所以我们应当执行：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scores.<span class="built_in">sum</span>(dim=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># tensor([270., 210.])</span></span><br></pre></td></tr></table></figure></li><li><p>需求B：计算每门课的平均分</p><p>语文：(80 + 60) / 2  = 70<br>数学：(90 + 70) / 2  = 80<br>英语：(100 + 80) / 2 = 90</p><p>我们聚合了学生（第0维），保留了成绩（第1维）</p><p>所以我们应当执行：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scores.mean(dim=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># tensor([70., 80., 90.])</span></span><br></pre></td></tr></table></figure></li></ul><p>我们简化成一个判断方法：</p><ul><li>默认 <code>keepdim=False</code> 时，聚合结果的 Shape 就是从原 Shape 中删掉 <code>dim</code> 对应的那个数字；</li><li>如果设置了 <code>keepdim=True</code>，被聚合的维度不会被删除，而是长度变为 1。</li></ul><h2 id="矩阵乘">矩阵乘</h2><h3 id="shape规则">Shape规则</h3><p>两个矩阵并不是一定能够相乘</p><p>假设：</p><blockquote><p>[ A.shape=(m,k) ]</p><p>[ B.shape=(k,n) ]</p></blockquote><p>[ C=A\times B ]，则：</p><blockquote><p>[ C.shape=(m,n) ]</p></blockquote><p>即，<strong>中间必须相等，结果保留两边</strong>。</p><h3 id="pytorch中的矩阵乘法">PyTorch中的矩阵乘法</h3><p>PyTorch 提供了两种常用写法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a @ b</span><br><span class="line">torch.matmul(a, b)</span><br></pre></td></tr></table></figure><p>注意：<code>*</code> 和 <code>@</code> 不一样，<code>a*b</code>表示对应元素逐个相乘。</p><table><thead><tr><th>操作</th><th>含义</th><th>常见用途</th></tr></thead><tbody><tr><td><code>a * b</code></td><td>逐元素乘法，支持广播</td><td>掩码、门控、逐元素计算</td></tr><tr><td><code>a @ b</code></td><td>矩阵乘法</td><td>线性层、Attention</td></tr><tr><td><code>torch.matmul(a, b)</code></td><td>矩阵乘法，也支持批量矩阵乘等情况</td><td>神经网络计算</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大模型应用 </category>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LLM推理引擎 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>乐**-信息安全工程师一面</title>
       <link href="/2026/10/23/%E4%B9%90-%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E4%B8%80%E9%9D%A2/"/>
       <url>/2026/10/23/%E4%B9%90-%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E4%B8%80%E9%9D%A2/</url>
