@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>minivllm学习记录（1）：张量、自回归 | IceWindy's Blog</title><meta name="keywords" content="LLM推理引擎"><meta name="author" content="IceWindy"><meta name="copyright" content="IceWindy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="张量就是数表 Tensor（张量） Tensor 是用于数值计算的多维数组，三个核心属性：  shape：张量形状，例如 (2, 3)。 dtype：元素数据类型，例如 float32、int64。 device：计算设备，例如 cpu、mps。  其他属性：ndim 表示维度数量，numel() 表示元素总数。 创建 Tensor 123torch.tensor(data, dtype&#x3D;torc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="minivllm学习记录（1）：张量、自回归">
+<meta property="og:url" content="http://www.icewindy.cn/2026/10/27/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89%EF%BC%9A%E5%BC%A0%E9%87%8F%E3%80%81%E8%87%AA%E5%9B%9E%E5%BD%92/index.html">
+<meta property="og:site_name" content="IceWindy&#39;s Blog">
+<meta property="og:description" content="张量就是数表 Tensor（张量） Tensor 是用于数值计算的多维数组，三个核心属性：  shape：张量形状，例如 (2, 3)。 dtype：元素数据类型，例如 float32、int64。 device：计算设备，例如 cpu、mps。  其他属性：ndim 表示维度数量，numel() 表示元素总数。 创建 Tensor 123torch.tensor(data, dtype&#x3D;torc">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.icewindy.cn/img/Top_img_than.jpg">
+<meta property="article:published_time" content="2026-10-27T07:03:55.000Z">
+<meta property="article:modified_time" content="2026-10-28T13:54:01.934Z">
+<meta property="article:author" content="IceWindy">
+<meta property="article:tag" content="LLM推理引擎">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.icewindy.cn/img/Top_img_than.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.icewindy.cn/2026/10/27/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89%EF%BC%9A%E5%BC%A0%E9%87%8F%E3%80%81%E8%87%AA%E5%9B%9E%E5%BD%92/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3755c90ac8644596cd3b47a85dd40cef";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'minivllm学习记录（1）：张量、自回归',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-10-28 21:54:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/rss2.xml" title="IceWindy's Blog" type="application/rss+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">130</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">42</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Top_img_than.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">IceWindy's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">minivllm学习记录（1）：张量、自回归</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-10-27T07:03:55.000Z" title="发表于 2026-10-27 15:03:55">2026-10-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-28T13:54:01.934Z" title="更新于 2026-10-28 21:54:01">2026-10-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/">大模型应用</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="张量就是数表">张量就是数表</h1>
+<h2 id="tensor-张量">Tensor（张量）</h2>
+<p>Tensor 是用于数值计算的多维数组，三个核心属性：</p>
+<ul>
+<li><code>shape</code>：张量形状，例如 <code>(2, 3)</code>。</li>
+<li><code>dtype</code>：元素数据类型，例如 <code>float32</code>、<code>int64</code>。</li>
+<li><code>device</code>：计算设备，例如 <code>cpu</code>、<code>mps</code>。</li>
+</ul>
+<p>其他属性：<code>ndim</code> 表示维度数量，<code>numel()</code> 表示元素总数。</p>
+<h2 id="创建-tensor">创建 Tensor</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor(data, dtype=torch.float32)  # 列表转 Tensor</span><br><span class="line">torch.zeros((2, 3))                     # 全零 Tensor</span><br><span class="line">torch.ones((2, 3))                      # 全一 Tensor</span><br></pre></td></tr></table></figure>
+<p>Tensor 相比 Python List，支持高效的张量运算及 GPU 计算。</p>
+<h2 id="索引">索引</h2>
+<ul>
+<li><code>t[i]</code>：取第 i 行。</li>
+<li><code>t[:, j]</code>：取第 j 列。</li>
+<li><code>t[-1]</code>：取最后一行。</li>
+<li><code>t[:, -1]</code>：取最后一列。</li>
+<li><code>t[0, 1]</code>：取指定元素。</li>
+</ul>
+<p><strong>整数索引通常消除对应维度，切片索引保留维度。</strong></p>
+<h2 id="沿轴聚合：dim">沿轴聚合：dim</h2>
+<p><code>dim</code> 指定<strong>被聚合的维度</strong>，而不是保留的维度。</p>
+<p>假设 <code>x.shape = (2, 3)</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x.sum(dim=0)   # 按列求和 → (3,)</span><br><span class="line">x.sum(dim=1)   # 按行求和 → (2,)</span><br><span class="line">x.mean(dim=0)  # 按列求平均 → (3,)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>keepdim=False</code>：默认删除被聚合的维度。</li>
+<li><code>keepdim=True</code>：保留该维度，但长度变成 1。</li>
+</ul>
+<h2 id="矩阵乘法">矩阵乘法</h2>
+<p>矩阵乘法：<strong>A 的行与 B 的列对应相乘，再求和。</strong></p>
+<p>Shape 规则：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(m, k) @ (k, n) → (m, n)</span><br></pre></td></tr></table></figure>
+<p><strong>中间必须相等，结果保留两边。</strong></p>
+<ul>
+<li><code>a * b</code>：逐元素相乘，支持广播。</li>
+<li><code>a @ b</code>：矩阵乘法。</li>
+<li><code>torch.matmul(a, b)</code>：矩阵乘法，支持批量矩阵乘等。</li>
+</ul>
+<p>矩阵乘法是 Transformer 线性层和 Attention 的基础。</p>
+<h2 id="device-计算设备">Device（计算设备）</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x.device        # 查看设备</span><br><span class="line">x.to(&quot;mps&quot;)     # 移动到 Apple GPU</span><br><span class="line">x.to(&quot;cpu&quot;)     # 移动到 CPU</span><br></pre></td></tr></table></figure>
+<p><code>.to()</code> 返回目标设备上的 Tensor，不会直接修改原变量。</p>
+<p>普通矩阵运算要求参与计算的 Tensor 位于兼容的设备上。</p>
+<h2 id="last-token-logits">last_token_logits</h2>
+<p>Logits 是模型对候选 Token 的<strong>原始预测分数，不是概率</strong>。</p>
+<p>模型输出 Shape：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(B, L, V)</span><br><span class="line">B = Batch Size</span><br><span class="line">L = Sequence Length</span><br><span class="line">V = Vocabulary Size</span><br></pre></td></tr></table></figure>
+<p>提取最后位置的预测分数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">last_logits = logits[0, -1, :]  # (1, L, V) → (V,)</span><br><span class="line">next_token = torch.argmax(last_logits)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>logits[0, -1, :]</code>：取第一条序列最后位置的全部候选分数。</li>
+<li><code>argmax()</code>：返回最高分对应的 Token ID。</li>
+</ul>
+<p><strong>自回归生成只需要最后位置的 Logits 来预测下一个 Token。</strong></p>
+<h2 id="核心总结">核心总结</h2>
+<p><strong>Tensor 是 LLM 推理的数据基础：Shape 决定结构，矩阵乘法完成特征计算，Device 决定计算位置，Logits 用于预测下一个 Token。</strong></p>
+<h1 id="自回归">自回归</h1>
+<h2 id="自回归基础概念">自回归基础概念</h2>
+<p><strong>自回归（Autoregressive）</strong>：模型每次预测一个 Token，将其追加到序列，再继续预测。</p>
+<p>核心流程：</p>
+<p><strong>Forward → Logits → Sampling → Append → 判断停止条件 → 循环</strong></p>
+<ul>
+<li><strong>Forward</strong>：模型前向计算，输出 Logits。</li>
+<li><strong>Sampler</strong>：根据 Logits 选择下一个 Token。</li>
+<li><strong>Generation Loop</strong>：控制生成循环、Token 拼接与停止条件。</li>
+</ul>
+<h2 id="token-与-tokenizer">Token 与 Tokenizer</h2>
+<ul>
+<li><strong>Token</strong>：模型处理文本的基本单位，可以是字、词、词片段或特殊符号。</li>
+<li><strong>Token ID</strong>：Token 在词表中的整数编号。</li>
+<li><strong>Tokenizer</strong>：负责文本与 Token IDs 之间的编码、解码。</li>
+<li><strong>input_ids</strong>：模型接收的整数 Tensor，单条序列 Shape 通常为 <code>(1, L)</code>。</li>
+<li><strong>EOS</strong>：序列结束符，用于提前终止生成。</li>
+</ul>
+<p>模型预测的是下一个 Token 的分数，通过采样选出 Token ID，最后由 Tokenizer 解码成文本。</p>
+<h2 id="generate-naive：自回归生成循环">generate_naive：自回归生成循环</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@torch.no_grad()</span><br><span class="line">def generate_naive(model, input_ids, max_new_tokens, eos_token_id=None):</span><br><span class="line">    ids = input_ids</span><br><span class="line"></span><br><span class="line">    for _ in range(max_new_tokens):</span><br><span class="line">        # 模型前向计算</span><br><span class="line">        out = model(ids)</span><br><span class="line">        logits = out.logits if hasattr(out, &quot;logits&quot;) else out</span><br><span class="line"></span><br><span class="line">        # 贪心解码</span><br><span class="line">        next_token = torch.argmax(logits[0, -1, :]).item()</span><br><span class="line"></span><br><span class="line">        # 拼接新 Token</span><br><span class="line">        new_token = torch.tensor(</span><br><span class="line">            [[next_token]],</span><br><span class="line">            dtype=ids.dtype,</span><br><span class="line">            device=ids.device,</span><br><span class="line">        )</span><br><span class="line">        ids = torch.cat([ids, new_token], dim=1)</span><br><span class="line"></span><br><span class="line">        # 判断停止条件</span><br><span class="line">        if eos_token_id is not None and next_token == eos_token_id:</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    return ids</span><br></pre></td></tr></table></figure>
+<p>关键操作：</p>
+<ul>
+<li><code>@torch.no_grad()</code>：关闭梯度记录，减少推理开销。</li>
+<li><code>model(ids)</code>：模型前向计算。</li>
+<li><code>logits[0, -1, :]</code>：提取最后位置的候选分数。</li>
+<li><code>torch.argmax()</code>：贪心解码，选择最高分的 Token ID。</li>
+<li><code>.item()</code>：将单元素 Tensor 转为 Python 数值。</li>
+<li><code>torch.cat(..., dim=1)</code>：沿序列长度维度追加 Token。</li>
+</ul>
+<p>停止条件：</p>
+<ul>
+<li><code>max_new_tokens</code>：限制最大新生成 Token 数量。</li>
+<li><code>eos_token_id</code>：生成 EOS 时提前停止，返回序列中包含 EOS。</li>
+</ul>
+<h3 id="tensor-shape-变化">Tensor Shape 变化</h3>
+<p>假设 Batch Size = 1，序列长度为 L，词表大小为 V：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">input_ids           (1, L)</span><br><span class="line">    ↓ model(ids)</span><br><span class="line">logits              (1, L, V)</span><br><span class="line">    ↓ logits[0, -1, :]</span><br><span class="line">last_logits         (V,)</span><br><span class="line">    ↓ torch.argmax().item()</span><br><span class="line">next_token          Python int</span><br><span class="line">    ↓ torch.tensor([[next_token]])</span><br><span class="line">new_token           (1, 1)</span><br><span class="line">    ↓ torch.cat(..., dim=1)</span><br><span class="line">input_ids           (1, L+1)</span><br></pre></td></tr></table></figure>
+<h2 id="重复计算与-kv-cache">重复计算与 KV Cache</h2>
+<h3 id="naive-generation-的问题">Naive Generation 的问题</h3>
+<p>每次执行 <code>model(ids)</code>，都会重新计算完整历史序列。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第 1 轮：[A, B, C]       → D</span><br><span class="line">第 2 轮：[A, B, C, D]    → E</span><br><span class="line">第 3 轮：[A, B, C, D, E] → F</span><br></pre></td></tr></table></figure>
+<p>假设 L 为原始 Prompt 长度，N 为生成 Token 数量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T_naive = N × L + N × (N - 1) / 2</span><br></pre></td></tr></table></figure>
+<p>这里 T 表示累计处理的 Token 位置数，不是精确计算量或耗时。</p>
+<h3 id="kv-cache-优化原理">KV Cache 优化原理</h3>
+<p><strong>KV Cache 缓存历史 Token 在各层 Attention 中的 Key 和 Value，避免重复计算历史状态。</strong></p>
+<ul>
+<li><strong>Prefill</strong>：处理完整 Prompt，建立初始 KV Cache。</li>
+<li><strong>Decode</strong>：逐 Token 增量计算，复用并更新历史 K/V。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Naive：</span><br><span class="line">[A, B, C] → [A, B, C, D] → [A, B, C, D, E]</span><br><span class="line"></span><br><span class="line">KV Cache：</span><br><span class="line">Prefill [A, B, C] → 缓存 K/V</span><br><span class="line">Decode  [D]       → 复用并更新 K/V</span><br><span class="line">Decode  [E]       → 复用并更新 K/V</span><br></pre></td></tr></table></figure>
+<p>理想增量推理累计需要新处理的 Token 位置数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T_cache = L + N - 1</span><br></pre></td></tr></table></figure>
+<p><strong>KV Cache 是以空间换时间的优化：</strong></p>
+<ul>
+<li>优点：减少重复计算，提高 Decode 效率。</li>
+<li>代价：需要额外内存保存历史 K/V。</li>
+<li>注意：新 Token 的 Query 仍需与历史 Key 计算 Attention。</li>
+</ul>
+<p>后续 vLLM 使用 PagedAttention、KV Cache Block 管理等机制优化缓存内存利用率。</p>
+<h2 id="核心总结">核心总结</h2>
+<ol>
+<li><strong>自回归生成</strong>：逐 Token 执行 Forward → Sampling → Append。</li>
+<li><strong>生成循环与模型分离</strong>：模型负责计算 Logits，Generation Loop 负责生成控制。</li>
+<li><strong>Stub Model</strong>：通过确定性假模型验证生成逻辑。</li>
+<li><strong>Naive Generation</strong>：每轮重新计算完整历史序列，存在重复计算问题。</li>
+<li><strong>KV Cache</strong>：缓存历史 K/V，实现增量推理，是高性能 LLM 推理的重要基础。</li>
+</ol>
+<p><strong>一句话总结：自回归要求逐 Token 生成，但不要求重复计算全部历史；KV Cache 通过以空间换时间提高推理效率。</strong></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LLM%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E/">LLM推理引擎</a></div><div class="post_share"><div class="social-share" data-image="/img/Top_img_than.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">IceWindy</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">130</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">42</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/IceWindy233" target="_blank" title=""><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:me@icewindy.cn" target="_blank" title=""><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.icewindy.cn/rss2.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%A0%E9%87%8F%E5%B0%B1%E6%98%AF%E6%95%B0%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">张量就是数表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensor-%E5%BC%A0%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">Tensor（张量）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-tensor"><span class="toc-number">1.2.</span> <span class="toc-text">创建 Tensor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">1.3.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B2%BF%E8%BD%B4%E8%81%9A%E5%90%88%EF%BC%9Adim"><span class="toc-number">1.4.</span> <span class="toc-text">沿轴聚合：dim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text">矩阵乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#device-%E8%AE%A1%E7%AE%97%E8%AE%BE%E5%A4%87"><span class="toc-number">1.6.</span> <span class="toc-text">Device（计算设备）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#last-token-logits"><span class="toc-number">1.7.</span> <span class="toc-text">last_token_logits</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93"><span class="toc-number">1.8.</span> <span class="toc-text">核心总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%9B%9E%E5%BD%92"><span class="toc-number">2.</span> <span class="toc-text">自回归</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%9B%9E%E5%BD%92%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">自回归基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#token-%E4%B8%8E-tokenizer"><span class="toc-number">2.2.</span> <span class="toc-text">Token 与 Tokenizer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generate-naive%EF%BC%9A%E8%87%AA%E5%9B%9E%E5%BD%92%E7%94%9F%E6%88%90%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.3.</span> <span class="toc-text">generate_naive：自回归生成循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tensor-shape-%E5%8F%98%E5%8C%96"><span class="toc-number">2.3.1.</span> <span class="toc-text">Tensor Shape 变化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D%E8%AE%A1%E7%AE%97%E4%B8%8E-kv-cache"><span class="toc-number">2.4.</span> <span class="toc-text">重复计算与 KV Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#naive-generation-%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.4.1.</span> <span class="toc-text">Naive Generation 的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kv-cache-%E4%BC%98%E5%8C%96%E5%8E%9F%E7%90%86"><span class="toc-number">2.4.2.</span> <span class="toc-text">KV Cache 优化原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93"><span class="toc-number">2.5.</span> <span class="toc-text">核心总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/10/28/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89%EF%BC%9A/" title="minivllm学习记录（2）：">minivllm学习记录（2）：</a><time datetime="2026-10-28T06:58:23.000Z" title="发表于 2026-10-28 14:58:23">2026-10-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/10/27/minivllm%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89%EF%BC%9A%E5%BC%A0%E9%87%8F%E3%80%81%E8%87%AA%E5%9B%9E%E5%BD%92/" title="minivllm学习记录（1）：张量、自回归">minivllm学习记录（1）：张量、自回归</a><time datetime="2026-10-27T07:03:55.000Z" title="发表于 2026-10-27 15:03:55">2026-10-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/10/23/%E4%B9%90-%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E4%B8%80%E9%9D%A2/" title="乐**-信息安全工程师一面">乐**-信息安全工程师一面</a><time datetime="2026-10-23T03:39:23.000Z" title="发表于 2026-10-23 11:39:23">2026-10-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/22/Pi-Agent-Compaction%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8E%8B%E7%BC%A9%E6%9C%BA%E5%88%B6/" title="Pi Agent Compaction 压缩机制">Pi Agent Compaction 压缩机制</a><time datetime="2026-09-22T07:01:44.000Z" title="发表于 2026-09-22 15:01:44">2026-09-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/22/%E4%B8%80%E4%BA%9BAI-Agent%E5%BC%80%E5%8F%91%E9%9A%8F%E6%89%8B%E7%AC%94%E8%AE%B0/" title="一些AiAgent开发随手笔记">一些AiAgent开发随手笔记</a><time datetime="2026-07-22T07:03:45.000Z" title="发表于 2026-07-22 15:03:45">2026-07-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Top_img_than.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2026 By IceWindy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script></div></body></html>
